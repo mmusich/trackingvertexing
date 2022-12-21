@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-# FIXME Lesson title
-
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
+# CMS DAS Tracking and Vertexing Short Exercise
 
 This repository generates the corresponding lesson website from [The Carpentries](https://carpentries.org/) repertoire of lessons. 
 
@@ -25,9 +22,7 @@ Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%
 
 Current maintainers of this lesson are 
 
-* FIXME
-* FIXME
-* FIXME
+* [Brunella D'Anzi](mailto:brunella.d'anzi@cern.ch)
 
 
 ## Authors
@@ -38,7 +33,4 @@ A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
 
 To cite this lesson, please consult with [CITATION](CITATION)
 
-[lesson-example]: https://carpentries.github.io/lesson-example
-=======
-# trackingvertexing
->>>>>>> bb5c5932af5aaa2f23cdb8dccf6d8722e5e69120
+[trackingvertexing]: https://bdanzi.github.io/trackingvertexing
