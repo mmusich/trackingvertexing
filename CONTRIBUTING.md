@@ -46,13 +46,13 @@ and to meet some of our community members.
 ## Where to Contribute
 
 1.  If you wish to change this lesson,
-    please work in <https://github.com/swcarpentry/FIXME>,
-    which can be viewed at <https://swcarpentry.github.io/FIXME>.
+    please work in <https://github.com/bdanzi/trackingvertexing>,
+    which can be viewed at <https://bdanzi.github.io/trackingvertexing>.
 
 2.  If you wish to change the example lesson,
-    please work in <https://github.com/carpentries/lesson-example>,
+    please work in <https://github.com/bdanzi/trackingvertexing>,
     which documents the format of our lessons
-    and can be viewed at <https://carpentries.github.io/lesson-example>.
+    and can be viewed at <https://bdanzi.github.io/trackingvertexing>.
 
 3.  If you wish to change the template used for workshop websites,
     please work in <https://github.com/carpentries/workshop-template>.
