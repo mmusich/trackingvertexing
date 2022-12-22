@@ -6,9 +6,11 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 
 ![CMS Detector Slice](https://cmsexperiment.web.cern.ch/sites/cmsexperiment.web.cern.ch/files/detectoroverview.gif){:width="50%"}
 
-This exercise introduces the concept of luminosity and details the way in which it is measured and calibrated at CMS.\
-Brilcalc and other useful tools are introduced in a set of hands-on exercises to highlight their role in the context of CMS physics analyses.
+We will present an introduction to using tracks for analyses in the era of large pile-up (many primary vertices). Our exercises will all use real data and will familiarize you with the following techniques:
 
+- Extracting basic track parameters and reconstructing invariant masses from tracks in CMSSW. Tracks are the detector entities that are closest to the four-vectors of particles: the momentum of a track is nearly the momentum of the charged particle itself.
+- Cleaning sets of tracks for analysis. We will use filters to eliminate bad tracks and discuss sources of tracking uncertainties. These filters are provided by the tracking POG (Physics Object Group)
+- Extracting basic parameters of primary vertices. In this high-luminosity era, it is not uncommon for a single event to contain as many as thirty to fifty independent collisions. For most analyses, only one is relevant, and it can usually be identified by its tracks.
 <!-- this is an html comment -->
 
 {% comment %} This is a comment in Liquid {% endcomment %}
