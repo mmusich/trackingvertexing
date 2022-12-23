@@ -13,7 +13,6 @@ humantime: "24/7"    # human-readable times for the workshop (e.g., "9:00 am - 4
 startdate: 2023-01-09      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2023-01-13        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 email: ["brunella.d'anzi@cern.ch"]
-#email: ["gabriele.benelli@cern.ch", "tamer.elkafrawy@cern.ch", "pampa.ghose@cern.ch", "rmh16d@my.fsu.edu", "cmadrid@fnal.gov", "ch.mclean@cern.ch", andrew.malone.melo@cern.ch", "stephen.mrenna@cern.ch", "alexx.stephen.perloff@cern.ch", "marguerite.belt.tonjes@cern.ch", "hannsjorg.artur.weber@cern.ch", "jingyu.zhang@cern.ch"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 ---
 
 ![CMS Detector Slice](https://cmsexperiment.web.cern.ch/sites/cmsexperiment.web.cern.ch/files/detectoroverview.gif){:width="50%"}
@@ -29,6 +28,11 @@ We will present an introduction to using tracks for analyses in the era of large
 > ## Facilitators
 > [Brunella D'Anzi](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi) (University of Bari), [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith) (Baylor), [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis) (Polytechnic of Bari), [Susan Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer) (University of Illinois Chicago)
 {: .testimonial}
+
+> ## Mattermost Chat
+> **Before going any further, please follow the instructions on the [setup page](setup.md).**
+> The [Tracking and Vertexing Short Exercise](https://mattermost.web.cern.ch/cmsdaslpc{{ site.year }}/channels/shortextrackingvertexing) channel will be available once you join the CMSDAS@LPC {{ site.year }} team. Direction for how to join this Mattermost chat team can be found on the <a href="setup.html">setup</a> page.
+{: .discussion}
 
 > ## Introduction Slides
 > At the beginning of this short exercise an introduction will be done based on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf)
