@@ -1,5 +1,5 @@
 ---
-title: "The five basic track variables"
+title: "Constructing vertices from tracks"
 teaching: 0
 exercises: 30
 questions:
