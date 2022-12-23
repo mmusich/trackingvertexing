@@ -82,6 +82,12 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > int indexEvent_;
 > ~~~
 > {: .language-*}
+> Inside the `PrintOutTracks::PrintOutTracks(const edm::ParameterSet& iConfig)` constructor before the "{", modify the consumes statement to read:
+> ~~~
+> : 
+> tracksToken_(consumes<edm::View<reco::Track> >(iConfig.getUntrackedParameter<edm::InputTag>("tracks", > edm::InputTag("generalTracks")) ))
+> ~~~
+> {: .language-*}
 {: .solution}
 {% include links.md %}
 
