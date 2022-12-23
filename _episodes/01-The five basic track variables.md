@@ -61,9 +61,21 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > mkedanlzr PrintOutTracks
 > cd ..
 > ~~~
-> {: .language-python}
+> {: .language-bash}
 > Use your favorite editor to add (if missing) the following line at the top of `MyDirectory/PrintOutTracks/plugins/BuildFile.xml`
 > (e.g. `emacs -nw MyDirectory /PrintOutTracks/plugins/BuildFile.xml`):
+> ~~~
+> <use name="DataFormats/TrackReco"/>
+> ~~~
+> {: .language-c++}
+> Now edit MyDirectory /PrintOutTracks/plugins/PrintOutTracks.cc and put (if missing) the following in the `#include` section:
+> ~~~
+> #include <iostream>
+> #include "DataFormats/TrackReco/interface/Track.h"
+> #include "DataFormats/TrackReco/interface/TrackFwd.h"
+> #include "FWCore/Utilities/interface/InputTag.h"
+> ~~~
+> {: .language-c++}
 {: .solution}
 {% include links.md %}
 
