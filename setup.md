@@ -80,5 +80,5 @@ vector<reco::Track>                   "globalMuons"               ""            
 vector<reco::TrackExtra>              "globalMuons"               ""                "RECO"
 vector<reco::GsfTrack>                "electronGsfTracks"         ""                "RECO"
 ~~~
-{: .solution:}
+{: .solution}
 {% include links.md %}
