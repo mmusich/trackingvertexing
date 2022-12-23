@@ -67,15 +67,15 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > ~~~
 > <use name="DataFormats/TrackReco"/>
 > ~~~
-> {: .language-c++}
-> Now edit MyDirectory /PrintOutTracks/plugins/PrintOutTracks.cc and put (if missing) the following in the `#include` section:
+> {: .language-*}
+> Now edit `MyDirectory/PrintOutTracks/plugins/PrintOutTracks.cc` and put (if missing) the following in the `#include` section:
 > ~~~
 > #include <iostream>
 > #include "DataFormats/TrackReco/interface/Track.h"
 > #include "DataFormats/TrackReco/interface/TrackFwd.h"
 > #include "FWCore/Utilities/interface/InputTag.h"
 > ~~~
-> {: .language-c++}
+> {: .language-*}
 {: .solution}
 {% include links.md %}
 
