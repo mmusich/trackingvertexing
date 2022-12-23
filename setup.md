@@ -6,7 +6,6 @@ title: Setup
 > ## Important
 > **This exercise is meant to be run from cmslpc-sl7.fnal.gov.**
 {: .callout}
-
 ## Logging in
 ~~~
 # login to the LPC cluster with DISPLAY set
