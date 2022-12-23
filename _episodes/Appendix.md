@@ -1,5 +1,5 @@
 ---
-title: "The five basic track variables"
+title: "Appendix"
 teaching: 0
 exercises: 30
 questions:
