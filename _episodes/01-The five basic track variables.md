@@ -92,7 +92,63 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > ~~~
 > indexEvent_ = 0;
 > ~~~
-> {: .language-*}
+> {: .source}
+> Put the following inside the `PrintOutTracks::analyze` method:
+> ~~~
+>   std::cout << "Event " << indexEvent_ << std::endl;
+>
+>   edm::Handle<edm::View<reco::Track> > trackHandle;
+>   iEvent.getByToken(tracksToken_, trackHandle);
+>   if ( !trackHandle.isValid() ) return;
+>   const edm::View<reco::Track>& tracks = *trackHandle;
+>   size_t iTrack = 0;
+>   for ( auto track : tracks ) {
+>     std::cout << "    Track " << iTrack << " "
+>        << track.charge()/track.pt() << " "
+>               << track.phi() << " "
+>               << track.eta() << " "
+>               << track.dxy() << " "
+>               << track.dz()
+>        << std::endl;
+>     iTrack++;
+>   }
+>   ++indexEvent_;
+> ~~~
+> {: .source}
+> Now compile it by running:
+> ~~~
+> scram build -j 4
+> ~~~
+> {: .language-bash}
+> Go back to `TrackingShortExercize/` and create a CMSSW configuration file named `run_cfg.py` (`emacs -nw run_cfg.py`):
+> ~~~
+> import FWCore.ParameterSet.Config as cms
+> 
+> process = cms.Process("RUN")
+> 
+> process.source = cms.Source("PoolSource",
+>     fileNames = cms.untracked.vstring("file:run321167_ZeroBias_AOD.root"))
+> process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(5))
+> 
+> process.MessageLogger = cms.Service("MessageLogger",
+>     destinations = cms.untracked.vstring("cout"),
+>     cout = cms.untracked.PSet(threshold = cms.untracked.string("ERROR")))
+> 
+> process.PrintOutTracks = cms.EDAnalyzer("PrintOutTracks")
+> process.PrintOutTracks.tracks = cms.untracked.InputTag("generalTracks")
+> 
+> process.path = cms.Path(process.PrintOutTracks)
+> ~~~
+> {: .language-python}
+> And, finally, run it with:
+> ~~~
+> cmsRun run_cfg.py
+> ~~~
+> {: .language-bash}
+> This will produce the same output as the Python script, but it can be used on huge datasets. Though the language is different, notice that C++ and FWLite use the same names for member functions: `charge()`, `pt()`, `phi()`, `eta()`, `dxy()`, and `dz()`.
+> That is intentional: you can learn what kinds of data are available with interactive FWLite and then use the same access methods when writing GRID jobs. There is another way to access `FWLite` with ROOT's C++-like syntax.
+> The plugin is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/MyDirectory/PrintOutTracks/plugins/PrintOutTracks.cc`
+> The run_cfg.py is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg.py`
 {: .solution}
 {% include links.md %}
 
