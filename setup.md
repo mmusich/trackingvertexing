@@ -33,6 +33,8 @@ cd TrackingShortExercize
 cmsrel CMSSW_10_6_18
 cd CMSSW_10_6_18/src
 cmsenv
+
+# we will work in the source directory all the time!
 cd -
 ~~~
 {: .language-bash}
