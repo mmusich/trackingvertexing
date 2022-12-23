@@ -1,4 +1,4 @@
-# CMS DAS Tracking and Vertexing Short Exercise
+# CMS Data Analysis School Tracking and Vertexing Short Exercise
 
 This repository generates the corresponding lesson website from [The Carpentries](https://carpentries.org/) repertoire of lessons. 
 
