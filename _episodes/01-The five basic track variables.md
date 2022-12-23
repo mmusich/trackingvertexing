@@ -32,7 +32,22 @@ The exact definitions are given in the `reco::TrackBase` [header file](https://g
 
 Create `print.py` (for example `emacs -nw print.py`, or use your favorite text editor) in TrackingShortExercize, then copy-paste the following code and run it (`python print.py`). Please note, if your `run321457_ZeroBias_AOD.root` is not in the directory you're working from, be sure to use the appropriate path in line 2.
 ~~~
-print("Hello World")
+import DataFormats.FWLite as fwlite
+events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+tracks = fwlite.Handle("std::vector<reco::Track>")
+
+for i, event in enumerate(events):
+    if i >= 5: break # print info only about the first 5 events
+    print "Event", i
+    event.getByLabel("generalTracks", tracks)
+    for j, track in enumerate(tracks.product()):
+        print "    Track", j,
+        print "\t charge/pT: %.3f" %(track.charge()/track.pt()),
+        print "\t phi: %.3f" %track.phi(),
+        print "\t eta: %.3f" %track.eta(),
+        print "\t dxy: %.4f" %track.dxy(),
+        print "\t dz: %.4f"  %track.dz()
+
 ~~~
 {: .language-python}
 
