@@ -67,7 +67,7 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > ~~~
 > <use name="DataFormats/TrackReco"/>
 > ~~~
-> {: .source}
+> {: .language-cpp}
 > Now edit `MyDirectory/PrintOutTracks/plugins/PrintOutTracks.cc` and put (if missing) the following in the `#include` section:
 > ~~~
 > #include <iostream>
