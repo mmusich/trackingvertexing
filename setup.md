@@ -4,7 +4,7 @@ title: Setup
 # Set-up your working environment
 
 > ## Important
-> **This exercise is meant to be run from cmslpc-sl7.fnal.gov.**
+> **This exercise is meant to be run from cmslpc-sl7.fnal.gov or lxplus.cern.ch, but we will prefer the first one.**
 {: .callout}
 ## Logging in
 ~~~
