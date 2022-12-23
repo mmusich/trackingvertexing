@@ -66,6 +66,7 @@ You can check the content of the file by running the simple script as follows
 edmDumpEventContent run321167_ZeroBias_AOD.root
 ~~~
 {: .language-bash}
+It will print a (very) long list of collections, in particular we are interested in the following lines (end of the list):
 ~~~
 Type                                  Module                      Label             Process   
 ----------------------------------------------------------------------------------------------
@@ -79,5 +80,5 @@ vector<reco::Track>                   "globalMuons"               ""            
 vector<reco::TrackExtra>              "globalMuons"               ""                "RECO"
 vector<reco::GsfTrack>                "electronGsfTracks"         ""                "RECO"
 ~~~
-{: .output:}
+{: .solution:}
 {% include links.md %}
