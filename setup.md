@@ -62,10 +62,22 @@ xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingver
 ## Checking the file content
 
 You can check the content of the file by running the simple script as follows
-
 ~~~
 edmDumpEventContent run321167_ZeroBias_AOD.root
 ~~~
 {: .language-bash}
-
+~~~
+Type                                  Module                      Label             Process   
+----------------------------------------------------------------------------------------------
+vector<reco::Track>                   "generalTracks"             ""                "RECO"
+vector<float>                         "generalTracks"             "MVAValues"       "RECO"
+vector<reco::Vertex>                  "offlinePrimaryVertices"    ""                "RECO"
+vector<reco::Vertex>                  "offlinePrimaryVerticesWithBS"   ""           "RECO"
+vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Kshort"          "RECO"
+vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Lambda"          "RECO"
+vector<reco::Track>                   "globalMuons"               ""                "RECO"
+vector<reco::TrackExtra>              "globalMuons"               ""                "RECO"
+vector<reco::GsfTrack>                "electronGsfTracks"         ""                "RECO"
+~~~
+{: .output:}
 {% include links.md %}
