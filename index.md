@@ -19,7 +19,7 @@ We will present an introduction to using tracks for analyses in the era of large
 {: .testimonial}
 
 > ## Introduction Slides
-> [Link here](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf)
+> At the beginning of this short exercise an introduction will be done based on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf)
 {: .callout}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
