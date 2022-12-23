@@ -17,6 +17,8 @@ We will present an introduction to using tracks for analyses in the era of large
 ##Facilitators
 [Brunella D'Anzi](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi) (University of Bari), [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith) (Baylor), [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis) (Polytechnic of Bari), [Susan Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer) (University of Illinois Chicago)
 
+##Introduction Slides
+[Link here](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf)
 {% comment %} This is a comment in Liquid {% endcomment %}
 
 > ## Prerequisites
