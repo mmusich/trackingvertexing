@@ -9,7 +9,7 @@ title: Setup
 ### Logging in
 ~~~
 # login to the LPC cluster with DISPLAY set
-ssh -Y <USERNAME>@cmslpc-sl7.fnal.gov
+ssh -Y `<USERNAME>`@cmslpc-sl7.fnal.gov
 
 # get to your no-backup working area
 cd nobackup
