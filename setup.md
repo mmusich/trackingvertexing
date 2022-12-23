@@ -69,7 +69,7 @@ edmDumpEventContent run321167_ZeroBias_AOD.root
 {: .language-bash}
 > ### Solution
 > It will print a (very) long list of collections, in particular we are interested in the following lines (end of the list):
-> ~~~
+> ```
 > Type                                  Module                      Label             Process   
 > ----------------------------------------------------------------------------------------------
 > vector<reco::Track>                   "generalTracks"             ""                "RECO"
@@ -81,7 +81,7 @@ edmDumpEventContent run321167_ZeroBias_AOD.root
 > vector<reco::Track>                   "globalMuons"               ""                "RECO"
 > vector<reco::TrackExtra>              "globalMuons"               ""                "RECO"
 > vector<reco::GsfTrack>                "electronGsfTracks"         ""                "RECO"
-> ~~~
+> ```
 > {: .output}
 {: .solution}
 {% include links.md %}
