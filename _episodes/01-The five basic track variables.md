@@ -53,5 +53,15 @@ for i, event in enumerate(events):
 
 The first three lines load the `FWLite framework`, the data file, and prepare a handle for the track collection using its full C++ name (`std::vector`). In each event, we load the tracks labeled `generalTracks` and loop over them, printing out the five basic track variables for each. The C++ equivalent of this is hidden below (longer and more difficult to write and compile, but faster to execute on large datasets) and is optional for this entire short exercise.
 
+> ## C++ version
+> ~~~
+> cd ${CMSSW_BASE}/src
+> mkdir MyDirectory
+> cd MyDirectory
+> mkedanlzr PrintOutTracks
+> cd ..
+> ~~~
+> {: .language-python}
+{: .solution}
 {% include links.md %}
 
