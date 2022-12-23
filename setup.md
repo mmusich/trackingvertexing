@@ -7,6 +7,7 @@ title: Setup
 > **This exercise is meant to be run from cmslpc-sl7.fnal.gov.**
 {: .callout}
 
+## Logging in
 ~~~
 # login to the LPC cluster with DISPLAY set
 ssh -Y <USERNAME>@cmslpc-sl7.fnal.gov
@@ -43,4 +44,23 @@ git config --global user.email '<your e-mail>'
 git config --global user.github <your github username>
 ~~~
 {: .language-bash}
+
+## Accessing the data
+
+We will be using ZeroBias events (events from nominally colliding bunch crossings but without a requirement for any specific activity in the event) from Run 2 (2018) data. This dataset is small enough to be easily accessible as a file. You should have plenty of space, copy it to your working directory with the copy command below:
+
+~~~
+xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_AOD.root .
+~~~
+{: .language-bash}
+
+## Checking the file content
+
+You can check the content of the file by running the simple script as follows
+
+~~~
+edmDumpEventContent run321167_ZeroBias_AOD.root
+~~~
+{: .language-bash}
+
 {% include links.md %}
