@@ -7,9 +7,10 @@ title: Setup
 > **This exercise is meant to be run from cmslpc-sl7.fnal.gov or lxplus.cern.ch, but we will prefer the first one.**
 {: .callout}
 ### Logging in
+Keep in mind your `<USERNAME>` and use it in the following instructions:
 ~~~
 # login to the LPC cluster with DISPLAY set
-ssh -Y `<USERNAME>`@cmslpc-sl7.fnal.gov
+ssh -Y <USERNAME>@cmslpc-sl7.fnal.gov
 
 # get to your no-backup working area
 cd nobackup
