@@ -7,7 +7,6 @@ title: Setup
 > **This exercise is meant to be run from cmslpc-sl7.fnal.gov.**
 {: .callout}
 
-
 ~~~
 # login to the LPC cluster with DISPLAY set
 ssh -Y <USERNAME>@cmslpc-sl7.fnal.gov
@@ -31,5 +30,17 @@ cmsenv
 cd -
 ~~~
 {: .language-bash}
+If you have a GitHub account, you can also do the following:
 
+~~~
+# set up your full name
+git config --global user.name '<your name> <your last name>'
+
+# set up your email
+git config --global user.email '<your e-mail>'
+
+# set up your GitHub user name
+git config --global user.github <your github username>
+~~~
+{: .language-bash}
 {% include links.md %}
