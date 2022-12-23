@@ -66,19 +66,20 @@ You can check the content of the file by running the simple script as follows
 edmDumpEventContent run321167_ZeroBias_AOD.root
 ~~~
 {: .language-bash}
-It will print a (very) long list of collections, in particular we are interested in the following lines (end of the list):
-~~~
-Type                                  Module                      Label             Process   
-----------------------------------------------------------------------------------------------
-vector<reco::Track>                   "generalTracks"             ""                "RECO"
-vector<float>                         "generalTracks"             "MVAValues"       "RECO"
-vector<reco::Vertex>                  "offlinePrimaryVertices"    ""                "RECO"
-vector<reco::Vertex>                  "offlinePrimaryVerticesWithBS"   ""           "RECO"
-vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Kshort"          "RECO"
-vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Lambda"          "RECO"
-vector<reco::Track>                   "globalMuons"               ""                "RECO"
-vector<reco::TrackExtra>              "globalMuons"               ""                "RECO"
-vector<reco::GsfTrack>                "electronGsfTracks"         ""                "RECO"
-~~~
+> It will print a (very) long list of collections, in particular we are interested in the following lines (end of the list):
+> ~~~
+> Type                                  Module                      Label             Process   
+> ----------------------------------------------------------------------------------------------
+> vector<reco::Track>                   "generalTracks"             ""                "RECO"
+> vector<float>                         "generalTracks"             "MVAValues"       "RECO"
+> vector<reco::Vertex>                  "offlinePrimaryVertices"    ""                "RECO"
+> vector<reco::Vertex>                  "offlinePrimaryVerticesWithBS"   ""           "RECO"
+> vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Kshort"          "RECO"
+> vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Lambda"          "RECO"
+> vector<reco::Track>                   "globalMuons"               ""                "RECO"
+> vector<reco::TrackExtra>              "globalMuons"               ""                "RECO"
+> vector<reco::GsfTrack>                "electronGsfTracks"         ""                "RECO"
+> ~~~
+> {: .output}
 {: .solution}
 {% include links.md %}
