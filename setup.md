@@ -67,23 +67,6 @@ You can check the content of the file by running the simple script as follows
 edmDumpEventContent run321167_ZeroBias_AOD.root
 ~~~
 {: .language-bash}
-> ### Solution
-> It will print a (very) long list of collections, in particular we are interested in the following lines (end of the list):
-> ```
-> Type                                  Module                      Label             Process   
-> ----------------------------------------------------------------------------------------------
-> vector<reco::Track>                   "generalTracks"             ""                "RECO"
-> vector<float>                         "generalTracks"             "MVAValues"       "RECO"
-> vector<reco::Vertex>                  "offlinePrimaryVertices"    ""                "RECO"
-> vector<reco::Vertex>                  "offlinePrimaryVerticesWithBS"   ""           "RECO"
-> vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Kshort"          "RECO"
-> vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Lambda"          "RECO"
-> vector<reco::Track>                   "globalMuons"               ""                "RECO"
-> vector<reco::TrackExtra>              "globalMuons"               ""                "RECO"
-> vector<reco::GsfTrack>                "electronGsfTracks"         ""                "RECO"
-> ```
-> {: .output}
-{: .solution}
 
 > ## Bonus Python hints!
 > Note that the brilconda3 virtual environment offers a faily recent version of Python (3.7) and batteries are included (lots of third-party Python packages)!
@@ -104,6 +87,23 @@ The `--system-site-packages` flag gives your virtual environment access to the b
 > ```
 > "${HOME}/.local/brilconda3/bin/python3"
 > beautifulsoup4 brilws certifi cffi chardet cheroot CherryPy click conda conda-build conda-package-handling contextlib2 cryptography cx-Oracle cycler Cython docopt filelock Flask Flask-SocketIO glob2 h5py idna itsdangerous jaraco.functools Jinja2 kiwisolver libarchive-c MarkupSafe matplotlib mock more-itertools numexpr numpy pandas pkginfo portend prettytable psutil pycosat pycparser pyOpenSSL pyparsing PySocks python-dateutil python-engineio python-socketio pytz PyYAML pyzmq requests ruamel-yaml schema scipy sip six soupsieve SQLAlchemy tables tempora tornado tqdm urllib3 Werkzeug
+> ```
+> {: .output}
+{: .solution}
+> ### Solution
+> It will print a (very) long list of collections, in particular we are interested in the following lines (end of the list):
+> ```
+> Type                                  Module                      Label             Process   
+> ----------------------------------------------------------------------------------------------
+> vector<reco::Track>                   "generalTracks"             ""                "RECO"
+> vector<float>                         "generalTracks"             "MVAValues"       "RECO"
+> vector<reco::Vertex>                  "offlinePrimaryVertices"    ""                "RECO"
+> vector<reco::Vertex>                  "offlinePrimaryVerticesWithBS"   ""           "RECO"
+> vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Kshort"          "RECO"
+> vector<reco::VertexCompositeCandidate> "generalV0Candidates"      "Lambda"          "RECO"
+> vector<reco::Track>                   "globalMuons"               ""                "RECO"
+> vector<reco::TrackExtra>              "globalMuons"               ""                "RECO"
+> vector<reco::GsfTrack>                "electronGsfTracks"         ""                "RECO"
 > ```
 > {: .output}
 {: .solution}
