@@ -11,7 +11,7 @@ We will present an introduction to using tracks for analyses in the era of large
 - Extracting basic track parameters and reconstructing invariant masses from tracks in CMSSW. Tracks are the detector entities that are closest to the four-vectors of particles: the momentum of a track is nearly the momentum of the charged particle itself.
 - Cleaning sets of tracks for analysis. We will use filters to eliminate bad tracks and discuss sources of tracking uncertainties. These filters are provided by the tracking POG (Physics Object Group)
 - Extracting basic parameters of primary vertices. In this high-luminosity era, it is not uncommon for a single event to contain as many as thirty to fifty independent collisions. For most analyses, only one is relevant, and it can usually be identified by its tracks.
-- Usage of tracks to measure from data and MC the muon tracking efficiency by using tag and probe method. It can be extended to measure the efficiency of any selection of muons (trigger, isolation, identification) and derive scale factors from MC.
+- Using tracks to measure from data and MC the muon tracking efficiency by using tag and probe method. It can be extended to measure the efficiency of any selection of muons (trigger, isolation, identification) and derive scale factors from MC.
 <!-- this is an html comment -->
 
 {% comment %} This is a comment in Liquid {% endcomment %}
