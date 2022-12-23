@@ -13,10 +13,7 @@ keypoints:
 - "Managing ROOT files in High Energy Physics should be the first thing to be familiar with."
 ---
 
-~~~
-print("Hello World")
-~~~
-{: .language-python}
+
 
 {% include links.md %}
 
