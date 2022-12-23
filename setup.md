@@ -84,4 +84,28 @@ edmDumpEventContent run321167_ZeroBias_AOD.root
 > ```
 > {: .output}
 {: .solution}
+
+> ## Bonus Python hints!
+> Note that the brilconda3 virtual environment offers a faily recent version of Python (3.7) and batteries are included (lots of third-party Python packages)!
+> You might consider defining a `brilconda3` alias in your `~/.bashrc` to prepend brilconda3 to the `$PATH` environment variable:
+> ```bash
+> echo 'alias brilconda3="[[ -d /cvmfs/cms-bril.cern.ch/brilconda3 ]] && export PATH=/cvmfs/cms-bril.cern.ch/brilconda3/bin:${PATH}"' >> "${HOME}/.bashrc"
+> ```
+> {: .source}
+> You might also find it useful to set up a brilconda3-based Python3 virtual environment (each virtual environment lives "portably" inside a directory; it includes its own Python binary and can have an independent set of Python packages).
+The `--system-site-packages` flag gives your virtual environment access to the brilconda3 packages.
+> ```bash
+> /cvmfs/cms-bril.cern.ch/brilconda3/bin/python3 -m venv --system-site-packages "${HOME}/.local/brilconda3"
+> source "${HOME}/.local/brilconda3/bin/activate"
+> command -v python3
+> python3 -m pip freeze | awk 'BEGIN{FS="="}; {printf("%s ", $1)} END{print}'
+> ```
+> {: .source}
+> ```
+> "${HOME}/.local/brilconda3/bin/python3"
+> beautifulsoup4 brilws certifi cffi chardet cheroot CherryPy click conda conda-build conda-package-handling contextlib2 cryptography cx-Oracle cycler Cython docopt filelock Flask Flask-SocketIO glob2 h5py idna itsdangerous jaraco.functools Jinja2 kiwisolver libarchive-c MarkupSafe matplotlib mock more-itertools numexpr numpy pandas pkginfo portend prettytable psutil pycosat pycparser pyOpenSSL pyparsing PySocks python-dateutil python-engineio python-socketio pytz PyYAML pyzmq requests ruamel-yaml schema scipy sip six soupsieve SQLAlchemy tables tempora tornado tqdm urllib3 Werkzeug
+> ```
+> {: .output}
+{: .solution}
+
 {% include links.md %}
