@@ -359,12 +359,224 @@ c.SaveAs("vtx_xy.png")
 {: .language-python}
 Add the analogous 2D plots for x versus z and y vs z positions.
 > ## More exercises...
-> ~~~
 > Furthermore, you can add a plot of the average primary vertex position and compare it to:
 > •	the center of beamspot (red line)
 > •	the beamspot region (beamspot center +/- beamspot witdh, that you can access through beamspot.product().BeamWidthX()
+> > ## Answer
+> > ~~~
+> > import DataFormats.FWLite as fwlite
+> > import math
+> > import ROOT
+> > from array import array
+> > 
+> > ROOT.gROOT.SetBatch(True)
+> > 
+> > def isGoodPV(vertex):
+> >     if ( vertex.isFake()        or \
+> >          vertex.ndof < 4.0      or \
+> >          abs(vertex.z()) > 24.0 or \
+> >          abs(vertex.position().Rho()) > 2):
+> >            return False
+> >     return True
+> > 
+> > events          = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+> > primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
+> > beamspot        = fwlite.Handle("reco::BeamSpot")
+> > vtx_position, N_vtx = array( 'd' ), array( 'd' )
+> > 
+> > vtx_xy = ROOT.TH2F('vtx_xy','; x [cm]; y [cm]', 100,-0.05, 0.25, 100, -0.2, 0.1)
+> > c = ROOT.TCanvas( "c", "c", 1200, 800)
+> > 
+> > sumx = 0.0
+> > N    = 0
+> > iIOV = 0
+> > last_beamspot = None
+> > last_beamspot_sigma = None
+> > 
+> > vtx_position, N_vtx = array( 'd' ), array( 'd' )
+> > leg = ROOT.TLegend(0.45, 0.15, 0.6, 0.28)
+> > leg.SetBorderSize(0)
+> > leg.SetTextSize(0.03)
+> > 
+> > events.toBegin()
+> > for event in events:
+> >     event.getByLabel("offlinePrimaryVertices", primaryVertices)
+> >     event.getByLabel("offlineBeamSpot", beamspot)
+> > 
+> >     if last_beamspot == None or last_beamspot != beamspot.product().x0():
+> >         print "New beamspot IOV (interval of validity)..."
+> > 
+> >         ## first save tgraph and then reset
+> >         if (iIOV > 0):
+> >             theGraph   = ROOT.TGraph(len(vtx_position), N_vtx, vtx_position)
+> >             theGraph.SetMarkerStyle(8)
+> >             theGraph.SetTitle('IOV %s; N Vtx; X position'%iIOV)
+> >             theGraph.Draw('AP')
+> >             theGraph.GetYaxis().SetRangeUser(0.094, 0.099)
+> >             
+> >             line = ROOT.TLine(0,last_beamspot,N_vtx[-1],last_beamspot)
+> >             line.SetLineColor(ROOT.kRed)
+> >             line.SetLineWidth(2)
+> >             line.Draw()
+> > 
+> >             line2 = ROOT.TLine(0,last_beamspot - last_beamspot_sigma,N_vtx[-1],last_beamspot - last_beamspot_sigma)
+> >             line2.SetLineColor(ROOT.kOrange)
+> >             line3 = ROOT.TLine(0,last_beamspot + last_beamspot_sigma,N_vtx[-1],last_beamspot + last_beamspot_sigma)
+> >             line3.SetLineColor(ROOT.kOrange)
+> >             line2.SetLineWidth(2)
+> >             line3.SetLineWidth(2)
+> >             line2.Draw()
+> >             line3.Draw()
+> >             
+> >             leg.Clear()
+> >             leg.AddEntry(theGraph,  'ave. vtx position',        'p')
+> >             leg.AddEntry(line    ,  'center of the beamspot ' , 'l')
+> >             leg.AddEntry(line2   ,  'center of the bs #pm beamspot width ' , 'l')
+> >             leg.Draw()
+> >             c.SaveAs("vtx_x_vs_N_%s.png"%iIOV)
+> >             break
+> > 
+> >             vtx_position, N_vtx = array( 'd' ), array( 'd' )
+> > 
+> >         last_beamspot       = beamspot.product().x0()
+> >         last_beamspot_sigma = beamspot.product().BeamWidthX()
+> >         sumx = 0.0
+> >         N = 0
+> >         iIOV += 1
+> > 
+> >     for vertex in primaryVertices.product():
+> >         if not isGoodPV(vertex):  continue
+> >         N += 1
+> >         sumx += vertex.x()
+> >         if N % 1000 == 0:
+> >             vtx_position.append(sumx/N)
+> >             N_vtx.append(N)
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .callout}
+
+## Primary vertices improve physics results
+
+Finally, let's consider an example of how primary vertices are useful to an analyst. If you're interested in KS → π+π−, it might seem that primary vertices are irrelevant because neither of your two visible tracks (π+π−) directly originated in any of the proton-proton collisions. However, the KS did. The KS flew several centimeters away from the primary vertex in which it was produced, and its direction of flight must be parallel to its momentum (by definition). 
+
+We can measure the KS momentum from the momenta of its decay products, and we can identify the start and end positions of the KS flight from the locations of the primary and secondary vertices. The momentum vector and the displacement vector must be parallel. (There is no constraint on the length of the displacement vector because the lifetimes of KS mesons follow an exponentially random distribution.)
+
+
+Create a new file `analyse.py` in `TrackingShortExercize/` which will open `output.root`:
+~~~
+import math
+import DataFormats.FWLite as fwlite
+import ROOT
+
+events = fwlite.Events("file:output.root")
+primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
+secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositeCandidate>")
+~~~
+{: .language-python}
+
+Create a histogram in which to plot the distribution of `cosAngle`, which is the normalized dot product of the KS momentum vector and its displacement vector. Actually, make two histograms to zoom into the `cosAngle → 1` region.
+~~~
+cosAngle_histogram = ROOT.TH1F("cosAngle", "cosAngle", 100, -1.0, 1.0)
+cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99, 1.0)
+~~~
+{: .language-python}
+**Construct a nested loop over secondary and primary vertices to compute displacement vectors and compare them with KS momentum vectors.** Just print out a few values.
+> ## Answer
+> ~~~
+> for i, event in enumerate(events):
+>     event.getByLabel("offlinePrimaryVertices", primaryVertices)
+>     event.getByLabel("SecondaryVerticesFromLooseTracks", "Kshort", secondaryVertices)
+>     for secondary in secondaryVertices.product():
+>         px = secondary.px()
+>         py = secondary.py()
+>         pz = secondary.pz()
+>         p = secondary.p()
+>         for primary in primaryVertices.product():
+>             dx = secondary.vx() - primary.x()
+>             dy = secondary.vy() - primary.y()
+>             dz = secondary.vz() - primary.z()
+>             dl = math.sqrt(dx**2 + dy**2 + dz**2)
+>             print "Normalized momentum:", px/p, py/p, pz/p,
+>             print "Normalized displacement:", dx/dl, dy/dl, dz/dl
+>     if i > 20: break
 > ~~~
 > {: .language-python}
 {: .solution}
+
+For each set of primary vertices, find the best cosAngle and fill the histograms with that.
+> ## Solution
+> ~~~
+> events.toBegin()
+> for event in events:
+>     event.getByLabel("offlinePrimaryVertices", primaryVertices)
+>     event.getByLabel("SecondaryVerticesFromLooseTracks", "Kshort", secondaryVertices)
+>     for secondary in secondaryVertices.product():
+>         px = secondary.px()
+>         py = secondary.py()
+>         pz = secondary.pz()
+>         p = secondary.p()
+>         bestCosAngle = -1       # start with the worst possible
+>         for primary in primaryVertices.product():
+>             dx = secondary.vx() - primary.x()
+>             dy = secondary.vy() - primary.y()
+>             dz = secondary.vz() - primary.z()
+>             dl = math.sqrt(dx**2 + dy**2 + dz**2)
+>             dotProduct = px*dx + py*dy + pz*dz
+>             cosAngle = dotProduct / p / dl
+>             if cosAngle > bestCosAngle:
+>                 bestCosAngle = cosAngle # update it if you've found a better one
+>         cosAngle_histogram.Fill(bestCosAngle)
+>         cosAngle_zoom_histogram.Fill(bestCosAngle)
+> 
+> c = ROOT.TCanvas("c" , "c" , 800, 800)
+> cosAngle_histogram.Draw()
+> c.SaveAs("cosAngle.png")
+> cosAngle_zoom_histogram.Draw()
+> c.SaveAs("cosAngle_zoom.png")
+> ~~~
+> {: .language-python}
+{: .solution}
+Finally, create KS mass histograms, with and without requiring `bestCosAngle` to be greater than `0.99`. Does this improve the signal-to-background ratio?
+> ## Solution
+> ~~~
+> mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.4, 0.6)
+> mass_goodCosAngle = ROOT.TH1F("mass_goodCosAngle", "mass_goodCosAngle", 100, 0.4, 0.6)
+> 
+> events.toBegin()
+> for event in events:
+>     event.getByLabel("offlinePrimaryVertices", primaryVertices)
+>     event.getByLabel("SecondaryVerticesFromLooseTracks", "Kshort", secondaryVertices)
+>     for secondary in secondaryVertices.product():
+>         px = secondary.px()
+>         py = secondary.py()
+>         pz = secondary.pz()
+>         p = secondary.p()
+>         bestCosAngle = -1       # start with the worst possible
+>         for primary in primaryVertices.product():
+>             dx = secondary.vx() - primary.x()
+>             dy = secondary.vy() - primary.y()
+>             dz = secondary.vz() - primary.z()
+>             dl = math.sqrt(dx**2 + dy**2 + dz**2)
+>             dotProduct = px*dx + py*dy + pz*dz
+>             cosAngle = dotProduct / p / dl
+>             if cosAngle > bestCosAngle:
+>                 bestCosAngle = cosAngle # update it if you've found a better one
+>         cosAngle_histogram.Fill(bestCosAngle)
+>         cosAngle_zoom_histogram.Fill(bestCosAngle)
+>         if bestCosAngle > 0.99:
+>             mass_goodCosAngle.Fill(secondary.mass())
+>         mass_histogram.Fill(secondary.mass())
+> 
+> c = ROOT.TCanvas("c", "c", 800, 800)
+> mass_histogram.Draw()
+> mass_goodCosAngle.SetLineColor(ROOT.kRed)
+> mass_goodCosAngle.Draw("same")
+> c.SaveAs("mass_improved.png")
+> ~~~
+> {: .language-python}
+{: .solution}
+
+**That's all!** The session is over, unless you would like to try some of the extra questions and arguments listed in the [Appendix](https://bdanzi.github.io/trackingvertexing/Appendix/index.html)!
 {% include links.md %}
 
