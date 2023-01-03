@@ -28,6 +28,24 @@ for i, event in enumerate(events):
     if i > 20: break
 ~~~
 {: .language-python}
-Now we can use this to do some kinematics. Assuming that the particle is a pion (pion mass = 0.140 [GeV]()), calculate its kinetic energy.
+Now we can use this to do some kinematics. Assuming that the particle is a pion (pion mass = 0.140 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)), calculate its kinetic energy.
+> ## Answer
+> ~~~
+> import DataFormats.FWLite as fwlite
+> import ROOT
+> import math
+> 
+> events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+> tracks = fwlite.Handle("std::vector<reco::Track>")
+> 
+> for i, event in enumerate(events):
+>     event.getByLabel("generalTracks", tracks)
+>     for track in tracks.product():
+>         print track.pt(), track.p(), track.px(), track.py(), track.pz()
+>         print "energy: ", math.sqrt(0.140**2 + track.p()**2) - 0.140
+>     if i > 20: break
+> ~~~
+> {: .language-python}
+{: .solution}
 {% include links.md %}
 
