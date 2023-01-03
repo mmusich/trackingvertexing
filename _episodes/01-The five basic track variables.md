@@ -386,7 +386,131 @@ In particular, the track information saved in the `PFCandidates` is the followin
     o	the track normalized chisquare (truncated to an integer)
     o	the `highPurity` quality flag set, if the original track had it.
 Consider that the p`ackedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
-Write a simple script that reads a MINIAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 GeV. Can you see any (non-statistical) difference with the previosu plots? You can copy a MINIAOD file with
+Write a simple script that reads a MINIAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MINIAOD file with
+ ~~~
+ xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_MINIAOD.root .
+ ~~~
+ {: .language-bash}
 
+> ## Answer
+> ~~~
+> import DataFormats.FWLite as fwlite
+> import ROOT
+> ROOT.gROOT.SetBatch(True)
+> 
+> events = fwlite.Events("run321167_ZeroBias_MINIAOD.root")
+> eventsAOD = fwlite.Events("run321167_ZeroBias_AOD.root")
+> 
+> tracks     = fwlite.Handle("std::vector<pat::PackedCandidate>")
+> losttracks = fwlite.Handle("std::vector<pat::PackedCandidate>")
+> tracksAOD = fwlite.Handle("std::vector<reco::Track>")
+> 
+> hist_pt       = ROOT.TH1F("pt",       "track pt; p_{T} [GeV]", 100, 0.0, 100.0)
+> hist_lowPt       = ROOT.TH1F("lowPt",       "track pt; p_{T} [GeV]", 100, 0.0, 5.0)
+> hist_eta      = ROOT.TH1F("eta",      "track eta; #eta", 60, -3.0, 3.0)
+> hist_phi      = ROOT.TH1F("phi",      "track phi; #phi", 64, -3.2, 3.2)
+> 
+> hist_normChi2     = ROOT.TH1F("hist_normChi2"    , "norm. chi2; norm #chi^{2}"        , 100, 0.0, 10.0)
+> hist_numPixelHits = ROOT.TH1F("hist_numPixelHits", "pixel hits; # pixel hits"         , 15, -0.5, 14.5)
+> hist_numValidHits = ROOT.TH1F("hist_numValidHits", "valid hits; # valid hits"         , 35, -0.5, 34.5)
+> hist_numTkLayers  = ROOT.TH1F("hist_numTkLayers" , "valid layers; # valid Tk layers"  , 25, -0.5, 24.5)
+> 
+> hist_pt_AOD       = ROOT.TH1F("ptAOD",       "track pt; p_{T} [GeV]", 100, 0.0, 100.0)
+> hist_lowPt_AOD    = ROOT.TH1F("lowPtAOD",       "track pt; p_{T} [GeV]", 100, 0.0, 5.0)
+> hist_eta_AOD      = ROOT.TH1F("etaAOD",      "track eta; #eta", 60, -3.0, 3.0)
+> hist_phi_AOD      = ROOT.TH1F("phiAOD",      "track phi; #phi", 64, -3.2, 3.2)
+> 
+> hist_normChi2_AOD     = ROOT.TH1F("hist_normChi2AOD"    , "norm. chi2; norm #chi^{2}"        , 100, 0.0, 10.0)
+> hist_numPixelHits_AOD = ROOT.TH1F("hist_numPixelHitsAOD", "pixel hits; # pixel hits"         , 15, -0.5, 14.5)
+> hist_numValidHits_AOD = ROOT.TH1F("hist_numValidHitsAOD", "valid hits; # valid hits"         , 35, -0.5, 34.5)
+> hist_numTkLayers_AOD  = ROOT.TH1F("hist_numTkLayersAOD" , "valid layers; # valid Tk layers"  , 25, -0.5, 24.5)
+> 
+> hist_pt_AOD.SetLineColor(ROOT.kRed)
+> hist_lowPt_AOD.SetLineColor(ROOT.kRed)
+> hist_eta_AOD.SetLineColor(ROOT.kRed)
+> hist_phi_AOD.SetLineColor(ROOT.kRed)
+> 
+> hist_normChi2_AOD.SetLineColor(ROOT.kRed)
+> hist_numPixelHits_AOD.SetLineColor(ROOT.kRed)
+> hist_numValidHits_AOD.SetLineColor(ROOT.kRed)
+> hist_numTkLayers_AOD.SetLineColor(ROOT.kRed)
+> 
+> for i, event in enumerate(events):
+>     event.getByLabel("packedPFCandidates", "", tracks)
+>     event.getByLabel("lostTracks", "", losttracks)
+> 
+>     alltracks  = [track for track in tracks.product()]
+>     alltracks += [track for track in losttracks.product()]
+> 
+>     for track in alltracks :
+>         if (not track.hasTrackDetails() or track.charge() == 0 ):
+>             continue
+>         if not track.trackHighPurity():
+>             continue
+>         hist_pt.Fill(track.pt())
+>         hist_lowPt.Fill(track.pt())
+>         hist_eta.Fill(track.eta())
+>         hist_phi.Fill(track.phi())
+> 
+>         hist_normChi2    .Fill(track.pseudoTrack().normalizedChi2())
+>         hist_numPixelHits.Fill(track.numberOfPixelHits())
+>         hist_numValidHits.Fill(track.pseudoTrack().hitPattern().numberOfValidHits())
+>         hist_numTkLayers .Fill(track.pseudoTrack().hitPattern().trackerLayersWithMeasurement())
+> 
+>     if i > 1000: break
+> 
+> for i, event in enumerate(eventsAOD):
+>     event.getByLabel("generalTracks", tracksAOD)
+> 
+>     for j, track in enumerate(tracksAOD.product()) :
+>         if not track.quality(track.qualityByName("highPurity")):
+>             continue
+> 
+>         hist_pt_AOD.Fill(track.pt())
+>         hist_lowPt_AOD.Fill(track.pt())
+>         hist_eta_AOD.Fill(track.eta())
+>         hist_phi_AOD.Fill(track.phi())
+> 
+>         hist_normChi2_AOD    .Fill(track.normalizedChi2())
+>         hist_numPixelHits_AOD.Fill(track.hitPattern().numberOfValidPixelHits())
+>         hist_numValidHits_AOD.Fill(track.hitPattern().numberOfValidHits())
+>         hist_numTkLayers_AOD .Fill(track.hitPattern().trackerLayersWithMeasurement())
+> 
+>     if i > 1000: break
+> 
+> c = ROOT.TCanvas( "c", "c", 800, 800)
+> 
+> hist_pt.Draw()
+> hist_pt_AOD.Draw("same")
+> c.SetLogy()
+> c.SaveAs("track_pt_miniaod.png")
+> 
+> hist_lowPt_AOD.Draw()
+> hist_lowPt.Draw("same")
+> c.SetLogy()
+> c.SaveAs("track_lowPt_miniaod.png")
+> c.SetLogy(False)
+> hist_eta_AOD.Draw()
+> hist_eta.Draw("same")
+> c.SaveAs("track_eta_miniaod.png")
+> hist_phi_AOD.Draw()
+> hist_phi.Draw("same")
+> c.SaveAs("track_phi_miniaod.png")
+> 
+> hist_normChi2_AOD.Draw()
+> hist_normChi2.Draw("same")
+> c.SaveAs("track_normChi2_miniaod.png")
+> hist_numPixelHits_AOD.Draw()
+> hist_numPixelHits.Draw("same")
+> c.SaveAs("track_nPixelHits_miniaod.png")
+> hist_numValidHits_AOD.Draw()
+> hist_numValidHits.Draw("same")
+> c.SaveAs("track_nValHits_miniaod.png")
+> hist_numTkLayers_AOD.Draw()
+> hist_numTkLayers.Draw("same")
+> c.SaveAs("track_nTkLayers_miniaod.png")
+> ~~~
+> {: .language-python}
+{: .solution}
 {% include links.md %}
 
