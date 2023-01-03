@@ -372,5 +372,10 @@ Now prepare plots for the track variables discussed above, as in the example bel
 > •	track_nValHits.png:
 > <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_nValHits.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_nValHits.png" alt="Track number of Valid Hits" width ="350"></a>
 {: .solution}
+## Track information in MINIAOD
+
+There is no track collection stored in MINIAOD analogous to the `generalTracks` in [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD). Tracks associated to charged `PFCandidates` are accessible directly from the `packedPFCandidates` collection for tracks with pT > 0.5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). For tracks between 0.5 and 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) the track information is stored with reduced precision. Tracks not associated with `PF candidates` are in the `lostTracks` collection if their pT is above 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) or they are associated with a secondary vertex or a Ks or Lambda candidate. However, for both the tracks associated to the `PF candidates` and the `lostTracks` the highQuality track selection is used. Tracks with lower quality are not avaiable in MINIAOD at all. In addition, tracks in the lostTracks collection are required to have at least 8 hits of which at least one has to be a pixel hit.
+In particular, the track information saved in the `PFCandidates` is the following.
+
 {% include links.md %}
 
