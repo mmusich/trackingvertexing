@@ -172,8 +172,8 @@ Add a `Handle` to the MVA values:
 MVAs = fwlite.Handle("std::vector<float>")
 ~~~
 {: .language-python}
-~~~
 The event loop should be updated to this:
+~~~
 for i, event in enumerate(events):
     if i >= 5: break            # only the first 5 events
     print "Event", i
@@ -221,6 +221,7 @@ The C++-equivalent is hidden below.
 > , mvaValsToken_( consumes<edm::View<float> >(iConfig.getUntrackedParameter<edm::InputTag>("mvaValues", edm::InputTag("generalTracks", "MVAValues")) ) )
 > ~~~
 > {: .language-cpp}
+> Change your `analyze` method to:
 > ~~~
 >   std::cout << "Event " << indexEvent_ << std::endl;
 >
@@ -269,6 +270,12 @@ The C++-equivalent is hidden below.
 >
 > ~~~
 > {: .language-cpp}
+> Go back to `TrackingShortExercize/` and edit the CMSSW configuration file named `run_cfg.py` (`emacs -nw run_cfg.py`), adding the following line:
+> ~~~
+> process.PrintOutTracks.mvaValues = cms.untracked.InputTag("generalTracks","MVAValues")
+> ~~~
+> {: .language-python}
+> Now run the `analyzer`:
 {: .solution}
 {% include links.md %}
 
