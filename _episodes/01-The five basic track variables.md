@@ -12,7 +12,7 @@ objectives:
 - "Being aware of track information stored in different data format."
 - "Accessing information and plot basic variables using ROOT tools."
 keypoints:
-- "The largest format available for data analysis is AOD for CMS, and only the most important information are then stored in MiniAOD format."
+- "The largest format available for CMS data analysis is AOD - almost unused for its large size, and only the most important information are then stored in MiniAOD format."
 - "Same action on files can be done using either Python - much easier in coding - or C++ - much performant on high statistics data sets - languages."
 ---
 
