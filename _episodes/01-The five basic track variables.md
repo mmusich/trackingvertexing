@@ -16,7 +16,7 @@ A helical trajectory can be expressed by five parameters, but the parameterizati
 
 In general terms, the five parameters are:
 
-•	signed radius of curvature (units of cm), which is proportional to particle charge divided by the transverse momentum, pT (units of GeV);
+•	signed radius of curvature (units of cm), which is proportional to particle charge divided by the transverse momentum, pT (units of [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV));
 
 •	angle of the trajectory at a given point on the helix, in the plane transverse to the beamline (usually called φ);
 
