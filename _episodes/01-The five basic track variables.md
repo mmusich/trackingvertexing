@@ -386,7 +386,7 @@ In particular, the track information saved in the `PFCandidates` is the followin
     o	the track normalized chisquare (truncated to an integer)
     o	the `highPurity` quality flag set, if the original track had it.
 Consider that the p`ackedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
-Write a simple script that reads a MINIAOD file and the AOD file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 GeV. Can you see any (non-statistical) difference with the previosu plots? You can copy a MINIAOD file with
+Write a simple script that reads a MINIAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 GeV. Can you see any (non-statistical) difference with the previosu plots? You can copy a MINIAOD file with
 
 {% include links.md %}
 
