@@ -165,5 +165,10 @@ Plot of Backgrounds vs Eta:
 <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_fakerate_eta.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_fakerate_eta.png" alt="Backgrounds vs Eta" width ="500"></a>
 Plot of Backgrounds vs pT:
 <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_fakerate_pt.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_fakerate_pt.png" alt="Backgrounds vs pT" width ="500"></a>
+
+Update the file `print.py` with the following lines:
+Add a `Handle` to the MVA values:
+
+
 {% include links.md %}
 
