@@ -280,6 +280,8 @@ The C++-equivalent is hidden below.
 > cmsRun run_cfg.py
 > ~~~
 > {: .language-python}
+> The actual `plugin` I used can be found in `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/PrintOutTracks_MVA.cc`
+> The actual `CMSSW config` file can be found in `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg_MVA.py`
 {: .solution}
 {% include links.md %}
 
