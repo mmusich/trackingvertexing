@@ -221,6 +221,54 @@ The C++-equivalent is hidden below.
 > , mvaValsToken_( consumes<edm::View<float> >(iConfig.getUntrackedParameter<edm::InputTag>("mvaValues", edm::InputTag("generalTracks", "MVAValues")) ) )
 > ~~~
 > {: .language-cpp}
+> ~~~
+>   std::cout << "Event " << indexEvent_ << std::endl;
+>
+>   edm::Handle<edm::View<reco::Track> > trackHandle;
+>   iEvent.getByToken(tracksToken_, trackHandle);
+>   if ( !trackHandle.isValid() ) return;
+>   const auto numTotal = trackHandle->size();
+>
+>   edm::Handle<edm::View<float> > trackMVAstoreHandle;
+>   iEvent.getByToken(mvaValsToken_,trackMVAstoreHandle);
+>   if ( !trackMVAstoreHandle.isValid() ) return;
+>
+>   auto numLoose = 0;
+>   auto numTight = 0;
+>   auto numHighPurity = 0;
+>
+>   const edm::View<reco::Track>& tracks = *trackHandle;
+>   size_t iTrack = 0;
+>   for ( auto track : tracks ) {
+>     if (track.quality(track.qualityByName("loose"))     ) ++numLoose;
+>     if (track.quality(track.qualityByName("tight"))     ) ++numTight;
+>     if (track.quality(track.qualityByName("highPurity"))) ++numHighPurity;
+>
+>     std::cout << "    Track " << iTrack << " "
+>        << track.charge()/track.pt() << " "
+>               << track.phi() << " "
+>               << track.eta() << " "
+>               << track.dxy() << " "
+>               << track.dz()
+>               << track.chi2() << " "
+>        << track.ndof() << " "
+>               << track.numberOfValidHits() << " "
+>               << track.algoName() << " "
+>               << trackMVAstoreHandle->at(iTrack)
+>               << std::endl;
+>     iTrack++;
+>   }
+>   ++indexEvent_;
+>
+>   std::cout << "Event " << indexEvent_
+>             << " numTotal: " << numTotal
+>             << " numLoose: " << numLoose
+>             << " numTight: " << numTight
+>             << " numHighPurity: " << numHighPurity
+>             << std::endl;
+>
+> ~~~
+> {: .language-cpp}
 {: .solution}
 {% include links.md %}
 
