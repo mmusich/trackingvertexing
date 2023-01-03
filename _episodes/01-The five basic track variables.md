@@ -209,6 +209,10 @@ for i, event in enumerate(events):
 ~~~
 {: .language-python}
 The C++-equivalent is hidden below.
-
+> ## C++ version
+> ~~~
+> ~~~
+> {: .language-cpp}
+{: .solution}
 {% include links.md %}
 
