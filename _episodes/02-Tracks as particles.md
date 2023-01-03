@@ -68,5 +68,66 @@ mass = math.sqrt(total_energy**2 - total_px**2 - total_py**2 - total_pz**2)
 ~~~
 {: .language-python}
 However, this quantity has no meaning unless the two particles are actually descendants of the same decay. Two randomly chosen tracks (**out of hundreds per event**) typically are not.
+<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/cms_quarterview.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/cms_quarterview.png" alt="CMS Quarter-view." width ="200"></a>
+To increase the chances that pairs of randomly chosen tracks are descendants of the same decay, consider a smaller set of tracks: muons. Muons are identified by the fact that they can pass through meters of iron (the CMS magnet return yoke), so muon tracks extend from the silicon tracker to the muon chambers (see CMS quarter-view below), as much as 12 meters long! Muons are rare in hadron collisions. If an event contains two muons, they often (though not always) come from the same decay.
+
+Normally, one would access muons through the `reco::Muon` object since this contains additional information about the quality of the muon hypothesis. For simplicity, we will access their track collection in the same way that we have been accessing the main track collection. We only need to replace `generalTracks` with `globalMuons`. Add the following loop to `kinematics.py`.
+~~~
+events.toBegin()
+for i, event in enumerate(events):
+    if i >= 15: break            # only the first 15 events
+    print "Event", i
+    event.getByLabel("globalMuons", tracks)
+    for j, track in enumerate(tracks.product()):
+        print "    Track", j, track.charge()/track.pt(), track.phi(), track.eta(), track.dxy(), track.dz()
+~~~
+{: .language-python}
+Run this code on the `run321167_Charmonium_AOD.root` file that you can copy with:
+~~~
+xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_Charmonium_AOD.root .
+~~~
+{: .language-bash}
+Notice how few muon tracks there are compared to the same code executed for `generalTracks`. In fact, you only see as many muons as you do because this data sample was collected with a muon trigger. (The muon definition in the trigger is looser than the `globalMuons` algorithm, which is why there are some events with fewer than two `globalMuons`.)
+See in the `Appendix` an application for the Muon and Tracks objects usage in the CMS tracking efficiency computation.
+
+As an exercise, make a histogram of all di-muon masses from 0 to 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)). Exclude events that do not have exactly two muon tracks, and note that the muon mass is 0.106 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)). Create a file `dimuon_mass.py` in `TrackingShortExercize/` for this purpose.
+
+> ## More...
+> The solution combines several of the techniques introduced above:
+> ~~~
+import math
+import DataFormats.FWLite as fwlite
+import ROOT
+
+events = fwlite.Events("file:run321167_Charmonium_AOD.root")
+tracks = fwlite.Handle("std::vector<reco::Track>")
+mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.0, 5.0)
+
+events.toBegin()
+for event in events:
+    event.getByLabel("globalMuons", tracks)
+    product = tracks.product()
+    if product.size() == 2:
+        one = product[0]
+        two = product[1]
+        if not (one.charge()*two.charge() == -1):  continue
+        energy = (math.sqrt(0.106**2 + one.p()**2) +
+                  math.sqrt(0.106**2 + two.p()**2))
+        px = one.px() + two.px()
+        py = one.py() + two.py()
+        pz = one.pz() + two.pz()
+        mass = math.sqrt(energy**2 - px**2 - py**2 - pz**2)
+        mass_histogram.Fill(mass)
+
+c = ROOT.TCanvas ("c", "c", 800, 800)
+mass_histogram.Draw()
+c.SaveAs("mass.png")
+> ~~~
+> {: .language-python}
+> The histogram should look like this:
+> 
+> If so, congratulations! You've discovered the J/ψ!
+> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/mass.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/mass.png" alt="Invariant Mass of the J/Psi" width ="200"></a>
+{: .solution}
 {% include links.md %}
 
