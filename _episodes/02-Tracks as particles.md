@@ -214,5 +214,14 @@ Run the configuration file with:
 cmsRun construct_secondary_vertices_cfg.py
 ~~~
 {: .language-bash}
+
+which can take a couple of minutes to complete. Notice it will create the `output.root` file which will be used later.
+You can check the content of the file by running the simple script as follows
+~~~
+edmDumpEventContent output.root
+~~~
+{: .language-bash}
+## Looking at secondary vertices
+When it's done, you can open `output.root` and read the vertex positions, just as you did for the track momenta with the following lines (let's name this code `sec_vertices.py` and put it in `TrackingShortExercize/`):
 {% include links.md %}
 
