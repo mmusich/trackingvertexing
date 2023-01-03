@@ -95,33 +95,33 @@ As an exercise, make a histogram of all di-muon masses from 0 to 5 [GeV](https:/
 > ## More...
 > The solution combines several of the techniques introduced above:
 > ~~~
-import math
-import DataFormats.FWLite as fwlite
-import ROOT
-
-events = fwlite.Events("file:run321167_Charmonium_AOD.root")
-tracks = fwlite.Handle("std::vector<reco::Track>")
-mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.0, 5.0)
-
-events.toBegin()
-for event in events:
-    event.getByLabel("globalMuons", tracks)
-    product = tracks.product()
-    if product.size() == 2:
-        one = product[0]
-        two = product[1]
-        if not (one.charge()*two.charge() == -1):  continue
-        energy = (math.sqrt(0.106**2 + one.p()**2) +
-                  math.sqrt(0.106**2 + two.p()**2))
-        px = one.px() + two.px()
-        py = one.py() + two.py()
-        pz = one.pz() + two.pz()
-        mass = math.sqrt(energy**2 - px**2 - py**2 - pz**2)
-        mass_histogram.Fill(mass)
-
-c = ROOT.TCanvas ("c", "c", 800, 800)
-mass_histogram.Draw()
-c.SaveAs("mass.png")
+> import math
+> import DataFormats.FWLite as fwlite
+> import ROOT
+> 
+> events = fwlite.Events("file:run321167_Charmonium_AOD.root")
+> tracks = fwlite.Handle("std::vector<reco::Track>")
+> mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.0, 5.0)
+> 
+> events.toBegin()
+> for event in events:
+>     event.getByLabel("globalMuons", tracks)
+>     product = tracks.product()
+>     if product.size() == 2:
+>         one = product[0]
+>         two = product[1]
+>         if not (one.charge()*two.charge() == -1):  continue
+>         energy = (math.sqrt(0.106**2 + one.p()**2) +
+>                   math.sqrt(0.106**2 + two.p()**2))
+>         px = one.px() + two.px()
+>         py = one.py() + two.py()
+>         pz = one.pz() + two.pz()
+>         mass = math.sqrt(energy**2 - px**2 - py**2 - pz**2)
+>         mass_histogram.Fill(mass)
+> 
+> c = ROOT.TCanvas ("c", "c", 800, 800)
+> mass_histogram.Draw()
+> c.SaveAs("mass.png")
 > ~~~
 > {: .language-python}
 > The histogram should look like this:
@@ -129,5 +129,84 @@ c.SaveAs("mass.png")
 > If so, congratulations! You've discovered the J/ψ!
 > <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/mass.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/mass.png" alt="Invariant Mass of the J/Psi" width ="200"></a>
 {: .solution}
+## Constructing vertices from tracks
+In this exercise we will encounter three main objects: primary vertices, secondary vertices, and the beamspot.
+Let's start with secondary vertices. Particles produced by a single decay or collision radiate from the point of their origin. Their tracks should nearly cross at this point (within measurement uncertainties): if two or more tracks cross at some point, it is very likely that they descend from the same decay or collision.
+This test is more significant than it may appear by looking at event pictures. With so many tracks, it looks like they cross accidentally, but the two-dimensional projection of the event picture is misleading. One-dimensional paths through three-dimensional space do not intersect easily, especially when the trajectories of those paths are measured with microns to hundreds-of-microns precision.
+Starting from the detected tracks, we work backward and reconstruct the original vertices by checking each pair of tracks for overlaps. This is performed in the standard reconstruction sequence and delivered to the analyst as lists of KS → π+π− and Λ → pπ candidates, but we will repeat the procedure with different parameters. The algorithm will run three times, the first accepting all (`loose`) tracks, the second accepting only `tight` tracks, and the third accepting only `highPurity` tracks.
+These are called secondary vertices because the proton-proton collision produced the first (`primary`) vertex, then the neutral KS flew several centimeters away from the rest of the collision products and decayed into π+π− at a second (`secondary`) position in space.
+## Running the vertex reconstruction
+Create a file named construct_secondary_vertices_cfg.py in `TrackingShortExercize/` and fill it with the following:
+~~~
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process("KSHORTS")
+
+# Use the tracks_and_vertices.root file as input.
+process.source = cms.Source("PoolSource",
+    fileNames = cms.untracked.vstring("file://run321167_Charmonium_AOD.root"))
+process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(500))
+
+# Suppress messages that are less important than ERRORs.
+process.MessageLogger = cms.Service("MessageLogger",
+    destinations = cms.untracked.vstring("cout"),
+    cout = cms.untracked.PSet(threshold = cms.untracked.string("ERROR")))
+
+# Load part of the CMSSW reconstruction sequence to make vertexing possible.
+# We'll need the CMS geometry and magnetic field to follow the true, non-helical
+# shapes of tracks through the detector.
+process.load("Configuration/StandardSequences/FrontierConditions_GlobalTag_cff")
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag =  GlobalTag(process.GlobalTag, "auto:run2_data")
+process.load("Configuration.Geometry.GeometryRecoDB_cff")
+process.load("Configuration.StandardSequences.MagneticField_cff")
+process.load("TrackingTools.TransientTrack.TransientTrackBuilder_cfi")
+
+# Copy most of the vertex producer's parameters, but accept tracks with
+# progressively more strict quality.
+process.load("RecoVertex.V0Producer.generalV0Candidates_cfi")
+
+# loose
+process.SecondaryVerticesFromLooseTracks = process.generalV0Candidates.clone(
+    trackRecoAlgorithm = cms.InputTag("generalTracks"),
+    doKshorts = cms.bool(True),
+    doLambdas = cms.bool(True),
+    trackQualities = cms.string("loose"),
+    innerHitPosCut = cms.double(-1.),
+    cosThetaXYCut = cms.double(-1.), 
+    )
+
+# tight
+process.SecondaryVerticesFromTightTracks = process.SecondaryVerticesFromLooseTracks.clone(
+    trackQualities = cms.string("tight"),
+    )
+
+# highPurity
+process.SecondaryVerticesFromHighPurityTracks = process.SecondaryVerticesFromLooseTracks.clone(
+    trackQualities = cms.string("highPurity"),
+    )
+
+# Run all three versions of the algorithm.
+process.path = cms.Path(process.SecondaryVerticesFromLooseTracks *
+                        process.SecondaryVerticesFromTightTracks *
+                        process.SecondaryVerticesFromHighPurityTracks)
+
+# Writer to a new file called output.root.  Save only the new K-shorts and the
+# primary vertices (for later exercises).
+process.output = cms.OutputModule(
+    "PoolOutputModule",
+    SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring("path")),
+    outputCommands = cms.untracked.vstring(
+        "drop *",
+        "keep *_*_*_KSHORTS",
+        "keep *_offlineBeamSpot_*_*",
+        "keep *_offlinePrimaryVertices_*_*",
+        "keep *_offlinePrimaryVerticesWithBS_*_*",
+        ),
+    fileName = cms.untracked.string("output.root")
+    )
+process.endpath = cms.EndPath(process.output)
+~~~
+{: .language-python}
 {% include links.md %}
 
