@@ -28,6 +28,6 @@ for i, event in enumerate(events):
     if i > 20: break
 ~~~
 {: .language-python}
-
+Now we can use this to do some kinematics. Assuming that the particle is a pion (pion mass = 0.140 [GeV]()), calculate its kinetic energy.
 {% include links.md %}
 
