@@ -1,16 +1,18 @@
 ---
 title: "Constructing vertices from tracks"
-teaching: 0
-exercises: 30
+teaching: 20
+exercises: 20
 questions:
-- ""
+- "What is a (primary, secondary) vertex object? What about beamspot?"
+- "Which information are available in different CMS data formats?"
+- "How can I run the vertex reconstruction?"
+- "Can we get better physics results using primary verteces?"
 objectives:
-- ""
-- ""
-- "" 
+- "Being familiar with the vertex concept."
+- "Plot distributions about the main vertex variables."
+- "Open the stage for Appendix further exercises." 
 keypoints:
-- "It is extremely important to be sinchronized with the environment used to start working as a team!"
-- "Managing ROOT files in High Energy Physics should be the first thing to be familiar with."
+- "For a CMS data analysis, vertex information are extremely important to get better results!"
 ---
 In this exercise we will encounter three main objects: primary vertices, secondary vertices, and the beamspot.
 Let's start with secondary vertices. Particles produced by a single decay or collision radiate from the point of their origin. Their tracks should nearly cross at this point (within measurement uncertainties): if two or more tracks cross at some point, it is very likely that they descend from the same decay or collision.

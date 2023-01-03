@@ -1,16 +1,15 @@
 ---
 title: "Appendix"
 teaching: 0
-exercises: 30
+exercises: 1
 questions:
-- ""
+- "How can I use track variables to retrieve the CMS tracking efficiency?"
+- "Can I find more about secondary vertex?"
+- "Is there a correlation between pile-up and number of clusters?"
 objectives:
-- ""
-- ""
-- "" 
+- "After the in-person session, being familiar with more information about tracks, vertex and CMS tracking detector."
 keypoints:
-- "It is extremely important to be sinchronized with the environment used to start working as a team!"
-- "Managing ROOT files in High Energy Physics should be the first thing to be familiar with."
+- "At this point it is extremely important to look at the documentation to find out more and being aware of the twikis related to the Tracking Physics Object Group (TRK POG) tasks."
 ---
 ## LXR: a tool to search through CMSSW code
 LXR is a very useful tool to look-up methods/classes/configuration files/parameters/example etc. when working on software development in CMS.
@@ -19,7 +18,7 @@ LXR is a very useful tool to look-up methods/classes/configuration files/paramet
 • Fermilab: http://cmslxr.fnal.gov/lxr/
 
 ## Further useful code references
-•	CMSSW source code on !GitHub for `CMSSW_10_6_18`: https://github.com/cms-sw/cmssw/tree/CMSSW_10_6_18
+•	CMSSW source code on GitHub for `CMSSW_10_6_18`: https://github.com/cms-sw/cmssw/tree/CMSSW_10_6_18
     o	you can switch to the branch or version (encoded as git tag) using the drop down menu left of the green `New Pull Request` button
 •	CMSSW Reference Manual: https://cmssdt.cern.ch/SDT/doxygen/CMSSW_10_6_18/doc/html/classes.html
 
