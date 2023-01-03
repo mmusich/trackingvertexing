@@ -168,7 +168,10 @@ Plot of Backgrounds vs pT:
 
 Update the file `print.py` with the following lines:
 Add a `Handle` to the MVA values:
-
+~~~
+MVAs = fwlite.Handle("std::vector<float>")
+~~~
+{: .language-python}
 
 {% include links.md %}
 
