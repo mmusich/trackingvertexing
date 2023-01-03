@@ -47,5 +47,26 @@ Now we can use this to do some kinematics. Assuming that the particle is a pion 
 > ~~~
 > {: .language-python}
 {: .solution}
+> ## Additional information
+> Identifying the particle that made the track is difficult: the mass of some low-momentum tracks can be identified by their energy loss, called dE/dx, and electrons and muons can be identified by signatures in other subdetectors. Without any other information, the safest assumption is that a randomly chosen track is a pion, since hadron collisions produce a lot of pions.
+{: .solution}
+Let's look for resonances. Given two tracks,
+~~~
+if len(tracks.product()) > 1:
+
+one = tracks.product()[0]
+two = tracks.product()[1]
+~~~
+{: .language-python}
+the invariant mass may be calculated as
+~~~
+total_energy = math.sqrt(0.140**2 + one.p()**2) + math.sqrt(0.140**2 + two.p()**2)
+total_px = one.px() + two.px()
+total_py = one.py() + two.py()
+total_pz = one.pz() + two.pz()
+mass = math.sqrt(total_energy**2 - total_px**2 - total_py**2 - total_pz**2)
+~~~
+{: .language-python}
+However, this quantity has no meaning unless the two particles are actually descendants of the same decay. Two randomly chosen tracks (**out of hundreds per event**) typically are not.
 {% include links.md %}
 
