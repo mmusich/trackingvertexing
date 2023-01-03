@@ -208,6 +208,7 @@ for i, event in enumerate(events):
     print "numHighPurity:", numHighPurity, "(%.1f %%)"%(float(numHighPurity)/numTotal*100)
 ~~~
 {: .language-python}
+The C++-equivalent is hidden below.
 
 {% include links.md %}
 
