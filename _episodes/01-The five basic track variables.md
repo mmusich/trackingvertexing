@@ -285,6 +285,7 @@ The C++-equivalent is hidden below.
 > The actual `CMSSW config` file can be found in `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg_MVA.py`
 {: .solution}
 Now prepare plots for the track variables discussed above, as in the example below (name this file `plot_track_quantities.py` and put it in `TrackingShortExercize/`). Compare the distributions of track-quality-related variables (number of pixel hits, track goodness of fit, ...) between tracks passing the `highPurity` and `Loose` quality flags.
+> ## Answer
 > ~~~
 > import DataFormats.FWLite as fwlite
 > import ROOT
