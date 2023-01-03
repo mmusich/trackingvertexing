@@ -244,6 +244,33 @@ In the code above, you specify the C++ type of the collection (`std::vector`). F
 Each of these vertices contains two tracks by construction. One of the vertex member functions (do `dir(vertex)` in the python shell after executing the above code to see them all) returns the invariant mass of the pair of tracks. This calculation is a little more complex than the invariant masses we calculated by hand because it is necessary to evaluate the px and py components of momentum at the vertex rather than at the beamspot. If these two particles really did originate in a decay several centimeters from the beamspot, then the track parameters evaluated at the beamspot are not meaningful.
 
 **Plot the invariant mass of all vertices**. Modify the `sec_vertices.py` to draw the invariant mass distribution, i.e. fill a histogram with `vertex.mass()` for each secondary vertex.
-
+> ## Answer (don't look until you've tried it!)
+> ~~~
+> import DataFormats.FWLite as fwlite
+> import ROOT
+> 
+> events = fwlite.Events("file:output.root")
+> secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositeCandidate>")
+> 
+> mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.4, 0.6)
+> 
+> events.toBegin()
+> for event in events:
+>     event.getByLabel("SecondaryVerticesFromLooseTracks", "Kshort", secondaryVertices)
+>     for vertex in secondaryVertices.product():
+>         mass_histogram.Fill(vertex.mass())
+> 
+> c = ROOT.TCanvas ("c" , "c", 800, 800)
+> mass_histogram.Draw()
+> c.SaveAs("kshort_mass.png")
+> ~~~
+> {: .language-python}
+{: .solution}
+You should see a very prominent KS → π+π− peak, but also a pedestal. What is the pedestal? Why does it cut off at 0.43 and 0.57 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)?
+> ## More
+> You can answer the question concerning the cut-off with the information [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/python/generalV0Candidates_cfi.py#L61-L63).
+> **Optional task.** Prepare a similar plot for the Lambda vertices. (Hints: were the Lambda vertices created when you ran the [SecondaryVertices](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertices) producer? the Lambda mass is [1.115 GeV](http://pdglive.lbl.gov/Particle.action?init=0&node=S018&home=BXXX020) Are you expecting to reconstruct the mass at the same value in the whole detector ? (plot the mass resolution as function of the eta of the reconstructed Lambda)
+{: .solution}
+**Plot the flight distance of all vertices.** Modify the `sec_vertices.py` to draw the flight distance in the transverse plane distribution between each secondary vertex and the primary vertex. For this, you can look ahead at the next part of the exercise to see how to access the primary vertices collection. Once you have it, you can access the first primary vertex in the collection with
 {% include links.md %}
 
