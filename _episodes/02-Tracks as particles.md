@@ -1,7 +1,7 @@
 ---
 title: "Tracks as particles"
-teaching: 15
-exercises: 15
+teaching: 10
+exercises: 10
 questions:
 - "Why can we consider a track as a particle?"
 - "Can I use an alternative to the muon object?"
