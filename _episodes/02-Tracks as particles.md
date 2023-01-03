@@ -223,5 +223,27 @@ edmDumpEventContent output.root
 {: .language-bash}
 ## Looking at secondary vertices
 When it's done, you can open `output.root` and read the vertex positions, just as you did for the track momenta with the following lines (let's name this code `sec_vertices.py` and put it in `TrackingShortExercize/`):
+~~~
+import DataFormats.FWLite as fwlite
+
+events = fwlite.Events("file:output.root")
+secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositeCandidate>")
+
+events.toBegin()
+for i, event in enumerate(events):
+    print "Event:", i
+    event.getByLabel("SecondaryVerticesFromLooseTracks", "Kshort", secondaryVertices)
+    for j, vertex in enumerate(secondaryVertices.product()):
+        print "    Vertex:", j, vertex.vx(), vertex.vy(), vertex.vz()
+    if i > 10: break
+~~~
+{: .language-python}
+
+In the code above, you specify the C++ type of the collection (`std::vector`). For each event you obtain the collection of secondary vertices originating from KS decays, by providing the name of the collection producer (`SecondaryVerticesFromLooseTracks`) and the label for the KS collection (`Kshort`, defined [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/src/V0Producer.cc#L55)).
+
+Each of these vertices contains two tracks by construction. One of the vertex member functions (do `dir(vertex)` in the python shell after executing the above code to see them all) returns the invariant mass of the pair of tracks. This calculation is a little more complex than the invariant masses we calculated by hand because it is necessary to evaluate the px and py components of momentum at the vertex rather than at the beamspot. If these two particles really did originate in a decay several centimeters from the beamspot, then the track parameters evaluated at the beamspot are not meaningful.
+
+**Plot the invariant mass of all vertices**. Modify the `sec_vertices.py` to draw the invariant mass distribution, i.e. fill a histogram with `vertex.mass()` for each secondary vertex.
+
 {% include links.md %}
 
