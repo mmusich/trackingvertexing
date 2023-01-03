@@ -127,7 +127,7 @@ As an exercise, make a histogram of all di-muon masses from 0 to 5 [GeV](https:/
 > The histogram should look like this:
 > 
 > If so, congratulations! You've discovered the J/ψ!
-> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/mass.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/mass.png" alt="Invariant Mass of the J/Psi" width ="200"></a>
+> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/mass.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/mass.png" alt="Invariant Mass of the J/Psi" width ="400"></a>
 {: .solution}
 {% include links.md %}
 
