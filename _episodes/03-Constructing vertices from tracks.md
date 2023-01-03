@@ -18,7 +18,7 @@ This test is more significant than it may appear by looking at event pictures. W
 Starting from the detected tracks, we work backward and reconstruct the original vertices by checking each pair of tracks for overlaps. This is performed in the standard reconstruction sequence and delivered to the analyst as lists of KS → π+π− and Λ → pπ candidates, but we will repeat the procedure with different parameters. The algorithm will run three times, the first accepting all (`loose`) tracks, the second accepting only `tight` tracks, and the third accepting only `highPurity` tracks.
 These are called secondary vertices because the proton-proton collision produced the first (`primary`) vertex, then the neutral KS flew several centimeters away from the rest of the collision products and decayed into π+π− at a second (`secondary`) position in space.
 ## Running the vertex reconstruction
-Create a file named construct_secondary_vertices_cfg.py in `TrackingShortExercize/` and fill it with the following:
+Create a file named `construct_secondary_vertices_cfg.py` in `TrackingShortExercize/` and fill it with the following:
 ~~~
 import FWCore.ParameterSet.Config as cms
 
@@ -183,7 +183,7 @@ You can now use the x and y coordinates of the secondary vertices and the primar
 > {: .language-python}
 {: .solution}
 You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the maxEvents parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
-
+<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/v0_Lxy.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/v0_Lxy.png" alt="Lxy distribution" width ="200"></a>
 
 {% include links.md %}
 
