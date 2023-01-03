@@ -30,7 +30,7 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {: .testimonial}
 
 > ## Mattermost Chat
-> The [Tracking and Vertexing Short Exercise](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortextrackingvertexing) channel will be available once you join the [CMSDAS@LPC2023](https://mattermost.web.cern.ch/cmsdaslpc2023/) team. Direction for how to join this Mattermost chat team can be found on the <a href="setup.html">setup</a> page.
+> The [Tracking and Vertexing Short Exercise](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortextrackingvertexing) channel will be available once you join the [CMSDAS@LPC2023](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/town-square) team. Direction for how to join this Mattermost chat team can be found on the <a href="setup.html">setup</a> page.
 {: .discussion}
 
 > ## Introduction Slides
