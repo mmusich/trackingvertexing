@@ -5,7 +5,7 @@ exercises: 15
 questions:
 - "What are the main track variables used in CMS collaboration?"
 - "How can we access them?"
-- "Are the variables for the track quality?"
+- "Which are the variables for the track quality?"
 - "What are the track information in MINIAOD?"
 objectives:
 - "Being familiar with tracks collections and their variables."
