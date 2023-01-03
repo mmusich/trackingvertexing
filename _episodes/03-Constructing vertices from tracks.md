@@ -185,5 +185,186 @@ You can now use the x and y coordinates of the secondary vertices and the primar
 You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the maxEvents parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
 <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/v0_Lxy.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/v0_Lxy.png" alt="Lxy distribution" width ="200"></a>
 
+## Secondary vertices in MINIAOD
+The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) collection is already available in the miniAOD files. You can retrieve the collection type and format by doing:
+> ~~~
+> xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_Charmonium_MINIAOD.root .
+> edmDumpEventContent run321167_Charmonium_MINIAOD.root | grep Vertices
+> ~~~
+> {: .language-bash}
+Modify `sec_vertices.py` to read the lambda vertices from the MINIAOD file. You will have to modify the collection type and label accordingly to the MINIAOD content.
+> ## Answer
+> ~~~
+> import DataFormats.FWLite as fwlite
+> import ROOT
+> 
+> events = fwlite.Events("run321167_Charmonium_MINIAOD.root")
+> secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositePtrCandidate>")
+> 
+> mass_histogram = ROOT.TH1F("mass_histogram", "mass_histogram", 100, 1., 1.2)
+> 
+> events.toBegin()
+> for i, event in enumerate(events):
+>     event.getByLabel("slimmedLambdaVertices", "", secondaryVertices)
+>     for j, vertex in enumerate(secondaryVertices.product()):
+>         mass_histogram.Fill(vertex.mass())
+> 
+> c = ROOT.TCanvas()
+> mass_histogram.Draw()
+> c.SaveAs("mass_lambda_miniaod.png")
+> ~~~
+> {: .language-python}
+{: .solution}
+
+## Basic distributions of primary vertices
+The primary vertex reconstruction consists of three steps:
+•	selection of tracks
+•	clustering of the tracks that appear to originate from the same interaction vertex
+•	fitting for the position of each vertex using its associated tracks
+All the primary vertices reconstructed in an event are saved in the `reco::Vertex` collection labeled `offlinePrimaryVertices`. Create the file `vertex.py` in `TrackingShortExercize/` which will load the original `run321167_ZeroBias_AOD.root` file and make a quarter-view plot of the vertex distribution (run it using `python vertex.py`):
+~~~
+import DataFormats.FWLite as fwlite
+import math
+import ROOT
+
+events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
+
+rho_z_histogram = ROOT.TH2F("rho_z", "rho_z", 100, 0.0, 30.0, 100, 0.0, 10.0)
+
+events.toBegin()
+for event in events:
+    event.getByLabel("offlinePrimaryVertices", primaryVertices)
+    for vertex in primaryVertices.product():
+        rho_z_histogram.Fill(abs(vertex.z()),
+                             math.sqrt(vertex.x()**2 + vertex.y()**2))
+
+c = ROOT.TCanvas("c", "c", 800, 800)
+rho_z_histogram.Draw()
+c.SaveAs("rho_z.png")
+~~~
+{: .language-python}
+
+You should see a broad distribution in z, close to rho = 0 (much closer than for the secondary vertices, see [appendix](https://bdanzi.github.io/trackingvertexing/Appendix/index.html)).In fact, the distribution is about 0.1 cm wide and 4 cm long. The broad distribution in z is helpful: if 20 primary vertices are uniformly distributed along a 4 cm pencil-like region, we only need 2 mm vertex resolution to distinguish neighboring vertices. Fortunately, the CMS vertex resolution is better than this (better than 20μm and 25μm in x and z, respectively [TRK-11-001](http://inspirehep.net/record/1298029), [performances with the Phase1 pixel detector](https://twiki.cern.ch/twiki/bin/edit/CMS/CMSPublic.TrackingPOGPerformance2017MC#Vertex_Resolutions)), so they can be distinguished with high significance.
+
+To see this, you should modify properly the previous code to make a plot of the distance between primary vertices:
+~~~
+deltaz_histogram = ROOT.TH1F("deltaz", "deltaz", 1000, -20.0, 20.0)
+
+events.toBegin()
+for event in events:
+    event.getByLabel("offlinePrimaryVertices", primaryVertices)
+    pv = primaryVertices.product()
+    for i in xrange(pv.size() - 1):
+        for j in xrange(i + 1, pv.size()):
+            deltaz_histogram.Fill(pv[i].z() - pv[j].z())
+
+c = ROOT.TCanvas ("c", "c", 800, 800)
+deltaz_histogram.Draw()
+c.SaveAs("deltaz.png")
+~~~
+{: .language-python}
+
+The broad distribution is due to the spread in primary vertex positions. Zoom in on the narrow dip near deltaz = 0. This region is empty because if two real vertices are too close to each other, they will be misreconstructed as a single vertex. Thus, there are no reconstructed vertices with such small separations.
+
+**Write a short script to print out the number of primary vertices in each event.** When people talk about the **pile-up**, it is this number they are referring to. If you want, you can even plot it; the distribution should roughly fit a Poisson distribution.
+> ## Answer
+> ~~~
+> events.toBegin()
+> for i, event in enumerate(events):
+>     event.getByLabel("offlinePrimaryVertices", primaryVertices)
+>     print "Pile-up:", primaryVertices.product().size()
+>     if i > 100: break
+> ~~~
+> {: .language-python}
+{: .solution}
+**Print out the number of tracks in a single vertex object.** (Use the trick for vertex in `primaryVertices.product()`: break to obtain a primary vertex object.)
+> ## Solution
+> ~~~
+> print vertex.nTracks()
+> print vertex.tracksSize()
+> ~~~
+> {: .language-python}
+> Why might they be different? ( See [tracksSize](https://cmssdt.cern.ch/dxr/CMSSW/source/DataFormats/VertexReco/interface/Vertex.h#94) vs [nTracks](https://cmssdt.cern.ch/dxr/CMSSW/source/DataFormats/VertexReco/interface/Vertex.h#170)).
+> `Note:` in C++, you could loop over the tracks associated with this vertex, but this functionality doesn't work in Python.
+> In the standard analysis workflow there are many quality requirements to be applied to the events and to the reconstructed quantities in an event. One of these requests is based on the characteristics of the reconstructed primary vertices, and it is defined by the `CMSSW EDFilter` `goodOfflinePrimaryVertices_cfi.py` .
+> Are these selections surprising you ?
+{: .solution}
+**Write a short script to plot the distribution of the number of tracks vs the number of vertices.** What do you expect?
+> ## Answer
+> The following snippet tells you what to do, but you need to make sure that all needed variables are defined.
+> ~~~
+> histogram = ROOT.TH2F("ntracks_vs_nvertex","ntracks_vs_nvertex",
+>                       30, 0.0, 29.0, 100, 0.0,2000.0)
+> 
+> events.toBegin()
+> for event in events:
+>     event.getByLabel("offlinePrimaryVertices", primaryVertices)
+>     event.getByLabel("generalTracks", tracks)
+>     histogram.Fill(primaryVertices.product().size(), tracks.product().size())
+> 
+> histogram.Draw()
+> c.SaveAs("ntracks_vs_nvertex.png")
+> ~~~
+> {: .language-python}
+{: .solution}
+It's also useful to distinguish between the `primary vertices` and the `beamspot`. A read-out event can have many primary vertices, each of which usually corresponds to a point in space where two protons collide. The beamspot is an estimate of where protons are expected to collide, derived from the distribution of primary vertices. Not only does an event have only one beamspot, but the beamspot is constant for a lumi-section (time interval of 23.31 consecutive seconds). This script prints the average x-position of the primary vertices and plots their x-y distribution (add the missing pieces, name it `beamspot.py` and put it in `TrackingShortExercize`):
+~~~
+import DataFormats.FWLite as fwlite
+import math
+import ROOT
+
+def isGoodPV(vertex):
+    if ( vertex.isFake()        or 
+         vertex.ndof < 4.0      or 
+         abs(vertex.z()) > 24.0 or 
+         abs(vertex.position().Rho()) > 2):
+           return False
+    return True
+
+events          = fwlite.Events("run321167_ZeroBias_AOD.root")
+primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
+beamspot        = fwlite.Handle("reco::BeamSpot")
+
+vtx_xy = ROOT.TH2F('vtx_xy','; x [cm]; y [cm]', 100,-0.1, 0.3, 100, -0.25, 0.15)
+
+sumx = 0.0
+N    = 0
+last_beamspot = None
+
+events.toBegin()
+for event in events:
+    event.getByLabel("offlinePrimaryVertices", primaryVertices)
+    event.getByLabel("offlineBeamSpot", beamspot)
+
+    if last_beamspot == None or last_beamspot != beamspot.product().x0():
+        print "New beamspot IOV (interval of validity)..."
+        last_beamspot       = beamspot.product().x0()
+        sumx = 0.0
+        N = 0
+
+    for vertex in primaryVertices.product():
+        if not isGoodPV(vertex):  continue
+        N += 1
+        sumx += vertex.x()
+        vtx_xy.Fill(vertex.x(), vertex.y())
+        if N % 1000 == 0:
+            print "Mean of primary vertices:", sumx/N,
+            print "Beamspot:", beamspot.product().x0()
+            
+c = ROOT.TCanvas( "c", "c", 1200, 800)
+vtx_xy.Draw("colz")
+c.SaveAs("vtx_xy.png")
+~~~
+{: .language-python}
+Add the analogous 2D plots for x versus z and y vs z positions.
+> ## More exercises...
+> ~~~
+> Furthermore, you can add a plot of the average primary vertex position and compare it to:
+> •	the center of beamspot (red line)
+> •	the beamspot region (beamspot center +/- beamspot witdh, that you can access through beamspot.product().BeamWidthX()
+> ~~~
+> {: .language-python}
+{: .solution}
 {% include links.md %}
 
