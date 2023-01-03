@@ -210,7 +210,15 @@ for i, event in enumerate(events):
 {: .language-python}
 The C++-equivalent is hidden below.
 > ## C++ version
+> Update your EDAnalyzer adding the following lines:
+> To class declaration:
 > ~~~
+> edm::EDGetTokenT<edm::View<float> > mvaValsToken_;
+> ~~~
+> {: .language-cpp}
+> To constructor:
+> ~~~
+> , mvaValsToken_( consumes<edm::View<float> >(iConfig.getUntrackedParameter<edm::InputTag>("mvaValues", edm::InputTag("generalTracks", "MVAValues")) ) )
 > ~~~
 > {: .language-cpp}
 {: .solution}
