@@ -208,5 +208,11 @@ process.output = cms.OutputModule(
 process.endpath = cms.EndPath(process.output)
 ~~~
 {: .language-python}
+The name of the secondary-vertex producer (`process.SecondaryVerticesFromLooseTracks`) given in this configuration will be the name of the produced collection with process. stripped off (see the usage below).
+Run the configuration file with:
+~~~
+cmsRun construct_secondary_vertices_cfg.py
+~~~
+{: .language-bash}
 {% include links.md %}
 
