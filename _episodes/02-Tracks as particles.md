@@ -271,6 +271,35 @@ You should see a very prominent KS → π+π− peak, but also a pedestal. What 
 > You can answer the question concerning the cut-off with the information [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/python/generalV0Candidates_cfi.py#L61-L63).
 > **Optional task.** Prepare a similar plot for the Lambda vertices. (Hints: were the Lambda vertices created when you ran the [SecondaryVertices](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertices) producer? the Lambda mass is [1.115 GeV](http://pdglive.lbl.gov/Particle.action?init=0&node=S018&home=BXXX020) Are you expecting to reconstruct the mass at the same value in the whole detector ? (plot the mass resolution as function of the eta of the reconstructed Lambda)
 {: .solution}
-**Plot the flight distance of all vertices.** Modify the `sec_vertices.py` to draw the flight distance in the transverse plane distribution between each secondary vertex and the primary vertex. For this, you can look ahead at the next part of the exercise to see how to access the primary vertices collection. Once you have it, you can access the first primary vertex in the collection with
+**Plot the flight distance of all vertices.** Modify the `sec_vertices.py` to draw the flight distance in the transverse plane distribution between each secondary vertex and the primary vertex. For this, you can look ahead at the next part of the exercise to see how to access the primary vertices collection. Once you have it, you can access the first primary vertex in the collection with `pv = primaryVertices.product()[0]`. 
+
+You can now use the x and y coordinates of the secondary vertices and the primary vertex to calculate the distance. Note that for the PV, you access these values with the `x()` and `y()` member functions, while for the secondary vertices, these are called `vx()` and `vy()`.
+
+> ## Answer
+> ~~~
+> import DataFormats.FWLite as fwlite
+> import ROOT
+> 
+> events = fwlite.Events("file:output.root")
+> secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositeCandidate>")
+> primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
+> 
+> lxy_histogram = ROOT.TH1F("lxy", "lxy", 500, 0, 70)
+> 
+> events.toBegin()
+> for event in events:
+>     event.getByLabel("offlinePrimaryVertices", primaryVertices)
+>     pv = primaryVertices.product()[0]
+>     event.getByLabel("SecondaryVerticesFromLooseTracks", "Lambda", secondaryVertices)
+>     for vertex in secondaryVertices.product():
+>         lxy = ((vertex.vx()-pv.x())**2 + (vertex.vy() - pv.y())**2)**0.5
+>         lxy_histogram.Fill(lxy)
+> c = ROOT.TCanvas ("c" , "c", 800, 800)
+> lxy_histogram.Draw()
+> c.SaveAs("lambda_lxy.png")
+> ~~~
+> {: .language-python}
+{: .solution}
+You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the maxEvents parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
 {% include links.md %}
 
