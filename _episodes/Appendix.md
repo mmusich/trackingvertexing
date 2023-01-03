@@ -89,5 +89,137 @@ and run the macro again. You should get something like the following result if y
 <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/Efficiency.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/Efficiency.png" alt="Tracking Efficiency for CMS 2018 Data" width ="200"></a>
 
 If everything went well and you still have time to go, repeat this process for the two other variables, pT and φ! In case you want to change one of the fit results, use the `change_bin.cpp` function commented in `Efficiency.C`. If you would like to explore the results having more statistics, use the samples in `DATA/Z/` directory!
+
+If you would like to play with the actual CMS tracking workflow have a look at the ntuple generator and the efficiency computation frameworks!
+
+## Looking at secondary vertices (continued)
+
+**As an exercise, plot the positions of the vertices in a way that corresponds to the CMS half-view.** That is, make a histogram like the following:
+~~~
+import math
+import ROOT
+rho_z_histogram = ROOT.TH2F("rho_z", "rho_z", 100, 0.0, 30.0, 100, 0.0, 10.0)
+~~~
+{: .language-python}
+
+in which the horizontal axis will represent z, the direction parallel to the beamline, and the vertical axis will represent rho, the distance from the beamline, and fill it with (z, rho) pairs like this `rho_z_histogram.Fill(z, rho)`.
+
+Compute rho and z from the vertex objects:
+
+~~~
+events.toBegin()
+for event in events:
+    event.getByLabel("SecondaryVerticesFromLooseTracks", "Kshort", secondaryVertices)
+    for vertex in secondaryVertices.product():
+        rho_z_histogram.Fill(abs(vertex.vz()), math.sqrt(vertex.vx()**2 + vertex.vy()**2))
+
+rho_z_histogram.Draw()
+~~~
+{: .language-python}
+
+What does the distribution tell you about CMS vertex reconstruction?
+Half-view of CMS tracker (color indicates average number of hits):
+<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="200"></a>
+
+### Correlation between pile-up and number of clusters
+~~~
+import ROOT
+import DataFormats.FWLite as fwlite
+events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+
+clusterSummary = fwlite.Handle("ClusterSummary")
+
+h = ROOT.TH2F("h", "h", 100, 0, 20000, 100, 0, 100000)
+
+events.toBegin()
+for event in events:
+    event.getByLabel("clusterSummaryProducer", clusterSummary)
+    cs = clusterSummary.product()
+    try:
+        h.Fill(cs.getNClus(cs.PIXEL),
+               cs.getNClus(cs.PIXEL) + cs.getNClus(cs.STRIP))
+    except TypeError:
+        pass
+
+c = ROOT.TCanvas("c", "c", 800, 800)
+h.Draw()
+h.Fit("pol1")
+c.SaveAs("pileup_nclusters.png")
+~~~
+{: .language-python}
+
+### Harder questions: dxy biases
+
+The dxy parameter is not simply a distance, it is a signed distance. A helical trajectory traces a circle in the plane transverse to the beamline, and the sign of dxy depends on whether the reference point is included inside of that circle our outside of it. You can change the reference point with which dxy is computed by passing a point or a beamspot as an argument:
+~~~
+print track.dxy()
+~~~
+{: .language-python}
+~~~
+-0.00082122773835
+~~~
+{: .output}
+~~~
+print track.dxy(ROOT.math.XYZPoint(0, 0, 0))
+~~~
+{: .language-python}
+~~~
+-0.00082122773835
+~~~
+{: .output}
+~~~
+print track.dxy(beamspot.product())
+~~~
+{: .language-python}
+~~~
+-0.00636893586021
+~~~
+{: .output}
+
+Passing no parameter is equivalent to passing `(0, 0, 0)`.
+Consider the following script:
+~~~
+import DataFormats.FWLite as fwlite
+import ROOT
+
+events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+tracks = fwlite.Handle("std::vector<reco::Track>")
+beamspot = fwlite.Handle("reco::BeamSpot")
+
+dxy_vs_phi_000 = ROOT.TProfile("dxy_vs_phi_000", "dxy_vs_phi_000", 100, -3.14, 3.14) 
+dxy_vs_phi_beamspot = ROOT.TProfile("dxy_vs_phi_beamspot", "dxy_vs_phi_beamspot", 100, -3.14, 3.14) 
+
+events.toBegin()
+for event in events:
+    event.getByLabel("generalTracks", tracks)
+    event.getByLabel("offlineBeamSpot", beamspot)
+    for track in tracks.product():
+        dxy_vs_phi_000.Fill(track.phi(), track.dxy(ROOT.math.XYZPoint(0, 0, 0)))
+        dxy_vs_phi_beamspot.Fill(track.phi(), track.dxy(beamspot.product()))
+
+dxy_vs_phi_000.SetAxisRange(-0.2, 0.2, "Y")
+dxy_vs_phi_beamspot.SetAxisRange(-0.2, 0.2, "Y")
+
+c = ROOT.TCanvas("c", "c", 800, 800)
+dxy_vs_phi_000.Draw()
+dxy_vs_phi_beamspot.SetMarkerColor(ROOT.kRed)
+dxy_vs_phi_beamspot.SetLineColor(ROOT.kRed)
+dxy_vs_phi_beamspot.Draw("same")
+c.SaveAs("beamspot.png")
+~~~
+{: .language-python}
+
+It produces two plots, one of which shows a clear bias from the correct distribution (on average, dxy should be zero). This bias is not an problem with the detector, only a problem with interpreting it. Can you explain the origin of the bias, including its shape with respect to phi?
+
+Below, there is a figure that might help.
+It is also useful to draw sketches for yourself.
+
+<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/dxy.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/dxy.png" alt="Sketch of dxy" width ="200"></a>
+
+## Documentation
+•	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/edit/CMS/CMSPublic.SWGuideTrackReco)
+•	[CMS Tracking POG Performance in Run-2 Legacy data](https://twiki.cern.ch/twiki/bin/view/CMSPublic/TrackingPOGResultsRun2Legacy)
+
+
 {% include links.md %}
 
