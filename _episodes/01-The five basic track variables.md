@@ -276,6 +276,10 @@ The C++-equivalent is hidden below.
 > ~~~
 > {: .language-python}
 > Now run the `analyzer`:
+> ~~~
+> cmsRun run_cfg.py
+> ~~~
+> {: .language-python}
 {: .solution}
 {% include links.md %}
 
