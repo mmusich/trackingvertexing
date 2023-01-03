@@ -210,7 +210,8 @@ for i, event in enumerate(events):
 {: .language-python}
 The C++-equivalent is hidden below.
 > ## C++ version
-> Update your EDAnalyzer adding the following lines:
+> Update your `EDAnalyzer` adding the following lines:
+>
 > To class declaration:
 > ~~~
 > edm::EDGetTokenT<edm::View<float> > mvaValsToken_;
