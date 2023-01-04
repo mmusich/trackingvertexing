@@ -10,8 +10,8 @@ latitude: "41.842258"        # decimal latitude of workshop venue (use https://w
 longitude: "-88.245781"       # decimal longitude of the workshop venue (use https://www.latlong.net)
 humandate: "Synchronously January, 2023"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "24/7"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
-startdate: 2023-01-09      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: 2023-01-13        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+startdate: 2023-01-09 # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2023-01-13   # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 email: ["brunella.d'anzi@cern.ch"]
 ---
 
@@ -25,8 +25,11 @@ We will present an introduction to using tracks for analyses in the era of **lar
 - Using tracks to measure from data and MC the **tracking efficiency** by using tag and probe method via dimuon resonances. It can be extended to measure the efficiency of any selection of muons (trigger, isolation, identification) and derive scale factors from MC.
 
 > ## Facilitators
-> [Brunella D'Anzi*](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi) (University of Bari), [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith) (Baylor), [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis) (Polytechnic of Bari), [Susan Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer) (University of Illinois Chicago)
-*Lead Contact
+> * [Brunella D'Anzi*](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi), University and INFN of Bari, ([brunella.d'anzi@cern.ch](mailto:brunella.d'anzi@cern.ch) 
+> * [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith), Baylor [caleb.smith@cern.ch](mailto:caleb.smith@cern.ch) 
+> * [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis), INFN and Polytechnic of Bari [nicola.defilippis@ba.infn.it](mailto:nicola.defilippis@ba.infn.it) 
+> * [Susan Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer), University of Illinois Chicago [Susan.Dittmer@cern.ch](mailto:Susan.Dittmer@cern.ch) 
+> *Lead Contact
 {: .testimonial}
 
 > ## Mattermost Chat
