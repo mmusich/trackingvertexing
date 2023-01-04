@@ -364,19 +364,19 @@ Now prepare plots for the track variables discussed above, as in the example bel
 > ~~~
 > {: .language-python}
 > •	track_pt.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png" alt="Track pT" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png" alt="Track pT" width ="500"></a>
 > •	track_eta.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png" alt="Track Eta" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png" alt="Track Eta" width ="500"></a>
 > •	track_phi.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png" alt="Track Phi" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png" alt="Track Phi" width ="500"></a>
 > •	track_normChi2.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png" alt="Track NormChi2" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png" alt="Track NormChi2" width ="500"></a>
 > •	track_nPixelHits.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png" alt="Track number of Pixel Hits" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png" alt="Track number of Pixel Hits" width ="500"></a>
 > •	track_nTkLayers.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png" alt="Track number of Tracker Layers" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png" alt="Track number of Tracker Layers" width ="500"></a>
 > •	track_nValHits.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png" alt="Track number of Valid Hits" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png" alt="Track number of Valid Hits" width ="500"></a>
 {: .solution}
 ## Track information in MINIAOD
 

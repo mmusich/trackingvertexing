@@ -185,7 +185,7 @@ You can now use the x and y coordinates of the secondary vertices and the primar
 > {: .language-python}
 {: .solution}
 You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the maxEvents parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png" alt="Lxy distribution" width ="200"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png" alt="Lxy distribution" width ="500"></a>
 
 ## Secondary vertices in MINIAOD
 The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) collection is already available in the miniAOD files. You can retrieve the collection type and format by doing:
