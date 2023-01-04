@@ -5,6 +5,7 @@ title: Setup
 
 > ## Important
 > **This exercise is meant to be run from cmslpc-sl7.fnal.gov or lxplus.cern.ch, but we will prefer the first one.**
+> [Connecting to the cmslpc cluster link](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml)
 {: .callout}
 ### Logging in
 Keep in mind your `<USERNAME>` and use it in the following instructions:
