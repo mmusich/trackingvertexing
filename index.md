@@ -25,10 +25,10 @@ We will present an introduction to using tracks for analyses in the era of **lar
 - Using tracks to measure from data and MC the **tracking efficiency** by using tag and probe method via dimuon resonances. It can be extended to measure the efficiency of any selection of muons (trigger, isolation, identification) and derive scale factors from MC.
 
 > ## Facilitators
-> * [Brunella D'Anzi*](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi), University and INFN of Bari, ([brunella.d'anzi@cern.ch](mailto:brunella.d'anzi@cern.ch) 
-> * [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith), Baylor [caleb.smith@cern.ch](mailto:caleb.smith@cern.ch) 
-> * [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis), INFN and Polytechnic of Bari [nicola.defilippis@ba.infn.it](mailto:nicola.defilippis@ba.infn.it) 
-> * [Susan Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer), University of Illinois Chicago [Susan.Dittmer@cern.ch](mailto:Susan.Dittmer@cern.ch) 
+> * [Brunella D'Anzi*](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi), University and INFN of Bari ([brunella.d'anzi@cern.ch](mailto:brunella.d'anzi@cern.ch)) 
+> * [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith), Baylor ([caleb.smith@cern.ch](mailto:caleb.smith@cern.ch)) 
+> * [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis), INFN and Polytechnic of Bari ([nicola.defilippis@ba.infn.it](mailto:nicola.defilippis@ba.infn.it)) 
+> * [Susan Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer), University of Illinois Chicago ([Susan.Dittmer@cern.ch](mailto:Susan.Dittmer@cern.ch)) 
 > *Lead Contact
 {: .testimonial}
 
