@@ -48,7 +48,7 @@ So, in the picture below, on the left, let’s imagine that the pT bin we are se
 
 The fit, which is made in a different space (the invariant mass space) allows to statistically discriminate between signal and background. To compute the efficiency we simply divide the signal yield from the fits to the passing category by the signal yield from the fit of the inclusive (All) category. This approach is depicted in the middle and right-hand plots of the image below for the Y resonance.
 
-<a href="https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png"><img src = "https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png" alt="Tag and Probe method" width ="200"></a>
+<a href="https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png"><img src = "https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png" alt="Tag and Probe method" width ="500"></a>
 
 At the end of this section, then, you will have to make these fits for each bin in the range of interest.
 The dataset used in this exercise has been collected by the CMS experiment, in proton-proton collisions at the LHC. It contains `986100 entries` (muon pair candidates) with an associated invariant mass. For each candidate, the transverse `momentum (pT)`, `rapidity(η)` and `azimuthal angle (φ)` are stored, along with a binary flag `probe_isTrkMatch`, which is `1` in case the corresponding probe satisfied the track matching selection criteria and 0 in case it doesn’t.
@@ -76,7 +76,7 @@ The creation of these `TH1 objects` is taken care of by the `src/make_hist.cpp` 
 
 When the execution finishes, you should have 2 new files. One on your working directory `Histograms_Data.root` and another one `Efficiency_Run2018.root` located at `Efficiency_Result/eta`. The second contains the efficiency we calculated, while the first file is used to re-do any unusuable fits. If you want, check out the PDF files under the `Fit_Result/` directory, which contain the fitting results as the following one:
 
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/probe_eta-0.200000__probe_eta=0.200000_Data-1.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/probe_eta-0.200000__probe_eta=0.200000_Data-1.png" alt="Fitting procedure applied to the Z di-muon boson invariant mass for both passing and all probes" width ="200"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png" alt="Fitting procedure applied to the Z di-muon boson invariant mass for both passing and all probes" width ="200"></a>
 
 Now we must re-run the code, but before that, change `IsMc` value to `TRUE`. This will generate an efficiency for the simulated data, so that we can compare it with part of the 2018 run. If so, now uncomment `Efficiency.C` the following line:
 ~~~
@@ -85,7 +85,7 @@ Now we must re-run the code, but before that, change `IsMc` value to `TRUE`. Thi
 {: .language-cpp}
 
 and run the macro again. You should get something like the following result if you inspect the image at `Comparison_Run2018_vs_MC_Efficiency.png`:
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/Efficiency.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/Efficiency.png" alt="Tracking Efficiency for CMS 2018 Data" width ="200"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/Efficiency.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/Efficiency.png" alt="Tracking Efficiency for CMS 2018 Data" width ="200"></a>
 
 If everything went well and you still have time to go, repeat this process for the two other variables, pT and φ! In case you want to change one of the fit results, use the `change_bin.cpp` function commented in `Efficiency.C`. If you would like to explore the results having more statistics, use the samples in `DATA/Z/` directory!
 
@@ -118,7 +118,7 @@ rho_z_histogram.Draw()
 
 What does the distribution tell you about CMS vertex reconstruction?
 Half-view of CMS tracker (color indicates average number of hits):
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="200"></a>
+<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="500"></a>
 
 ### Correlation between pile-up and number of clusters
 ~~~

@@ -164,13 +164,13 @@ Some analyses remove spurious tracks by requiring them to come from the beamspot
 Some of these standard selections have been encoded into a quality flag with three categories: `loose`, `tight`, and `highPurity`. All tracks delivered to the analyzers are at least `loose`, `tight` is a subset of these that are more likely to be real, and "highPurity" is a subset of "tight" with even stricter requirements. There is a trade-off: `loose` tracks have high efficiency but also high backgrounds, `highPurity` has slightly lower efficiency but much lower backgrounds, and `tight` is in between (see also the plots below). As of `CMSSW 7.4`, these are all calculated using MVAs (**M**ulti**V**ariate **A**nalysis techniques) for the various iterations. In addition to the status bits, it's also possible to access the MVA values directly.
 
 Plot of Efficiency vs Eta:
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_efficiency_eta.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_efficiency_eta.png" alt="Efficiency vs Eta" width ="350"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_eta.png" alt="Efficiency vs Eta" width ="350"></a>
 Plot of Efficiency vs pT:
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_efficiency_pt.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_efficiency_pt.png" alt="Efficiency vs pT" width ="350"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_pt.png" alt="Efficiency vs pT" width ="350"></a>
 Plot of Backgrounds vs Eta:
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_fakerate_eta.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_fakerate_eta.png" alt="Backgrounds vs Eta" width ="350"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_eta.png" alt="Backgrounds vs Eta" width ="350"></a>
 Plot of Backgrounds vs pT:
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_fakerate_pt.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/ttbar_phase1_ca_vs_pu_fakerate_pt.png" alt="Backgrounds vs pT" width ="350"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png" alt="Backgrounds vs pT" width ="350"></a>
 
 Update the file `print.py` with the following lines:
 Add a `Handle` to the MVA values:
@@ -364,19 +364,19 @@ Now prepare plots for the track variables discussed above, as in the example bel
 > ~~~
 > {: .language-python}
 > •	track_pt.png:
-> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_pt.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_pt.png" alt="Track pT" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png" alt="Track pT" width ="350"></a>
 > •	track_eta.png:
-> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_eta.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_eta.png" alt="Track Eta" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png" alt="Track Eta" width ="350"></a>
 > •	track_phi.png:
-> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_phi.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_phi.png" alt="Track Phi" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png" alt="Track Phi" width ="350"></a>
 > •	track_normChi2.png:
-> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_normChi2.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_normChi2.png" alt="Track NormChi2" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png" alt="Track NormChi2" width ="350"></a>
 > •	track_nPixelHits.png:
-> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_nPixelHits.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_nPixelHits.png" alt="Track number of Pixel Hits" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png" alt="Track number of Pixel Hits" width ="350"></a>
 > •	track_nTkLayers.png:
-> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_nTkLayers.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_nTkLayers.png" alt="Track number of Tracker Layers" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png" alt="Track number of Tracker Layers" width ="350"></a>
 > •	track_nValHits.png:
-> <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_nValHits.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/track_nValHits.png" alt="Track number of Valid Hits" width ="350"></a>
+> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png" alt="Track number of Valid Hits" width ="350"></a>
 {: .solution}
 ## Track information in MINIAOD
 
