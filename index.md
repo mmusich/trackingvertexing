@@ -25,8 +25,188 @@ We will present an introduction to using tracks for analyses in the era of **lar
 - Using tracks to measure from data and MC the **tracking efficiency** by using tag and probe method via dimuon resonances. It can be extended to measure the efficiency of any selection of muons (trigger, isolation, identification) and derive scale factors from MC.
 <!-- this is an html comment -->
 
+<h2 id="general">General Information</h2>
+
+{% comment %}
+INTRODUCTION
+
+Edit the general explanatory paragraph below if you want to change
+the pitch.
+{% endcomment %}
+{% if site.carpentry == "swc" %}
+{% include swc/intro.html %}
+{% elsif site.carpentry == "dc" %}
+{% include dc/intro.html %}
+{% elsif site.carpentry == "lc" %}
+{% include lc/intro.html %}
+{% endif %}
+
+<p id="what">
+  <strong>What:</strong> A series of pre-exercises to exercise all the needed tools with the laptop participants will bring to CMS DAS, so that they can be ready to go from the beginning of the school.
+</p>
+
+{% comment %}
+AUDIENCE
+
+Explain who your audience is.  (In particular, tell readers if the
+workshop is only open to people from a particular institution.
+{% endcomment %}
+{% if site.carpentry == "swc" %}
+{% include swc/who.html %}
+{% elsif site.carpentry == "dc" %}
+{% include dc/who.html %}
+{% elsif site.carpentry == "lc" %}
+{% include lc/who.html %}
+{% endif %}
+
+{% comment %}
+LOCATION
+
+This block displays the address and links to maps showing directions
+if the latitude and longitude of the workshop have been set.  You
+can use https://itouchmap.com/latlong.html to find the lat/long of an
+address.
+{% endcomment %}
+{% assign begin_address = page.address | slice: 0, 4 | downcase  %}
+{% if page.address == "online" %}
+{% assign online = "true_private" %}
+{% elsif begin_address contains "http" %}
+{% assign online = "true_public" %}
+{% else %}
+{% assign online = "false" %}
+{% endif %}
+{% if page.latitude and page.longitude and online == "false" %}
+<p id="where">
+  <strong>Where:</strong>
+  {{page.address}}.
+  Get directions with
+  <a href="//www.openstreetmap.org/?mlat={{page.latitude}}&mlon={{page.longitude}}&zoom=16">OpenStreetMap</a>
+  or
+  <a href="//maps.google.com/maps?q={{page.latitude}},{{page.longitude}}">Google Maps</a>.
+</p>
+{% elsif online == "true_public" %}
+<p id="where">
+  <strong>Where:</strong>
+  online at <a href="{{page.address}}">{{page.address}}</a>.
+  If you need a password or other information to access the training,
+  the instructor will pass it on to you before the workshop.
+</p>
+{% elsif online == "true_private" %}
+<p id="where">
+  <strong>Where:</strong> This training will take place online.
+</p>
+{% endif %}
+
+{% comment %}
+DATE
+
+This block displays the date and links to Google Calendar.
+{% endcomment %}
+{% if page.humandate %}
+<p id="when">
+  <strong>When:</strong>
+  {{page.humandate}}.
+  <!--{% include workshop_calendar.html %}-->
+</p>
+{% endif %}
+
+{% comment %}
+SPECIAL REQUIREMENTS
+
+Modify the block below if there are any special requirements.
+{% endcomment %}
+<p id="requirements">
+  <strong>Requirements:</strong> Participants must have access to a computer with internet access for which they have administrative privileges. Acceptable operating systems include Mac OS, Linux, or Windows (preferably not a tablet, Chromebook, etc.). The <a href="setup.html">setup</a> page will have more information about any additional pieces of software that must be installed or any accounts which must be obtained.
+</p>
+
+{% comment %}
+ACCESSIBILITY
+
+Modify the block below if there are any barriers to accessibility or
+special instructions.
+{% endcomment %}
+<p id="accessibility">
+  <strong>Accessibility:</strong>
+{% if online == "false" %}
+  We are committed to making this workshop
+  accessible to everybody. The workshop organizers have checked that:
+</p>
+<ul>
+  <li>The room is wheelchair / scooter accessible.</li>
+  <li>Accessible restrooms are available.</li>
+</ul>
+<p>
+  Materials will be provided in advance of the workshop and
+  large-print handouts are available if needed by notifying the
+  organizers in advance.  If we can help making learning easier for
+  you (e.g. sign-language interpreters, lactation facilities) please
+  get in touch (using contact details below) and we will
+  attempt to provide them.
+</p>
+{% else %}
+  We are dedicated to providing a positive and accessible learning environment for all. Please
+  notify the instructors in advance of the workshop if you require any accommodations or if there is
+  anything we can do to make this workshop more accessible to you.
+</p>
+{% endif %}
+
+
+<p id="instructors">
+   <strong>Instructors:</strong>
+   {% for name in page.instructor %}
+   {% if forloop.last and page.instructor.size > 1 %}
+   and
+   {% else %}
+   {% unless forloop.first %}
+   ,
+   {% endunless %}
+   {% endif %}
+   {{name}}
+   {% endfor %}
+</p>
+
+<p id="helpers">
+   <strong>Helpers:</strong>
+   {% for name in page.helper %}
+   {% if forloop.last and page.helper.size > 1 %}
+   and
+   {% else %}
+   {% unless forloop.first %}
+   ,
+   {% endunless %}
+   {% endif %}
+   {{name}}
+   {% endfor %}
+</p>
+
+{% comment %}
+CONTACT EMAIL ADDRESS
+
+Display the contact email address set in the configuration file.
+{% endcomment %}
+<p id="contact">
+  <strong>Contact:</strong>
+  Please email
+  {% if page.email %}
+  {% for email in page.email %}
+  {% if forloop.last and page.email.size > 1 %}
+  or
+  {% else %}
+  {% unless forloop.first %}
+  ,
+  {% endunless %}
+  {% endif %}
+  <a href='mailto:{{email}}'>{{email}}</a>
+  {% endfor %}
+  {% else %}
+  to-be-announced
+  {% endif %}
+  for more information or assistance.
+</p>
+
 > ## Facilitators
-> [Brunella D'Anzi](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi) (University of Bari), [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith) (Baylor), [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis) (Polytechnic of Bari), [Susan Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer) (University of Illinois Chicago)
+> [Brunella D'Anzi*](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi) (University of Bari), [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith) (Baylor), [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis) (Polytechnic of Bari), [Susan Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer) (University of Illinois Chicago)
+*Lead Contact
 {: .testimonial}
 
 > ## Mattermost Chat
