@@ -194,7 +194,7 @@ The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) 
  edmDumpEventContent run321167_Charmonium_MINIAOD.root | grep Vertices
  ~~~
  {: .language-bash}
-Modify `sec_vertices.py` to read the lambda vertices from the MINIAOD file. You will have to modify the collection type and label accordingly to the MINIAOD content.
+Modify `sec_vertices.py` to read the lambda vertices from the miniAOD file. You will have to modify the collection type and label accordingly to the miniAOD content.
 > ## Answer
 > ~~~
 > import DataFormats.FWLite as fwlite
