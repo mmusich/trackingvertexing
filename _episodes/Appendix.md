@@ -215,7 +215,7 @@ It produces two plots, one of which shows a clear bias from the correct distribu
 Below, there is a figure that might help.
 It is also useful to draw sketches for yourself.
 
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/dxy.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/dxy.png" alt="Sketch of dxy" width ="200"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
 
 ## Documentation
 •	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/edit/CMS/CMSPublic.SWGuideTrackReco)
