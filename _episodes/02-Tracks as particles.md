@@ -1,5 +1,5 @@
 ---
-title: "Tracks as particles"
+title: "CMS Data Analysis School Tracking and Vertexing Short Exercise - Tracks as particles"
 teaching: 10
 exercises: 10
 questions:

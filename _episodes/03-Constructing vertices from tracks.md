@@ -1,5 +1,5 @@
 ---
-title: "Constructing vertices from tracks"
+title: "CMS Data Analysis School Tracking and Vertexing Short Exercise - Constructing vertices from tracks"
 teaching: 20
 exercises: 20
 questions:

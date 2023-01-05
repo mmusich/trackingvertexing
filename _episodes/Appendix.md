@@ -1,5 +1,5 @@
 ---
-title: "Appendix"
+title: "CMS Data Analysis School Tracking and Vertexing Short Exercise - Appendix"
 teaching: 0
 exercises: 1
 questions:

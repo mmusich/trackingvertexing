@@ -1,5 +1,5 @@
 ---
-title: "The five basic track variables"
+title: "CMS Data Analysis School Tracking and Vertexing Short Exercise - The five basic track variables"
 teaching: 15
 exercises: 15
 questions:
