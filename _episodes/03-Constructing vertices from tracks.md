@@ -132,7 +132,9 @@ In the code above, you specify the C++ type of the collection (`std::vector`). F
 
 Each of these vertices contains two tracks by construction. One of the vertex member functions (do `dir(vertex)` in the python shell after executing the above code to see them all) returns the invariant mass of the pair of tracks. This calculation is a little more complex than the invariant masses we calculated by hand because it is necessary to evaluate the px and py components of momentum at the vertex rather than at the beamspot. If these two particles really did originate in a decay several centimeters from the beamspot, then the track parameters evaluated at the beamspot are not meaningful.
 
-**Plot the invariant mass of all vertices**. Modify the `sec_vertices.py` to draw the invariant mass distribution, i.e. fill a histogram with `vertex.mass()` for each secondary vertex.
+> ## Question
+> **Plot the invariant mass of all vertices**. Modify the `sec_vertices.py` to draw the invariant mass distribution, i.e. fill a histogram with `vertex.mass()` for each secondary vertex.
+{: .challenge}
 > ## Answer (don't look until you've tried it!)
 > ~~~
 > import DataFormats.FWLite as fwlite
@@ -165,10 +167,11 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 > Prepare a similar plot for the Lambda vertices. (Hints: were the Lambda vertices created when you ran the [SecondaryVertices](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertices) producer? the Lambda mass is [1.115 GeV](http://pdglive.lbl.gov/Particle.action?init=0&node=S018&home=BXXX020) Are you expecting to reconstruct the mass at the same value in the whole detector ? (plot the mass resolution as function of the eta of the reconstructed Lambda)
 {: .discussion}
 
-**Plot the flight distance of all vertices.** Modify the `sec_vertices.py` to draw the flight distance in the transverse plane distribution between each secondary vertex and the primary vertex. For this, you can look ahead at the next part of the exercise to see how to access the primary vertices collection. Once you have it, you can access the first primary vertex in the collection with `pv = primaryVertices.product()[0]`. 
+> ## Question
+> **Plot the flight distance of all vertices.** Modify the `sec_vertices.py` to draw the flight distance in the transverse plane distribution between each secondary vertex and the primary vertex. For this, you can look ahead at the next part of the exercise to see how to access the primary vertices collection. Once you have it, you can access the first primary vertex in the collection with `pv = primaryVertices.product()[0]`. 
 
-You can now use the x and y coordinates of the secondary vertices and the primary vertex to calculate the distance. Note that for the PV, you access these values with the `x()` and `y()` member functions, while for the secondary vertices, these are called `vx()` and `vy()`.
-
+> You can now use the x and y coordinates of the secondary vertices and the primary vertex to calculate the distance. Note that for the PV, you access these values with the `x()` and `y()` member functions, while for the secondary vertices, these are called `vx()` and `vy()`.
+{: .challenge}
 > ## Answer
 > ~~~
 > import DataFormats.FWLite as fwlite
@@ -206,7 +209,9 @@ The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) 
  ~~~
  {: .language-bash}
 
-Modify `sec_vertices.py` to read the lambda vertices from the MiniAOD file. You will have to modify the collection type and label accordingly to the MiniAOD content.
+> ## Question
+> Modify `sec_vertices.py` to read the lambda vertices from the MiniAOD file. You will have to modify the collection type and label accordingly to the MiniAOD content.
+{: .challenge}
 > ## Answer
 > ~~~
 > import DataFormats.FWLite as fwlite
@@ -235,6 +240,7 @@ The primary vertex reconstruction consists of three steps:
 *	selection of tracks
 *	clustering of the tracks that appear to originate from the same interaction vertex
 *	fitting for the position of each vertex using its associated tracks
+
 All the primary vertices reconstructed in an event are saved in the `reco::Vertex` collection labeled `offlinePrimaryVertices`. Create the file `vertex.py` in `TrackingShortExercize/` which will load the original `run321167_ZeroBias_AOD.root` file and make a quarter-view plot of the vertex distribution (run it using `python vertex.py`):
 ~~~
 import DataFormats.FWLite as fwlite
@@ -281,7 +287,9 @@ c.SaveAs("deltaz.png")
 
 The broad distribution is due to the spread in primary vertex positions. Zoom in on the narrow dip near deltaz = 0. This region is empty because if two real vertices are too close to each other, they will be misreconstructed as a single vertex. Thus, there are no reconstructed vertices with such small separations.
 
-**Write a short script to print out the number of primary vertices in each event.** When people talk about the **pile-up**, it is this number they are referring to. If you want, you can even plot it; the distribution should roughly fit a Poisson distribution.
+> ## Question
+> **Write a short script to print out the number of primary vertices in each event.** When people talk about the **pile-up**, it is this number they are referring to. If you want, you can even plot it; the distribution should roughly fit a Poisson distribution.
+{: .challenge}
 > ## Answer
 > ~~~
 > events.toBegin()
@@ -304,7 +312,9 @@ The broad distribution is due to the spread in primary vertex positions. Zoom in
 > In the standard analysis workflow there are many quality requirements to be applied to the events and to the reconstructed quantities in an event. One of these requests is based on the characteristics of the reconstructed primary vertices, and it is defined by the `CMSSW EDFilter` `goodOfflinePrimaryVertices_cfi.py` .
 > Are these selections surprising you ?
 {: .solution}
+> ## Challenge
 **Write a short script to plot the distribution of the number of tracks vs the number of vertices.** What do you expect?
+{: .challenge}
 > ## Answer
 > The following snippet tells you what to do, but you need to make sure that all needed variables are defined.
 > ~~~
@@ -376,99 +386,100 @@ Add the analogous 2D plots for x versus z and y vs z positions.
 > Furthermore, you can add a plot of the average primary vertex position and compare it to:
 > *	the center of beamspot (red line)
 > *	the beamspot region (beamspot center +/- beamspot witdh, that you can access through beamspot.product().BeamWidthX()
-> > ## Answer
-> > ~~~
-> > import DataFormats.FWLite as fwlite
-> > import math
-> > import ROOT
-> > from array import array
-> > 
-> > ROOT.gROOT.SetBatch(True)
-> > 
-> > def isGoodPV(vertex):
-> >     if ( vertex.isFake()        or \
-> >          vertex.ndof < 4.0      or \
-> >          abs(vertex.z()) > 24.0 or \
-> >          abs(vertex.position().Rho()) > 2):
-> >            return False
-> >     return True
-> > 
-> > events          = fwlite.Events("file:run321167_ZeroBias_AOD.root")
-> > primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
-> > beamspot        = fwlite.Handle("reco::BeamSpot")
-> > vtx_position, N_vtx = array( 'd' ), array( 'd' )
-> > 
-> > vtx_xy = ROOT.TH2F('vtx_xy','; x [cm]; y [cm]', 100,-0.05, 0.25, 100, -0.2, 0.1)
-> > c = ROOT.TCanvas( "c", "c", 1200, 800)
-> > 
-> > sumx = 0.0
-> > N    = 0
-> > iIOV = 0
-> > last_beamspot = None
-> > last_beamspot_sigma = None
-> > 
-> > vtx_position, N_vtx = array( 'd' ), array( 'd' )
-> > leg = ROOT.TLegend(0.45, 0.15, 0.6, 0.28)
-> > leg.SetBorderSize(0)
-> > leg.SetTextSize(0.03)
-> > 
-> > events.toBegin()
-> > for event in events:
-> >     event.getByLabel("offlinePrimaryVertices", primaryVertices)
-> >     event.getByLabel("offlineBeamSpot", beamspot)
-> > 
-> >     if last_beamspot == None or last_beamspot != beamspot.product().x0():
-> >         print "New beamspot IOV (interval of validity)..."
-> > 
-> >         ## first save tgraph and then reset
-> >         if (iIOV > 0):
-> >             theGraph   = ROOT.TGraph(len(vtx_position), N_vtx, vtx_position)
-> >             theGraph.SetMarkerStyle(8)
-> >             theGraph.SetTitle('IOV %s; N Vtx; X position'%iIOV)
-> >             theGraph.Draw('AP')
-> >             theGraph.GetYaxis().SetRangeUser(0.094, 0.099)
-> >             
-> >             line = ROOT.TLine(0,last_beamspot,N_vtx[-1],last_beamspot)
-> >             line.SetLineColor(ROOT.kRed)
-> >             line.SetLineWidth(2)
-> >             line.Draw()
-> > 
-> >             line2 = ROOT.TLine(0,last_beamspot - last_beamspot_sigma,N_vtx[-1],last_beamspot - last_beamspot_sigma)
-> >             line2.SetLineColor(ROOT.kOrange)
-> >             line3 = ROOT.TLine(0,last_beamspot + last_beamspot_sigma,N_vtx[-1],last_beamspot + last_beamspot_sigma)
-> >             line3.SetLineColor(ROOT.kOrange)
-> >             line2.SetLineWidth(2)
-> >             line3.SetLineWidth(2)
-> >             line2.Draw()
-> >             line3.Draw()
-> >             
-> >             leg.Clear()
-> >             leg.AddEntry(theGraph,  'ave. vtx position',        'p')
-> >             leg.AddEntry(line    ,  'center of the beamspot ' , 'l')
-> >             leg.AddEntry(line2   ,  'center of the bs #pm beamspot width ' , 'l')
-> >             leg.Draw()
-> >             c.SaveAs("vtx_x_vs_N_%s.png"%iIOV)
-> >             break
-> > 
-> >             vtx_position, N_vtx = array( 'd' ), array( 'd' )
-> > 
-> >         last_beamspot       = beamspot.product().x0()
-> >         last_beamspot_sigma = beamspot.product().BeamWidthX()
-> >         sumx = 0.0
-> >         N = 0
-> >         iIOV += 1
-> > 
-> >     for vertex in primaryVertices.product():
-> >         if not isGoodPV(vertex):  continue
-> >         N += 1
-> >         sumx += vertex.x()
-> >         if N % 1000 == 0:
-> >             vtx_position.append(sumx/N)
-> >             N_vtx.append(N)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .callout}
+{: .challenge}
+> ## Answer
+> ~~~
+> import DataFormats.FWLite as fwlite
+> import math
+> import ROOT
+> from array import array
+> 
+> ROOT.gROOT.SetBatch(True)
+> 
+> def isGoodPV(vertex):
+>     if ( vertex.isFake()        or \
+>          vertex.ndof < 4.0      or \
+>          abs(vertex.z()) > 24.0 or \
+>          abs(vertex.position().Rho()) > 2):
+>            return False
+>     return True
+> 
+> events          = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+> primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
+> beamspot        = fwlite.Handle("reco::BeamSpot")
+> vtx_position, N_vtx = array( 'd' ), array( 'd' )
+> 
+> vtx_xy = ROOT.TH2F('vtx_xy','; x [cm]; y [cm]', 100,-0.05, 0.25, 100, -0.2, 0.1)
+> c = ROOT.TCanvas( "c", "c", 1200, 800)
+> 
+> sumx = 0.0
+> N    = 0
+> iIOV = 0
+> last_beamspot = None
+> last_beamspot_sigma = None
+> 
+> vtx_position, N_vtx = array( 'd' ), array( 'd' )
+> leg = ROOT.TLegend(0.45, 0.15, 0.6, 0.28)
+> leg.SetBorderSize(0)
+> leg.SetTextSize(0.03)
+> 
+> events.toBegin()
+> for event in events:
+>     event.getByLabel("offlinePrimaryVertices", primaryVertices)
+>     event.getByLabel("offlineBeamSpot", beamspot)
+> 
+>     if last_beamspot == None or last_beamspot != beamspot.product().x0():
+>         print "New beamspot IOV (interval of validity)..."
+> 
+>         ## first save tgraph and then reset
+>         if (iIOV > 0):
+>             theGraph   = ROOT.TGraph(len(vtx_position), N_vtx, vtx_position)
+>             theGraph.SetMarkerStyle(8)
+>             theGraph.SetTitle('IOV %s; N Vtx; X position'%iIOV)
+>             theGraph.Draw('AP')
+>             theGraph.GetYaxis().SetRangeUser(0.094, 0.099)
+>             
+>             line = ROOT.TLine(0,last_beamspot,N_vtx[-1],last_beamspot)
+>             line.SetLineColor(ROOT.kRed)
+>             line.SetLineWidth(2)
+>             line.Draw()
+> 
+>             line2 = ROOT.TLine(0,last_beamspot - last_beamspot_sigma,N_vtx[-1],last_beamspot - last_beamspot_sigma)
+>             line2.SetLineColor(ROOT.kOrange)
+>             line3 = ROOT.TLine(0,last_beamspot + last_beamspot_sigma,N_vtx[-1],last_beamspot + last_beamspot_sigma)
+>             line3.SetLineColor(ROOT.kOrange)
+>             line2.SetLineWidth(2)
+>             line3.SetLineWidth(2)
+>             line2.Draw()
+>             line3.Draw()
+>             
+>             leg.Clear()
+>             leg.AddEntry(theGraph,  'ave. vtx position',        'p')
+>             leg.AddEntry(line    ,  'center of the beamspot ' , 'l')
+>             leg.AddEntry(line2   ,  'center of the bs #pm beamspot width ' , 'l')
+>             leg.Draw()
+>             c.SaveAs("vtx_x_vs_N_%s.png"%iIOV)
+>             break
+> 
+>             vtx_position, N_vtx = array( 'd' ), array( 'd' )
+> 
+>         last_beamspot       = beamspot.product().x0()
+>         last_beamspot_sigma = beamspot.product().BeamWidthX()
+>         sumx = 0.0
+>         N = 0
+>         iIOV += 1
+> 
+>     for vertex in primaryVertices.product():
+>         if not isGoodPV(vertex):  continue
+>         N += 1
+>         sumx += vertex.x()
+>         if N % 1000 == 0:
+>             vtx_position.append(sumx/N)
+>             N_vtx.append(N)
+> ~~~
+> {: .language-python}
+{: .solution}
+
 
 ## Primary vertices improve physics results
 
@@ -495,7 +506,9 @@ cosAngle_histogram = ROOT.TH1F("cosAngle", "cosAngle", 100, -1.0, 1.0)
 cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99, 1.0)
 ~~~
 {: .language-python}
+> ## Question
 **Construct a nested loop over secondary and primary vertices to compute displacement vectors and compare them with KS momentum vectors.** Just print out a few values.
+{: .challenge}
 > ## Answer
 > ~~~
 > for i, event in enumerate(events):
