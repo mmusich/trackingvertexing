@@ -5,7 +5,7 @@ exercises: 15
 questions:
 - "What are the main track variables used in CMS collaboration in different data formats?"
 - "How can we access them?"
-- "Which are the variables for the track quality?"
+- "Which are the track quality variables?"
 - "How do the distributions of track variables before and after high purity track selection change?"
 objectives:
 - "Being familiar with tracks collections and their variables."
@@ -13,8 +13,8 @@ objectives:
 - "Accessing information and plot basic variables using ROOT."
 keypoints:
 - "The pre-selection of tracks in MiniAOD also affects the distribution of the track quality parameters."
-- "All tracks are stored in the generalTracks collection in AOD."
-- "In MiniAOD they are accessible in a less straightforward way (packedPFCandidates, lostTracks collection) and 
+- "All tracks are stored in the `generalTracks` collection in AOD."
+- "In MiniAOD they are accessible in a less straightforward way (`packedPFCandidates`, `lostTracks` collection) and 
 not all tracks are available!"
 
 ---
