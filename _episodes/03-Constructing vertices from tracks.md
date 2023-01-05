@@ -482,7 +482,7 @@ Add the analogous 2D plots for x versus z and y vs z positions.
 
 ## Primary vertices improve physics results
 
-Finally, let's consider an example of how primary vertices are useful to an analyst. If you're interested in K<sub>S</sub> → π<sup>+</sup>π<sup>-</sup>, it might seem that primary vertices are irrelevant because neither of your two visible tracks (π+π−) directly originated in any of the proton-proton collisions. However, the K<sub>S</sub> did. The K<sub>S</sub> flew several centimeters away from the primary vertex in which it was produced, and its direction of flight must be parallel to its momentum (by definition). 
+Finally, let's consider an example of how primary vertices are useful to an analyst. If you're interested in K<sub>S</sub> → π<sup>+</sup>π<sup>-</sup>, it might seem that primary vertices are irrelevant because neither of your two visible tracks (π<sup>+</sup>π<sup>-</sup>) directly originated in any of the proton-proton collisions. However, the K<sub>S</sub> did. The K<sub>S</sub> flew several centimeters away from the primary vertex in which it was produced, and its direction of flight must be parallel to its momentum (by definition). 
 
 We can measure the K<sub>S</sub> momentum from the momenta of its decay products, and we can identify the start and end positions of the K<sub>S</sub> flight from the locations of the primary and secondary vertices. The momentum vector and the displacement vector must be parallel. (There is no constraint on the length of the displacement vector because the lifetimes of K<sub>S</sub> mesons follow an exponentially random distribution.)
 
