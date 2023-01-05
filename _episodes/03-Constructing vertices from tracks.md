@@ -21,9 +21,9 @@ Let's start with secondary vertices. Particles produced by a single decay or col
 
 This test is more significant than it may appear by looking at event pictures. With so many tracks, it looks like they cross accidentally, but the two-dimensional projection of the event picture is misleading. One-dimensional paths through three-dimensional space do not intersect easily, especially when the trajectories of those paths are measured with microns to hundreds-of-microns precision.
 
-Starting from the detected tracks, we work backward and reconstruct the original vertices by checking each pair of tracks for overlaps. This is performed in the standard reconstruction sequence and delivered to the analyst as lists of K<sub>S</sub> → π+π− and Λ → pπ candidates, but we will repeat the procedure with different parameters. The algorithm will run three times, the first accepting all (`loose`) tracks, the second accepting only `tight` tracks, and the third accepting only `highPurity` tracks.
+Starting from the detected tracks, we work backward and reconstruct the original vertices by checking each pair of tracks for overlaps. This is performed in the standard reconstruction sequence and delivered to the analyst as lists of K<sub>S</sub> → π<sup>+</sup>π<sup>-</sup> and Λ → pπ<sup>0</sup> candidates, but we will repeat the procedure with different parameters. The algorithm will run three times, the first accepting all (`loose`) tracks, the second accepting only `tight` tracks, and the third accepting only `highPurity` tracks.
 
-These are called **secondary vertices** because the proton-proton collision produced the first (`primary`) vertex, then the neutral K<sub>S</sub> flew several centimeters away from the rest of the collision products and decayed into π+π− at a second (`secondary`) position in space.
+These are called **secondary vertices** because the proton-proton collision produced the first (`primary`) vertex, then the neutral K<sub>S</sub> flew several centimeters away from the rest of the collision products and decayed into π<sup>+</sup>π<sup>-</sup> at a second (`secondary`) position in space.
 ## Running the vertex reconstruction
 Create a file named `construct_secondary_vertices_cfg.py` in `TrackingShortExercize/` and fill it with the following:
 ~~~
@@ -158,7 +158,7 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 > {: .language-python}
 {: .solution}
 > ## Question 2
-> You should see a very prominent K<sub>S</sub> → π+π− peak, but also a pedestal. What is the pedestal? Why does it cut off at 0.43 and 0.57 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)?
+> You should see a very prominent K<sub>S</sub> → π<sup>+</sup>π<sup>-</sup> peak, but also a pedestal. What is the pedestal? Why does it cut off at 0.43 and 0.57 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)?
 {: .discussion}
 > ## More
 > You can answer the question concerning the cut-off with the information [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/python/generalV0Candidates_cfi.py#L61-L63).
@@ -482,7 +482,7 @@ Add the analogous 2D plots for x versus z and y vs z positions.
 
 ## Primary vertices improve physics results
 
-Finally, let's consider an example of how primary vertices are useful to an analyst. If you're interested in K<sub>S</sub> → π+π−, it might seem that primary vertices are irrelevant because neither of your two visible tracks (π+π−) directly originated in any of the proton-proton collisions. However, the K<sub>S</sub> did. The K<sub>S</sub> flew several centimeters away from the primary vertex in which it was produced, and its direction of flight must be parallel to its momentum (by definition). 
+Finally, let's consider an example of how primary vertices are useful to an analyst. If you're interested in K<sub>S</sub> → π<sup>+</sup>π<sup>-</sup>, it might seem that primary vertices are irrelevant because neither of your two visible tracks (π+π−) directly originated in any of the proton-proton collisions. However, the K<sub>S</sub> did. The K<sub>S</sub> flew several centimeters away from the primary vertex in which it was produced, and its direction of flight must be parallel to its momentum (by definition). 
 
 We can measure the K<sub>S</sub> momentum from the momenta of its decay products, and we can identify the start and end positions of the K<sub>S</sub> flight from the locations of the primary and secondary vertices. The momentum vector and the displacement vector must be parallel. (There is no constraint on the length of the displacement vector because the lifetimes of K<sub>S</sub> mesons follow an exponentially random distribution.)
 
