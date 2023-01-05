@@ -12,7 +12,7 @@ objectives:
 - "Being aware of track information stored in different data format."
 - "Accessing information and plot basic variables using ROOT."
 keypoints:
-- "The pre-selection of tracks in miniAOD also affects the distribution of the track quality parameters."
+- "The pre-selection of tracks in MiniAOD also affects the distribution of the track quality parameters."
 - "All tracks are stored in the generalTracks collection in AOD."
 - "In MiniAOD they are accessible in a less straightforward way (packedPFCandidates, lostTracks collection) and 
 not all tracks are available!"
@@ -35,7 +35,7 @@ In general terms, the five parameters are:
 
 *	**impact parameter** relative to a reference point (beamspot or a selected primary vertex), along the beamline (usually called dz).
 
-The exact definitions are given in the `reco::TrackBase` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h). This is also where most tracking variables and functions are defined. The rest are in the `reco::Track` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h), but most data fields in the latter are accessible only in RECO (full data record), not AOD/MINIAOD/NANOAOD (the subsets that are available to physics analyses).
+The exact definitions are given in the `reco::TrackBase` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h). This is also where most tracking variables and functions are defined. The rest are in the `reco::Track` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h), but most data fields in the latter are accessible only in RECO (full data record), not AOD/MiniAOD/NanoAOD (the subsets that are available to physics analyses).
 
 ## Accessing track variables
 
@@ -381,9 +381,9 @@ Now prepare plots for the track variables discussed above, as in the example bel
 > *	track_nValHits.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png" alt="Track number of Valid Hits" width ="500"></a>
 {: .solution}
-## Track information in MINIAOD
+## Track information in MiniAOD
 
-There is no track collection stored in MINIAOD analogous to the `generalTracks` in [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD). Tracks associated to charged `PFCandidates` are accessible directly from the `packedPFCandidates` collection for tracks with pT > 0.5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). For tracks between 0.5 and 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) the track information is stored with reduced precision. Tracks not associated with `PF candidates` are in the `lostTracks` collection if their pT is above 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) or they are associated with a secondary vertex or a Ks or Lambda candidate. However, for both the tracks associated to the `PF candidates` and the `lostTracks` the highQuality track selection is used. Tracks with lower quality are not avaiable in MINIAOD at all. In addition, tracks in the lostTracks collection are required to have at least 8 hits of which at least one has to be a pixel hit.
+There is no track collection stored in MiniAOD analogous to the `generalTracks` in [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD). Tracks associated to charged `PFCandidates` are accessible directly from the `packedPFCandidates` collection for tracks with pT > 0.5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). For tracks between 0.5 and 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) the track information is stored with reduced precision. Tracks not associated with `PF candidates` are in the `lostTracks` collection if their pT is above 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) or they are associated with a secondary vertex or a Ks or Lambda candidate. However, for both the tracks associated to the `PF candidates` and the `lostTracks` the highQuality track selection is used. Tracks with lower quality are not avaiable in MiniAOD at all. In addition, tracks in the lostTracks collection are required to have at least 8 hits of which at least one has to be a pixel hit.
 In particular, the track information saved in the `PFCandidates` is the following.
 *	the uncertainty on the impact parameter `dzError()`, `dxyError()`
 *	the number of layers with hits on the track
@@ -395,7 +395,7 @@ In particular, the track information saved in the `PFCandidates` is the followin
     *	the track normalized chisquare (truncated to an integer)
     *	the `highPurity` quality flag set, if the original track had it.
 Consider that the p`ackedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
-Write a simple script that reads a MINIAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MINIAOD file with
+Write a simple script that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MiniAOD file with
  ~~~
  xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_MINIAOD.root .
  ~~~

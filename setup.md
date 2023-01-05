@@ -4,7 +4,7 @@ title: Setup
 # Set-up your working environment
 
 > ## Important
-> **This exercise is meant to be run from cmslpc-sl7.fnal.gov or lxplus.cern.ch, but we will prefer the first one.**
+> **This exercise is designed to run only on cmslpc-sl7 as copies of the scripts are present there.**
 > [Connecting to the cmslpc cluster link](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml)
 {: .callout}
 ### Logging in

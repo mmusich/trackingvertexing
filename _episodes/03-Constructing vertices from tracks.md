@@ -198,15 +198,15 @@ You can now use the x and y coordinates of the secondary vertices and the primar
 You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the maxEvents parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png" alt="Lxy distribution" width ="500"></a>
 {: .discussion}
-## Secondary vertices in MINIAOD
-The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) collection is already available in the miniAOD files. You can retrieve the collection type and format by doing:
+## Secondary vertices in MiniAOD
+The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) collection is already available in the MiniAOD files. You can retrieve the collection type and format by doing:
  ~~~
  xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_Charmonium_MINIAOD.root .
  edmDumpEventContent run321167_Charmonium_MINIAOD.root | grep Vertices
  ~~~
  {: .language-bash}
 
-Modify `sec_vertices.py` to read the lambda vertices from the miniAOD file. You will have to modify the collection type and label accordingly to the miniAOD content.
+Modify `sec_vertices.py` to read the lambda vertices from the MiniAOD file. You will have to modify the collection type and label accordingly to the MiniAOD content.
 > ## Answer
 > ~~~
 > import DataFormats.FWLite as fwlite
