@@ -7,14 +7,15 @@ To prepare CMSDAS participants, a series of pre-exercises are required to be com
 
 Links to all the past and upcoming CMS Schools can be found [HERE](https://twiki.cern.ch/twiki/bin/view/CMS/CMSschoolsCommittee).
 
-**What:** A series of short-exercises to exercise all the needed tools with the laptop participants will bring to CMS DAS, so that they can be ready to go from the beginning of the school.
+**What:** A series of short-exercises to provide all the physics knowledge skills participants will use during the CMS DAS Long Exercises, so that they can be ready to go from the beginning of the school.
 
-**Who:** All participants of the CMS DAS schools.
+**Who:** A subgroup of the CMS DAS school participants.
 
 **Where:** This training will take place online.
 
-**When:** Synchronously from January, 2023.
-Requirements: Participants must have access to a computer with internet access for which they have administrative privileges. Acceptable operating systems include Mac OS, Linux, or Windows (preferably not a tablet, Chromebook, etc.). The setup page will have more information about any additional pieces of software that must be installed or any accounts which must be obtained.
+**When:** Synchronously from first days of the CMS DAS in January, 2023.
+
+**Requirements:** Participants must have access to a computer with internet access for which they have administrative privileges. Acceptable operating systems include Mac OS, Linux, or Windows (preferably not a tablet, Chromebook, etc.). The setup page will have more information about any additional pieces of software that must be installed or any accounts which must be obtained.
 
 **Accessibility:** We are dedicated to providing a positive and accessible learning environment for all. Please notify the instructors in advance of the workshop if you require any accommodations or if there is anything we can do to make this workshop more accessible to you.
 
