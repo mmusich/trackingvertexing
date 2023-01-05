@@ -18,9 +18,9 @@ LXR is a very useful tool to look-up methods/classes/configuration files/paramet
 * Fermilab: [http://cmslxr.fnal.gov/lxr/](http://cmslxr.fnal.gov/lxr/)
 
 ## Further useful code references
-•	CMSSW source code on GitHub for `CMSSW_10_6_18`: https://github.com/cms-sw/cmssw/tree/CMSSW_10_6_18
-    o	you can switch to the branch or version (encoded as git tag) using the drop down menu left of the green `New Pull Request` button
-•	CMSSW Reference Manual: https://cmssdt.cern.ch/SDT/doxygen/CMSSW_10_6_18/doc/html/classes.html
+*	CMSSW source code on GitHub for `CMSSW_10_6_18`: [https://github.com/cms-sw/cmssw/tree/CMSSW_10_6_18](https://github.com/cms-sw/cmssw/tree/CMSSW_10_6_18)
+    *	you can switch to the branch or version (encoded as git tag) using the drop down menu left of the green `New Pull Request` button
+*	CMSSW Reference Manual: [https://cmssdt.cern.ch/SDT/doxygen/CMSSW_10_6_18/doc/html/classes.html](https://cmssdt.cern.ch/SDT/doxygen/CMSSW_10_6_18/doc/html/classes.html)
 
 ## CMS Tracking efficiency computing using Tag and Probe technique
 The **tag and probe** method is a data-driven technique for measuring particle detection efficiencies. It is based on the decays of **known resonances** (e.g. J/ψ, ϒ and Z) to pairs of the particles being studied. In this exercise, these particles are muons, and the Z resonance is nominally used.
