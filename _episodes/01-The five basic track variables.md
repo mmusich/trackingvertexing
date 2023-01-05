@@ -389,7 +389,9 @@ The C++-equivalent is hidden below.
 ## Track information in MiniAOD
 
 There is no track collection stored in MiniAOD analogous to the `generalTracks` in [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD). Tracks associated to charged `PFCandidates` are accessible directly from the `packedPFCandidates` collection for tracks with pT > 0.5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). For tracks between 0.5 and 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) the track information is stored with reduced precision. Tracks not associated with `PF candidates` are in the `lostTracks` collection if their pT is above 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) or they are associated with a secondary vertex or a Ks or Lambda candidate. However, for both the tracks associated to the `PF candidates` and the `lostTracks` the highQuality track selection is used. Tracks with lower quality are not avaiable in MiniAOD at all. In addition, tracks in the lostTracks collection are required to have at least 8 hits of which at least one has to be a pixel hit.
-In particular, the track information saved in the `PFCandidates` is the following.
+
+In particular, the track information saved in the `PFCandidates` is the following:
+
 * the uncertainty on the impact parameter `dzError()`, `dxyError()`
 * the number of layers with hits on the track
 * the sub/det and layer of first hit of the track
@@ -399,10 +401,11 @@ In particular, the track information saved in the `PFCandidates` is the followin
     * approximate `hitPattern()` and `trackerExpectedHitsInner()` that yield the correct number of hits, pixel hits, layers and the information returned by `lostInnerHits()`
     * the track normalized chisquare (truncated to an integer)
     * the `highPurity` quality flag set, if the original track had it.
-Consider that the p`ackedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
+Consider that the `packedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
+
 > ## Question
 > Write a simple script that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MiniAOD file with
-> ~~~
+> > ~~~
 > xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_MINIAOD.root .
 > ~~~
 > {: .language-bash}
