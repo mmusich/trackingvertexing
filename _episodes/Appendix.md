@@ -218,7 +218,7 @@ It is also useful to draw sketches for yourself.
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
 
 ## Documentation
-*	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/edit/CMS/CMSPublic.SWGuideTrackReco)
+*	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/PhysicsResultsTRK)
 *	[CMS Tracking POG Performance in Run-2 Legacy data](https://twiki.cern.ch/twiki/bin/view/CMSPublic/TrackingPOGResultsRun2Legacy)
 
 
