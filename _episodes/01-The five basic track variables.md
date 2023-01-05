@@ -392,15 +392,18 @@ There is no track collection stored in MiniAOD analogous to the `generalTracks` 
 
 In particular, the track information saved in the `PFCandidates` is the following:
 
-* the uncertainty on the impact parameter `dzError()`, `dxyError()`
-* the number of layers with hits on the track
-* the sub/det and layer of first hit of the track
-* the `reco::Track` of the candidate is provided by the `pseudoTrack()` method, with the following information stored:
-    * the pt,eta and phi of the original track (if those are different from the one of the original `PFCandidate`)
-    * an approximate covariance matrix of the track state at the vertex
-    * approximate `hitPattern()` and `trackerExpectedHitsInner()` that yield the correct number of hits, pixel hits, layers and the information returned by `lostInnerHits()`
-    * the track normalized chisquare (truncated to an integer)
-    * the `highPurity` quality flag set, if the original track had it.
+> ## Track information in PFCandidates collection
+> * the uncertainty on the impact parameter `dzError()`, `dxyError()`
+> * the number of layers with hits on the track
+> * the sub/det and layer of first hit of the track
+> * the `reco::Track` of the candidate is provided by the `pseudoTrack()` method, with the following information stored:
+>     * the pt,eta and phi of the original track (if those are different from the one of the original `PFCandidate`)
+>     * an approximate covariance matrix of the track state at the vertex
+>     * approximate `hitPattern()` and `trackerExpectedHitsInner()` that yield the correct number of hits, pixel hits, layers and the information returned by `lostInnerHits()`
+>     * the track normalized chisquare (truncated to an integer)
+>     * the `highPurity` quality flag set, if the original track had it.
+{: .checklist}
+
 Consider that the `packedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
 
 > ## Question 2
