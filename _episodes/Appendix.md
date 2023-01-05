@@ -14,8 +14,8 @@ keypoints:
 ## LXR: a tool to search through CMSSW code
 LXR is a very useful tool to look-up methods/classes/configuration files/parameters/example etc. when working on software development in CMS.
 
-• CERN: [https://cmssdt.cern.ch/lxr/](https://cmssdt.cern.ch/lxr/)
-• Fermilab: [http://cmslxr.fnal.gov/lxr/](http://cmslxr.fnal.gov/lxr/)
+* CERN: [https://cmssdt.cern.ch/lxr/](https://cmssdt.cern.ch/lxr/)
+* Fermilab: [http://cmslxr.fnal.gov/lxr/](http://cmslxr.fnal.gov/lxr/)
 
 ## Further useful code references
 •	CMSSW source code on GitHub for `CMSSW_10_6_18`: https://github.com/cms-sw/cmssw/tree/CMSSW_10_6_18
