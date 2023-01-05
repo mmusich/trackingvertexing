@@ -384,7 +384,7 @@ Add the analogous 2D plots for x versus z and y vs z positions.
 > ## More exercises...
 > Furthermore, you can add a plot of the average primary vertex position and compare it to:
 > *	the center of beamspot (red line)
-> *	the beamspot region (beamspot center +/- beamspot witdh, that you can access through beamspot.product().BeamWidthX()
+> *	the beamspot region (beamspot center +/- beamspot witdh, that you can access through `beamspot.product().BeamWidthX()`
 {: .challenge}
 > ## Answer
 > ~~~
