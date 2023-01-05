@@ -385,7 +385,6 @@ The C++-equivalent is hidden below.
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png" alt="Track number of Tracker Layers" width ="500"></a>
 > *	track_nValHits.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png" alt="Track number of Valid Hits" width ="500"></a>
-> {: .discussion}
 {: .solution}
 ## Track information in MiniAOD
 
