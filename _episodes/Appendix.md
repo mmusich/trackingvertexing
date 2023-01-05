@@ -59,11 +59,13 @@ xrdcp -r root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/tracking
 ~~~
 {: .language-bash}
 Exploring the content of the `TP_Z_DATA.root` and `TP_Z_MC.root` files, the `StandAloneEvents` tree has these variables in which we are interested in:
-* pair_mass
-* probe_isTrkMatch
-* probe_pt
-* probe_eta
-* probe_phi
+> ## Variables to be checked
+> * pair_mass
+> * probe_isTrkMatch
+> * probe_pt
+> * probe_eta
+> * probe_phi
+{: .checklist}
 We’ll start by calculating the efficiency as a function of the probe η. It is useful to have an idea of the distribution of the quantity we want to study. In order to do this, **plot the invariant mass and the probe variables**.
 
 Now that you’re acquainted with the data, open the `Efficiency.C` file. We’ll start by choosing the desired bins for the rapidity. If you’re feeling brave, modify bins for our fit remembering that we need a fair amount of data in each bin (more events mean a better fit!). If not, we’ve left a suggestion in the `Efficiency.C` file. Start with the eta variable.
