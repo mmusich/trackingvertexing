@@ -42,7 +42,7 @@ Welcome to the Tracking and Vertexing Short exercise! We will present an introdu
 {: .callout}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
-> ## Closeup Slides
+> ## Closeout Slides
 > **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
 {: .challenge}
 {% comment %} This is a comment in Liquid {% endcomment %}
