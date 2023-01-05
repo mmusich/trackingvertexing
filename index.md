@@ -17,7 +17,7 @@ email: ["brunella.d'anzi@cern.ch"]
 
 ![CMS Detector Slice](https://cmsexperiment.web.cern.ch/sites/cmsexperiment.web.cern.ch/files/detectoroverview.gif){:width="50%"}
 
-**Welcome to the Tracking and Vertexing Short exercise!** 
+## Welcome to the Tracking and Vertexing Short exercise!
 
 We will present an introduction to using tracks for analyses in the era of **large pile-up** (many primary vertices). Our exercises will all use real data and will familiarize you with the following techniques:
 
