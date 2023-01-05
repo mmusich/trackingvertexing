@@ -43,7 +43,7 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {% comment %} This is a comment in Liquid {% endcomment %}
 
 > ## Closeup Slides
-> You can find a guideline closeup for the Short Exercise questions and results on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf)
+> You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf)
 {: .challenge}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
