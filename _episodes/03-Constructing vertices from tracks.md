@@ -132,7 +132,7 @@ In the code above, you specify the C++ type of the collection (`std::vector`). F
 
 Each of these vertices contains two tracks by construction. One of the vertex member functions (do `dir(vertex)` in the python shell after executing the above code to see them all) returns the invariant mass of the pair of tracks. This calculation is a little more complex than the invariant masses we calculated by hand because it is necessary to evaluate the px and py components of momentum at the vertex rather than at the beamspot. If these two particles really did originate in a decay several centimeters from the beamspot, then the track parameters evaluated at the beamspot are not meaningful.
 
-> ## Question
+> ## Question 1
 > **Plot the invariant mass of all vertices**. Modify the `sec_vertices.py` to draw the invariant mass distribution, i.e. fill a histogram with `vertex.mass()` for each secondary vertex.
 {: .challenge}
 > ## Answer (don't look until you've tried it!)
@@ -157,17 +157,17 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 > ~~~
 > {: .language-python}
 {: .solution}
-> ## Question
+> ## Question 2
 > You should see a very prominent KS → π+π− peak, but also a pedestal. What is the pedestal? Why does it cut off at 0.43 and 0.57 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)?
 {: .discussion}
 > ## More
 > You can answer the question concerning the cut-off with the information [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/python/generalV0Candidates_cfi.py#L61-L63).
 {: .solution}
-> ## Question
+> ## Question 3
 > Prepare a similar plot for the Lambda vertices. (Hints: were the Lambda vertices created when you ran the [SecondaryVertices](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertices) producer? the Lambda mass is [1.115 GeV](http://pdglive.lbl.gov/Particle.action?init=0&node=S018&home=BXXX020) Are you expecting to reconstruct the mass at the same value in the whole detector ? (plot the mass resolution as function of the eta of the reconstructed Lambda)
 {: .discussion}
 
-> ## Question
+> ## Question 4
 > **Plot the flight distance of all vertices.** Modify the `sec_vertices.py` to draw the flight distance in the transverse plane distribution between each secondary vertex and the primary vertex. For this, you can look ahead at the next part of the exercise to see how to access the primary vertices collection. Once you have it, you can access the first primary vertex in the collection with `pv = primaryVertices.product()[0]`. 
 > You can now use the x and y coordinates of the secondary vertices and the primary vertex to calculate the distance. Note that for the PV, you access these values with the `x()` and `y()` member functions, while for the secondary vertices, these are called `vx()` and `vy()`.
 {: .challenge}
@@ -196,7 +196,7 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 > ~~~
 > {: .language-python}
 {: .solution}
-> ## Question
+> ## Question 5
 You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the maxEvents parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png" alt="Lxy distribution" width ="500"></a>
 {: .discussion}
@@ -208,7 +208,7 @@ The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) 
  ~~~
  {: .language-bash}
 
-> ## Question
+> ## Question 6
 > Modify `sec_vertices.py` to read the lambda vertices from the MiniAOD file. You will have to modify the collection type and label accordingly to the MiniAOD content.
 {: .challenge}
 > ## Answer
@@ -286,7 +286,7 @@ c.SaveAs("deltaz.png")
 
 The broad distribution is due to the spread in primary vertex positions. Zoom in on the narrow dip near deltaz = 0. This region is empty because if two real vertices are too close to each other, they will be misreconstructed as a single vertex. Thus, there are no reconstructed vertices with such small separations.
 
-> ## Question
+> ## Question 7
 > **Write a short script to print out the number of primary vertices in each event.** When people talk about the **pile-up**, it is this number they are referring to. If you want, you can even plot it; the distribution should roughly fit a Poisson distribution.
 {: .challenge}
 > ## Answer
@@ -505,7 +505,7 @@ cosAngle_histogram = ROOT.TH1F("cosAngle", "cosAngle", 100, -1.0, 1.0)
 cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99, 1.0)
 ~~~
 {: .language-python}
-> ## Question
+> ## Question 8
 **Construct a nested loop over secondary and primary vertices to compute displacement vectors and compare them with KS momentum vectors.** Just print out a few values.
 {: .challenge}
 > ## Answer

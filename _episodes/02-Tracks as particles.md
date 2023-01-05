@@ -29,7 +29,7 @@ for i, event in enumerate(events):
     if i > 20: break
 ~~~
 {: .language-python}
-> ## Question
+> ## Question 1
 Now we can use this to do some kinematics. Assuming that the particle is a pion (pion mass = 0.140 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)), calculate its kinetic energy.
 {: .challenge}
 > ## Answer
@@ -93,7 +93,7 @@ xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingver
 Notice how few muon tracks there are compared to the same code executed for `generalTracks`. In fact, you only see as many muons as you do because this data sample was collected with a muon trigger. (The muon definition in the trigger is looser than the `globalMuons` algorithm, which is why there are some events with fewer than two `globalMuons`.)
 See in the `Appendix` an application for the Muon and Tracks objects usage in the CMS tracking efficiency computation.
 
-> ## Question
+> ## Question 2
 > As an exercise, make a histogram of all di-muon masses from 0 to 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)). Exclude events that do not have exactly two muon tracks, and note that the muon mass is 0.106 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)). Create a file `dimuon_mass.py` in `TrackingShortExercize/` for this purpose.
 {: .challenge}
 > ## More...

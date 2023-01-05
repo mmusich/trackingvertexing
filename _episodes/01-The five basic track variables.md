@@ -296,7 +296,7 @@ The C++-equivalent is hidden below.
 > The actual `plugin` I used can be found in `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/PrintOutTracks_MVA.cc`
 > The actual `CMSSW config` file can be found in `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg_MVA.py`
 {: .solution}
-> ## Question
+> ## Question 1
 > Now prepare plots for the track variables discussed above, as in the example below (name this file `plot_track_quantities.py` and put it in `TrackingShortExercize/`). Compare the distributions of track-quality-related variables (number of pixel hits, track goodness of fit, ...) between tracks passing the `highPurity` and `Loose` quality flags.
 {: .challenge}
 > ## Answer
@@ -403,7 +403,7 @@ In particular, the track information saved in the `PFCandidates` is the followin
     * the `highPurity` quality flag set, if the original track had it.
 Consider that the `packedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
 
-> ## Question
+> ## Question 2
 > Write a simple script that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MiniAOD file with
 > > ~~~
 > xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_MINIAOD.root .
