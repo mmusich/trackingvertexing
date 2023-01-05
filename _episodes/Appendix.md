@@ -115,8 +115,10 @@ for event in events:
 rho_z_histogram.Draw()
 ~~~
 {: .language-python}
+> ## Question
+> What does the distribution tell you about CMS vertex reconstruction?
+{: .discussion}
 
-What does the distribution tell you about CMS vertex reconstruction?
 Half-view of CMS tracker (color indicates average number of hits):
 <a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="500"></a>
 
