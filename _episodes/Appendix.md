@@ -9,7 +9,7 @@ questions:
 objectives:
 - "After the in-person session, being familiar with more information about tracks, vertex and CMS tracking detector."
 keypoints:
-- "At this point it is extremely important to look at the documentation to find out more and being aware of the twikis related to the Tracking Physics Object Group (TRK POG) tasks."
+- "At this point it is extremely important to look at the documentation to find out moreabout the Tracking Physics Object Group (TRK POG) tasks."
 ---
 ## LXR: a tool to search through CMSSW code
 LXR is a very useful tool to look-up methods/classes/configuration files/parameters/example etc. when working on software development in CMS.
