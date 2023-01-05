@@ -41,6 +41,15 @@ We will present an introduction to using tracks for analyses in the era of **lar
 > *Lead Contact
 {: .testimonial}
 
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/chavid"><img src="https://avatars2.githubusercontent.com/u/4421289?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David Chamont</b></sub></a><br /><a href="#content-chavid" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/graeme-a-stewart"><img src="https://avatars2.githubusercontent.com/u/8511620?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Graeme A Stewart</b></sub></a><br /><a href="#content-graeme-a-stewart" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/StephenSwat"><img src="https://avatars3.githubusercontent.com/u/1165820?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stephen Nicholas Swatman</b></sub></a><br /><a href="#content-StephenSwat" title="Content">🖋</a></td>
+    <td align="center"><a href="https://meirinoanevans.wixsite.com/portfolio"><img src="https://avatars.githubusercontent.com/u/32399892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Meirin Oan Evans</b></sub></a><br /><a href="#ideas-meevans1" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-meevans1" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/hsf-training/hsf-training-cpp-webpage/commits?author=meevans1" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
 > ## Mattermost Chat
 > **The [Tracking and Vertexing Short Exercise](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortextrackingvertexing) channel will be available once you join the [CMSDAS@LPC2023](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/town-square) team. Direction for how to join this Mattermost chat team can be found on the <a href="setup.html">setup</a> page.**
 {: .discussion}
