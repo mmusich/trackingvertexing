@@ -10,7 +10,7 @@ questions:
 objectives:
 - "Being familiar with tracks collections and their variables."
 - "Being aware of track information stored in different data format."
-- "Accessing information and plot basic variables using ROOT tools."
+- "Accessing information and plot basic variables using ROOT."
 keypoints:
 - "The pre-selection of tracks in miniAOD also affects the distribution of the track quality parameters."
 - "All tracks are stored in the generalTracks collection in AOD."
