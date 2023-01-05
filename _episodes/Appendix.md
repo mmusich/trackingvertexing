@@ -120,7 +120,7 @@ rho_z_histogram.Draw()
 {: .discussion}
 
 Half-view of CMS tracker (color indicates average number of hits):
-<a href="https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png"><img src = "https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchool2013TrackingExercise/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="500"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="500"></a>
 
 ### Correlation between pile-up and number of clusters
 ~~~
