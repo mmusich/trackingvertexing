@@ -23,7 +23,7 @@ This test is more significant than it may appear by looking at event pictures. W
 
 Starting from the detected tracks, we work backward and reconstruct the original vertices by checking each pair of tracks for overlaps. This is performed in the standard reconstruction sequence and delivered to the analyst as lists of K<sub>S</sub> → π+π− and Λ → pπ candidates, but we will repeat the procedure with different parameters. The algorithm will run three times, the first accepting all (`loose`) tracks, the second accepting only `tight` tracks, and the third accepting only `highPurity` tracks.
 
-These are called **secondary vertices** because the proton-proton collision produced the first (`primary`) vertex, then the neutral KS flew several centimeters away from the rest of the collision products and decayed into π+π− at a second (`secondary`) position in space.
+These are called **secondary vertices** because the proton-proton collision produced the first (`primary`) vertex, then the neutral K<sub>S</sub> flew several centimeters away from the rest of the collision products and decayed into π+π− at a second (`secondary`) position in space.
 ## Running the vertex reconstruction
 Create a file named `construct_secondary_vertices_cfg.py` in `TrackingShortExercize/` and fill it with the following:
 ~~~
@@ -128,7 +128,7 @@ for i, event in enumerate(events):
 ~~~
 {: .language-python}
 
-In the code above, you specify the C++ type of the collection (`std::vector`). For each event you obtain the collection of secondary vertices originating from KS decays, by providing the name of the collection producer (`SecondaryVerticesFromLooseTracks`) and the label for the KS collection (`Kshort`, defined [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/src/V0Producer.cc#L55)).
+In the code above, you specify the C++ type of the collection (`std::vector`). For each event you obtain the collection of secondary vertices originating from K<sub>S</sub> decays, by providing the name of the collection producer (`SecondaryVerticesFromLooseTracks`) and the label for the K<sub>S</sub> collection (`Kshort`, defined [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/src/V0Producer.cc#L55)).
 
 Each of these vertices contains two tracks by construction. One of the vertex member functions (do `dir(vertex)` in the python shell after executing the above code to see them all) returns the invariant mass of the pair of tracks. This calculation is a little more complex than the invariant masses we calculated by hand because it is necessary to evaluate the px and py components of momentum at the vertex rather than at the beamspot. If these two particles really did originate in a decay several centimeters from the beamspot, then the track parameters evaluated at the beamspot are not meaningful.
 
@@ -158,7 +158,7 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 > {: .language-python}
 {: .solution}
 > ## Question 2
-> You should see a very prominent KS → π+π− peak, but also a pedestal. What is the pedestal? Why does it cut off at 0.43 and 0.57 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)?
+> You should see a very prominent K<sub>S</sub> → π+π− peak, but also a pedestal. What is the pedestal? Why does it cut off at 0.43 and 0.57 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)?
 {: .discussion}
 > ## More
 > You can answer the question concerning the cut-off with the information [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/python/generalV0Candidates_cfi.py#L61-L63).
@@ -482,9 +482,9 @@ Add the analogous 2D plots for x versus z and y vs z positions.
 
 ## Primary vertices improve physics results
 
-Finally, let's consider an example of how primary vertices are useful to an analyst. If you're interested in KS → π+π−, it might seem that primary vertices are irrelevant because neither of your two visible tracks (π+π−) directly originated in any of the proton-proton collisions. However, the KS did. The KS flew several centimeters away from the primary vertex in which it was produced, and its direction of flight must be parallel to its momentum (by definition). 
+Finally, let's consider an example of how primary vertices are useful to an analyst. If you're interested in K<sub>S</sub> → π+π−, it might seem that primary vertices are irrelevant because neither of your two visible tracks (π+π−) directly originated in any of the proton-proton collisions. However, the K<sub>S</sub> did. The K<sub>S</sub> flew several centimeters away from the primary vertex in which it was produced, and its direction of flight must be parallel to its momentum (by definition). 
 
-We can measure the KS momentum from the momenta of its decay products, and we can identify the start and end positions of the KS flight from the locations of the primary and secondary vertices. The momentum vector and the displacement vector must be parallel. (There is no constraint on the length of the displacement vector because the lifetimes of KS mesons follow an exponentially random distribution.)
+We can measure the K<sub>S</sub> momentum from the momenta of its decay products, and we can identify the start and end positions of the K<sub>S</sub> flight from the locations of the primary and secondary vertices. The momentum vector and the displacement vector must be parallel. (There is no constraint on the length of the displacement vector because the lifetimes of K<sub>S</sub> mesons follow an exponentially random distribution.)
 
 
 Create a new file `analyse.py` in `TrackingShortExercize/` which will open `output.root`:
@@ -499,14 +499,14 @@ secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositeCandidate>")
 ~~~
 {: .language-python}
 
-Create a histogram in which to plot the distribution of `cosAngle`, which is the normalized dot product of the KS momentum vector and its displacement vector. Actually, make two histograms to zoom into the `cosAngle → 1` region.
+Create a histogram in which to plot the distribution of `cosAngle`, which is the normalized dot product of the K<sub>S</sub> momentum vector and its displacement vector. Actually, make two histograms to zoom into the `cosAngle → 1` region.
 ~~~
 cosAngle_histogram = ROOT.TH1F("cosAngle", "cosAngle", 100, -1.0, 1.0)
 cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99, 1.0)
 ~~~
 {: .language-python}
 > ## Question 8
-**Construct a nested loop over secondary and primary vertices to compute displacement vectors and compare them with KS momentum vectors.** Just print out a few values.
+**Construct a nested loop over secondary and primary vertices to compute displacement vectors and compare them with K<sub>S</sub> momentum vectors.** Just print out a few values.
 {: .challenge}
 > ## Answer
 > ~~~
@@ -563,7 +563,7 @@ For each set of primary vertices, find the best cosAngle and fill the histograms
 > ~~~
 > {: .language-python}
 {: .solution}
-Finally, create KS mass histograms, with and without requiring `bestCosAngle` to be greater than `0.99`. Does this improve the signal-to-background ratio?
+Finally, create K<sub>S</sub> mass histograms, with and without requiring `bestCosAngle` to be greater than `0.99`. Does this improve the signal-to-background ratio?
 > ## Solution
 > ~~~
 > mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.4, 0.6)
