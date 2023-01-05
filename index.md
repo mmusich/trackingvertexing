@@ -27,6 +27,11 @@ We will present an introduction to using tracks for analyses in the era of **lar
 > - Extracting **basic parameters of primary vertices**. In this high-luminosity era, it is not uncommon for a single event to contain as many as thirty to fifty independent collisions. For most analyses, only one is relevant, and it can usually be identified by its tracks.
 > - Using tracks to measure from data and Monte Carlo (MC) samples the **tracking efficiency** by using tag and probe method via dimuon resonances. It can be extended to measure the efficiency of any selection of muons (trigger, isolation, identification) and derive scale factors from MC.
 {: .checklist}
+
+> ## Prerequisites
+> **Before going any further, please complete the [CMS DAS Pre-Exercises](https://fnallpc.github.io/cms-das-pre-exercises/) and then follow the instructions on the [setup page](setup.md).**
+{: .prereq}
+
 > ## Facilitators
 > * [Brunella D'Anzi*](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi), University and INFN of Bari ([brunella.d'anzi@cern.ch](mailto:brunella.d'anzi@cern.ch)) 
 > * [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith), Baylor ([caleb.smith@cern.ch](mailto:caleb.smith@cern.ch)) 
@@ -49,9 +54,5 @@ We will present an introduction to using tracks for analyses in the era of **lar
 > **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
 {: .challenge}
 {% comment %} This is a comment in Liquid {% endcomment %}
-
-> ## Prerequisites
-> **Before going any further, please complete the [CMS DAS Pre-Exercises](https://fnallpc.github.io/cms-das-pre-exercises/) and then follow the instructions on the [setup page](setup.md).**
-{: .prereq}
 
 {% include links.md %}
