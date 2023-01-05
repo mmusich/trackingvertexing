@@ -48,7 +48,7 @@ So, in the picture below, on the left, let’s imagine that the pT bin we are se
 
 The fit, which is made in a different space (the invariant mass space) allows to statistically discriminate between signal and background. To compute the efficiency we simply divide the signal yield from the fits to the passing category by the signal yield from the fit of the inclusive (All) category. This approach is depicted in the middle and right-hand plots of the image below for the Y resonance.
 
-<a href="https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png"><img src = "https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png" alt="Tag and Probe method" width ="500"></a>
+<a href="https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png"><img src = "https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png" alt="Tag and Probe method" width ="900"></a>
 
 At the end of this section, then, you will have to make these fits for each bin in the range of interest.
 The dataset used in this exercise has been collected by the CMS experiment, in proton-proton collisions at the LHC. It contains `986100 entries` (muon pair candidates) with an associated invariant mass. For each candidate, the transverse `momentum (pT)`, `rapidity(η)` and `azimuthal angle (φ)` are stored, along with a binary flag `probe_isTrkMatch`, which is `1` in case the corresponding probe satisfied the track matching selection criteria and 0 in case it doesn’t.
