@@ -12,7 +12,7 @@ objectives:
 - "Plot distributions about the main vertex variables."
 - "Open the stage for Appendix exercises." 
 keypoints:
-- "Two or more tracks can be used to reconstruct their common point of origin, the vertex
+- "Two or more tracks can be used to reconstruct their common point of origin, the vertex"
 - "Requiring two tracks to originate from the same vertex is a powerful tool to identify particles that decayed in the detector"
 - "The distribution of the proton proton interaction, the so-called interaction region, in the center of the CMS detector is an ellipse."
 ---
@@ -205,7 +205,7 @@ The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) 
  edmDumpEventContent run321167_Charmonium_MINIAOD.root | grep Vertices
  ~~~
  {: .language-bash}
- 
+
 Modify `sec_vertices.py` to read the lambda vertices from the miniAOD file. You will have to modify the collection type and label accordingly to the miniAOD content.
 > ## Answer
 > ~~~
