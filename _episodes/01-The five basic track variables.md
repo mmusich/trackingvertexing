@@ -25,15 +25,15 @@ A helical trajectory can be expressed by five parameters, but the parameterizati
 
 In general terms, the five parameters are:
 
-•	**signed radius of curvature (units of cm)**, which is proportional to particle charge divided by the transverse momentum, pT (units of [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV));
+*	**signed radius of curvature (units of cm)**, which is proportional to particle charge divided by the transverse momentum, pT (units of [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV));
 
-•	**angle of the trajectory** at a given point on the helix, in the plane transverse to the beamline (usually called φ);
+*	**angle of the trajectory** at a given point on the helix, in the plane transverse to the beamline (usually called φ);
 
-•	**angle of the trajectory** at a given point on the helix with respect to the beamline (θ, or equivalently λ = π/2 - θ), which is usually expressed in terms of [pseudorapidity](https://en.wikipedia.org/wiki/Pseudorapidity) (η = −ln(tan(θ/2)));
+*	**angle of the trajectory** at a given point on the helix with respect to the beamline (θ, or equivalently λ = π/2 - θ), which is usually expressed in terms of [pseudorapidity](https://en.wikipedia.org/wiki/Pseudorapidity) (η = −ln(tan(θ/2)));
 
-•	**offset** or **impact parameter** relative to some reference point (usually the beamspot or a selected primary vertex), in the plane transverse to the beamline (usually called dxy);
+*	**offset** or **impact parameter** relative to some reference point (usually the beamspot or a selected primary vertex), in the plane transverse to the beamline (usually called dxy);
 
-•	**impact parameter** relative to a reference point (beamspot or a selected primary vertex), along the beamline (usually called dz).
+*	**impact parameter** relative to a reference point (beamspot or a selected primary vertex), along the beamline (usually called dz).
 
 The exact definitions are given in the `reco::TrackBase` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h). This is also where most tracking variables and functions are defined. The rest are in the `reco::Track` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h), but most data fields in the latter are accessible only in RECO (full data record), not AOD/MINIAOD/NANOAOD (the subsets that are available to physics analyses).
 
@@ -366,34 +366,34 @@ Now prepare plots for the track variables discussed above, as in the example bel
 > c.SaveAs("track_nTkLayers.png")
 > ~~~
 > {: .language-python}
-> •	track_pt.png:
+> *	track_pt.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png" alt="Track pT" width ="500"></a>
-> •	track_eta.png:
+> *	track_eta.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png" alt="Track Eta" width ="500"></a>
-> •	track_phi.png:
+> *	track_phi.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png" alt="Track Phi" width ="500"></a>
-> •	track_normChi2.png:
+> *	track_normChi2.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png" alt="Track NormChi2" width ="500"></a>
-> •	track_nPixelHits.png:
+> *	track_nPixelHits.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png" alt="Track number of Pixel Hits" width ="500"></a>
-> •	track_nTkLayers.png:
+> *	track_nTkLayers.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png" alt="Track number of Tracker Layers" width ="500"></a>
-> •	track_nValHits.png:
+> *	track_nValHits.png:
 > <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png" alt="Track number of Valid Hits" width ="500"></a>
 {: .solution}
 ## Track information in MINIAOD
 
 There is no track collection stored in MINIAOD analogous to the `generalTracks` in [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD). Tracks associated to charged `PFCandidates` are accessible directly from the `packedPFCandidates` collection for tracks with pT > 0.5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). For tracks between 0.5 and 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) the track information is stored with reduced precision. Tracks not associated with `PF candidates` are in the `lostTracks` collection if their pT is above 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) or they are associated with a secondary vertex or a Ks or Lambda candidate. However, for both the tracks associated to the `PF candidates` and the `lostTracks` the highQuality track selection is used. Tracks with lower quality are not avaiable in MINIAOD at all. In addition, tracks in the lostTracks collection are required to have at least 8 hits of which at least one has to be a pixel hit.
 In particular, the track information saved in the `PFCandidates` is the following.
-•	the uncertainty on the impact parameter `dzError()`, `dxyError()`
-•	the number of layers with hits on the track
-•	the sub/det and layer of first hit of the track
-•	the `reco::Track` of the candidate is provided by the `pseudoTrack()` method, with the following information stored:
-    o	the pt,eta and phi of the original track (if those are different from the one of the original `PFCandidate`)
-    o	an approximate covariance matrix of the track state at the vertex
-    o	approximate `hitPattern()` and `trackerExpectedHitsInner()` that yield the correct number of hits, pixel hits, layers and the information returned by `lostInnerHits()`
-    o	the track normalized chisquare (truncated to an integer)
-    o	the `highPurity` quality flag set, if the original track had it.
+*	the uncertainty on the impact parameter `dzError()`, `dxyError()`
+*	the number of layers with hits on the track
+*	the sub/det and layer of first hit of the track
+*	the `reco::Track` of the candidate is provided by the `pseudoTrack()` method, with the following information stored:
+    *	the pt,eta and phi of the original track (if those are different from the one of the original `PFCandidate`)
+    *	an approximate covariance matrix of the track state at the vertex
+    *	approximate `hitPattern()` and `trackerExpectedHitsInner()` that yield the correct number of hits, pixel hits, layers and the information returned by `lostInnerHits()`
+    *	the track normalized chisquare (truncated to an integer)
+    *	the `highPurity` quality flag set, if the original track had it.
 Consider that the p`ackedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
 Write a simple script that reads a MINIAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MINIAOD file with
  ~~~

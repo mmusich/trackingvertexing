@@ -33,9 +33,9 @@ The resonance, used to calculate the efficiencies, decays to a pair of particles
 ### How do we calculate the efficiency?
 The efficiency is given by the fraction of probe muons that pass a given criteria:
 
-• The denominator corresponds to the number of resonance candidates (tag+probe pairs) reconstructed in the dataset. 
-• The numerator corresponds to the subset for which the probe passes the criteria.
-• The tag+probe invariant mass distribution is used to select only signal, that is, only true Z candidates decaying to dimuons. This is achieved in this exercise by the usage of the **fitting method**.
+* The denominator corresponds to the number of resonance candidates (tag+probe pairs) reconstructed in the dataset. 
+* The numerator corresponds to the subset for which the probe passes the criteria.
+* The tag+probe invariant mass distribution is used to select only signal, that is, only true Z candidates decaying to dimuons. This is achieved in this exercise by the usage of the **fitting method**.
 
 In this exercise the probe muons are `StandAlone` muons: all tracks of the segments reconstructed in the muon chambers (performed using segments and hits from Drift Tubes - DTs in the barrel region, Cathode strip chambers - CSCs in the endcaps and Resistive Plates Chambers - RPCs for all muon system) are used to generate “seeds” consisting of position and direction vectors and an estimate of the muon transverse momentum. The standalone muon is matched in (ΔR < 0.3, Δη < 0.3) with `generalTracks` in AOD `lostTracks` in miniAOD having pT larger than 10 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV), being in this case a **passing probes**.
 
@@ -59,11 +59,11 @@ xrdcp -r root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/tracking
 ~~~
 {: .language-bash}
 Exploring the content of the `TP_Z_DATA.root` and `TP_Z_MC.root` files, the `StandAloneEvents` tree has these variables in which we are interested in:
-• pair_mass
-• probe_isTrkMatch
-• probe_pt
-• probe_eta
-• probe_phi
+* pair_mass
+* probe_isTrkMatch
+* probe_pt
+* probe_eta
+* probe_phi
 We’ll start by calculating the efficiency as a function of the probe η. It is useful to have an idea of the distribution of the quantity we want to study. In order to do this, **plot the invariant mass and the probe variables**.
 
 Now that you’re acquainted with the data, open the `Efficiency.C` file. We’ll start by choosing the desired bins for the rapidity. If you’re feeling brave, modify bins for our fit remembering that we need a fair amount of data in each bin (more events mean a better fit!). If not, we’ve left a suggestion in the `Efficiency.C` file. Start with the eta variable.
@@ -218,8 +218,8 @@ It is also useful to draw sketches for yourself.
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
 
 ## Documentation
-•	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/edit/CMS/CMSPublic.SWGuideTrackReco)
-•	[CMS Tracking POG Performance in Run-2 Legacy data](https://twiki.cern.ch/twiki/bin/view/CMSPublic/TrackingPOGResultsRun2Legacy)
+*	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/edit/CMS/CMSPublic.SWGuideTrackReco)
+*	[CMS Tracking POG Performance in Run-2 Legacy data](https://twiki.cern.ch/twiki/bin/view/CMSPublic/TrackingPOGResultsRun2Legacy)
 
 
 {% include links.md %}

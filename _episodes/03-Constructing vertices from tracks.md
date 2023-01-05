@@ -232,9 +232,9 @@ Modify `sec_vertices.py` to read the lambda vertices from the miniAOD file. You 
 
 ## Basic distributions of primary vertices
 The primary vertex reconstruction consists of three steps:
-•	selection of tracks
-•	clustering of the tracks that appear to originate from the same interaction vertex
-•	fitting for the position of each vertex using its associated tracks
+*	selection of tracks
+*	clustering of the tracks that appear to originate from the same interaction vertex
+*	fitting for the position of each vertex using its associated tracks
 All the primary vertices reconstructed in an event are saved in the `reco::Vertex` collection labeled `offlinePrimaryVertices`. Create the file `vertex.py` in `TrackingShortExercize/` which will load the original `run321167_ZeroBias_AOD.root` file and make a quarter-view plot of the vertex distribution (run it using `python vertex.py`):
 ~~~
 import DataFormats.FWLite as fwlite
@@ -374,8 +374,8 @@ c.SaveAs("vtx_xy.png")
 Add the analogous 2D plots for x versus z and y vs z positions.
 > ## More exercises...
 > Furthermore, you can add a plot of the average primary vertex position and compare it to:
-> •	the center of beamspot (red line)
-> •	the beamspot region (beamspot center +/- beamspot witdh, that you can access through beamspot.product().BeamWidthX()
+> *	the center of beamspot (red line)
+> *	the beamspot region (beamspot center +/- beamspot witdh, that you can access through beamspot.product().BeamWidthX()
 > > ## Answer
 > > ~~~
 > > import DataFormats.FWLite as fwlite
