@@ -41,10 +41,10 @@ We will present an introduction to using tracks for analyses in the era of **lar
 > *Lead Contact
 > <table>
 >   <tr>
->     <td align="center"><a href="https://github.com/chavid"><img src="https://avatars2.githubusercontent.com/u/4421289?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David Chamont</b></sub></a><br /><a href="#content-chavid" title="Content">🖋</a></td>
->     <td align="center"><a href="https://github.com/graeme-a-stewart"><img src="https://avatars2.githubusercontent.com/u/8511620?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Graeme A Stewart</b></sub></a><br /><a href="#content-graeme-a-stewart" title="Content">🖋</a></td>
->     <td align="center"><a href="https://github.com/StephenSwat"><img src="https://avatars3.githubusercontent.com/u/1165820?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stephen Nicholas Swatman</b></sub></a><br /><a href="#content-StephenSwat" title="Content">🖋</a></td>
->     <td align="center"><a href="https://meirinoanevans.wixsite.com/portfolio"><img src="https://avatars.githubusercontent.com/u/32399892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Meirin Oan Evans</b></sub></a><br /><a href="#ideas-meevans1" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-meevans1" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/hsf-training/hsf-training-cpp-webpage/commits?author=meevans1" title="Documentation">📖</a></td>
+>     <td align="center"><a href="https://github.com/bdanzi"><img src="https://avatars.githubusercontent.com/u/75045014?s=96&v=4" width="100px;" alt=""/><br /><sub><b>Brunella D'Anzi</b></sub></a><br /><a href="#content-bdanzi" title="Content">🖋</a></td>
+>     <td align="center"><a href="https://physics.ku.edu/people/smith-caleb"><img src="https://lpc.fnal.gov/CMSDAS2022/Caleb_Smith.jpg" width="100px;" alt=""/><br /><sub><b>Caleb Smith</b></sub></a><br /><a href="#content-CalebSmith" title="Content">🖋</a></td>
+>     <td align="center"><a href="https://lpc.fnal.gov/fellows/2018/Nicola_De_Filippis.shtml"><img src="https://lpc.fnal.gov/fellows/imgs/med/2018/Nicola_De_Filippis.jpg" width="100px;" alt=""/><br /><sub><b>Nicola De Filippis</b></sub></a><br /><a href="#content-NicolaDeFilippis" title="Content">🖋</a></td>
+>     <td align="center"><a href="https://meirinoanevans.wixsite.com/portfolio"><img src="https://avatars.githubusercontent.com/u/32399892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Susan Dittmer</b></sub></a><br /><a href="#ideas-meevans1" title="Content">🖋</a></td>
 >   </tr>
 > </table>
 {: .testimonial}
