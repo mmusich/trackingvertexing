@@ -3,17 +3,20 @@ title: "The five basic track variables"
 teaching: 15
 exercises: 15
 questions:
-- "What are the main track variables used in CMS collaboration?"
+- "What are the main track variables used in CMS collaboration in different data formats?"
 - "How can we access them?"
 - "Which are the variables for the track quality?"
-- "What are the track information in MINIAOD?"
+- "How do the distributions of track variables before and after high purity track selection change?"
 objectives:
 - "Being familiar with tracks collections and their variables."
 - "Being aware of track information stored in different data format."
 - "Accessing information and plot basic variables using ROOT tools."
 keypoints:
-- "The largest format available for CMS data analysis is AOD - almost unused for its large size, and only the most important information are then stored in MiniAOD format."
-- "Same action on files can be done using either Python - much easier in coding - or C++ - much performant on high statistics data sets - languages."
+- "The pre-selection of tracks in miniAOD also affects the distribution of the track quality parameters."
+- "All tracks are stored in the generalTracks collection in AOD."
+- "In MiniAOD they are accessible in a less straightforward way (packedPFCandidates, lostTracks collection) and 
+not all tracks are available!"
+
 ---
 
 One of the oldest tricks in particle physics is to put a track-measuring device in a strong, roughly uniform magnetic field so that the tracks curve with a radius proportional to their momenta (see [derivation](http://en.wikipedia.org/wiki/Gyroradius#Relativistic_case)). Apart from energy loss and magnetic field inhomogeneities, the particles' trajectories are helices. This allows us to measure a dynamic property (momentum) from a geometric property (radius of curvature).<a href="http://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Helix.svg/410px-Helix.svg.png"><img src = "http://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Helix.svg/410px-Helix.svg.png" alt="Helical trajectory of a particle in a vertical magnetic field." width ="200"></a>
