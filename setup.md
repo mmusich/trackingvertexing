@@ -20,7 +20,7 @@ title: Setup
 > **This exercise is designed to run only on cmslpc-sl7 as copies of the scripts are present there.**
 > [Connecting to the cmslpc cluster link](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml)
 {: .callout}
-### Logging in
+## Logging in
 Keep in mind your `<USERNAME>` and use it in the following instructions:
 ~~~
 # login to the LPC cluster with DISPLAY set
@@ -66,7 +66,7 @@ git config --global user.email '<your e-mail>'
 git config --global user.github <your github username>
 ~~~
 {: .language-bash}
-### Accessing the data
+## Accessing the data
 
 We will be using ZeroBias events (events from nominally colliding bunch crossings but without a requirement for any specific activity in the event) from Run 2 (2018) data. This dataset is small enough to be easily accessible as a file. You should have plenty of space, copy it to your working directory with the copy command below:
 
@@ -74,7 +74,7 @@ We will be using ZeroBias events (events from nominally colliding bunch crossing
 xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_AOD.root .
 ~~~
 {: .language-bash}
-### Checking the file content
+## Checking the file content
 
 You can check the content of the file by running the simple script as follows
 ~~~
