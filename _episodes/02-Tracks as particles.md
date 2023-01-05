@@ -3,14 +3,15 @@ title: "Tracks as particles"
 teaching: 10
 exercises: 10
 questions:
-- "Why can we consider a track as a particle?"
+- "Can we consider a track as a particle?"
 - "Can I use an alternative to the muon object?"
 - "Can I define the invariant mass of two tracks?"
 objectives:
-- "Being familiar of the tracks, particle and identification concepts."
-- "Plot distributions of variables related to pion and muon resonances."
+- "Being familiar with the tracks, particle and identification concepts."
+- "Plot distributions of variables related to a muon resonance."
 keypoints:
-- "You can use reco::Track as an alternative to reco::Muon object in some cases!"
+- "Tracks give us a direct handle on actual particles, thus they can easily be used to reconstruct other particles in the event"
+
 ---
 Unlike calorimeter showers, tracks can usually be interpreted as particle 4-vectors without any additional corrections. Detector alignment, non-helical trajectories from energy loss, Lorentz angle corrections, and (to a much smaller extent) magnetic field inhomogeneities are important, but they are all corrections that must be applied during or before the track-reconstruction process. From an analyzer's point of view, most tracks are individual particles (depending on quality cuts) and the origin and momentum of the particle are derived from the track's geometry, with some resolution (random error). Biases (systematic offsets from the true values) are not normal: they're an indication that something went wrong in this process.
 The analyzer does not even need to calculate the particle's momentum from the track parameters: there are member functions for that. Particle's transverse momentum, momentum magnitude, and all of its components can be read through the following lines (let's name this new file kinematics.py and create it in `TrackingShortExercize/`):
