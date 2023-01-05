@@ -41,10 +41,10 @@ We will present an introduction to using tracks for analyses in the era of **lar
 > *Lead Contact
 > <table>
 >   <tr>
->     <td align="center"><a href="https://github.com/bdanzi"><img src="https://avatars.githubusercontent.com/u/75045014?s=96&v=4" width="100px;" alt=""/><br /><sub><b>Brunella D'Anzi</b></sub></a><br /><a href="#content-bdanzi" title="Content">🖋</a></td>
->     <td align="center"><a href="https://physics.ku.edu/people/smith-caleb"><img src="https://lpc.fnal.gov/CMSDAS2022/Caleb_Smith.jpg" width="100px;" alt=""/><br /><sub><b>Caleb Smith</b></sub></a><br /><a href="#content-CalebSmith" title="Content">🖋</a></td>
->     <td align="center"><a href="https://lpc.fnal.gov/fellows/2018/Nicola_De_Filippis.shtml"><img src="https://lpc.fnal.gov/fellows/imgs/med/2018/Nicola_De_Filippis.jpg" width="100px;" alt=""/><br /><sub><b>Nicola De Filippis</b></sub></a><br /><a href="#content-NicolaDeFilippis" title="Content">🖋</a></td>
->     <td align="center"><a href="https://meirinoanevans.wixsite.com/portfolio"><img src="https://avatars.githubusercontent.com/u/32399892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Susan Dittmer</b></sub></a><br /><a href="#ideas-meevans1" title="Content">🖋</a></td>
+>     <td align="center"><a href="https://github.com/bdanzi"><img src="https://avatars.githubusercontent.com/u/75045014?s=96&v=4" width="100px;" alt=""/><br /><sub><b>Brunella D'Anzi</b></sub></a><br /><a href="https://web2.ba.infn.it/bdanzi//" title="More about her">🖋</a></td>
+>     <td align="center"><a href="https://physics.ku.edu/people/smith-caleb"><img src="https://lpc.fnal.gov/CMSDAS2022/Caleb_Smith.jpg" width="100px;" alt=""/><br /><sub><b>Caleb Smith</b></sub></a><br /><a href="https://physics.ku.edu/people/smith-caleb" title="More about him">🖋</a></td>
+>     <td align="center"><a href="https://lpc.fnal.gov/fellows/2018/Nicola_De_Filippis.shtml"><img src="https://lpc.fnal.gov/fellows/imgs/med/2018/Nicola_De_Filippis.jpg" width="100px;" alt=""/><br /><sub><b>Nicola De Filippis</b></sub></a><br /><a href="https://lpc.fnal.gov/fellows/2018/Nicola_De_Filippis.shtml" title="More about him">🖋</a></td>
+>     <td align="center"><a href="https://hep.phys.uic.edu/post-docs/"><img src="https://lpc.fnal.gov/CMSDAS2022/No_Photo.png" width="100px;" alt=""/><br /><sub><b>Susan Dittmer</b></sub></a><br /><a href="https://hep.phys.uic.edu/post-docs/" title="More about her">🖋</a></td>
 >   </tr>
 > </table>
 {: .testimonial}
