@@ -22,7 +22,7 @@ We will present an introduction to using tracks for analyses in the era of **lar
 - Extracting **basic track parameters** and reconstructing invariant masses from tracks in CMSSW. Tracks are the detector entities that are closest to the four-vectors of particles: the momentum of a track is nearly the momentum of the charged particle itself.
 - Cleaning **sets of tracks for analysis**. We will use filters to eliminate bad tracks and discuss sources of tracking uncertainties. These filters are provided by the tracking POG (Physics Object Group)
 - Extracting **basic parameters of primary vertices**. In this high-luminosity era, it is not uncommon for a single event to contain as many as thirty to fifty independent collisions. For most analyses, only one is relevant, and it can usually be identified by its tracks.
-- Using tracks to measure from data and MC the **tracking efficiency** by using tag and probe method via dimuon resonances. It can be extended to measure the efficiency of any selection of muons (trigger, isolation, identification) and derive scale factors from MC.
+- Using tracks to measure from data and Monte Carlo (MC) samples the **tracking efficiency** by using tag and probe method via dimuon resonances. It can be extended to measure the efficiency of any selection of muons (trigger, isolation, identification) and derive scale factors from MC.
 
 > ## Facilitators
 > * [Brunella D'Anzi*](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi), University and INFN of Bari ([brunella.d'anzi@cern.ch](mailto:brunella.d'anzi@cern.ch)) 
@@ -34,16 +34,16 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {: .testimonial}
 
 > ## Mattermost Chat
-> The [Tracking and Vertexing Short Exercise](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortextrackingvertexing) channel will be available once you join the [CMSDAS@LPC2023](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/town-square) team. Direction for how to join this Mattermost chat team can be found on the <a href="setup.html">setup</a> page.
+> **The [Tracking and Vertexing Short Exercise](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortextrackingvertexing) channel will be available once you join the [CMSDAS@LPC2023](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/town-square) team. Direction for how to join this Mattermost chat team can be found on the <a href="setup.html">setup</a> page.**
 {: .discussion}
 
 > ## CERN Twiki and Introduction Slides
-> The CERN TWiki of this short exercise can be found at [this link](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise). At the beginning of this short exercise an introduction will be done based on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf)
+> **The CERN TWiki of this short exercise can be found at [this link](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise). At the beginning of this short exercise an introduction will be done based on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
 {: .callout}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
 > ## Closeup Slides
-> You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf)
+> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
 {: .challenge}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
