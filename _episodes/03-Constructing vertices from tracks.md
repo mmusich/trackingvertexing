@@ -12,7 +12,9 @@ objectives:
 - "Plot distributions about the main vertex variables."
 - "Open the stage for Appendix further exercises." 
 keypoints:
-- "For a CMS data analysis, vertex information are extremely important to get better results!"
+- "Two or more tracks can be used to reconstruct their common point of origin, the vertex
+- "Requiring two tracks to originate from the same vertex is a powerful tool to identify particles that decayed in the detector"
+- "The distribution of the proton proton interaction, the so-called interaction region, in the center of the CMS detector is an ellipse."
 ---
 In this exercise we will encounter three main objects: primary vertices, secondary vertices, and the beamspot.
 Let's start with secondary vertices. Particles produced by a single decay or collision radiate from the point of their origin. Their tracks should nearly cross at this point (within measurement uncertainties): if two or more tracks cross at some point, it is very likely that they descend from the same decay or collision.
