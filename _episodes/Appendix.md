@@ -76,7 +76,7 @@ The creation of these `TH1 objects` is taken care of by the `src/make_hist.cpp` 
 
 When the execution finishes, you should have 2 new files. One on your working directory `Histograms_Data.root` and another one `Efficiency_Run2018.root` located at `Efficiency_Result/eta`. The second contains the efficiency we calculated, while the first file is used to re-do any unusuable fits. If you want, check out the PDF files under the `Fit_Result/` directory, which contain the fitting results as the following one:
 
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png" alt="Fitting procedure applied to the Z di-muon boson invariant mass for both passing and all probes" width ="200"></a>
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png" alt="Fitting procedure applied to the Z di-muon boson invariant mass for both passing and all probes" width ="500"></a>
 
 Now we must re-run the code, but before that, change `IsMc` value to `TRUE`. This will generate an efficiency for the simulated data, so that we can compare it with part of the 2018 run. If so, now uncomment `Efficiency.C` the following line:
 ~~~
