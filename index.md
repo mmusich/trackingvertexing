@@ -48,8 +48,7 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {% comment %} This is a comment in Liquid {% endcomment %}
 
 > ## Prerequisites
-> **Before going any further, please follow the instructions on the [setup page](setup.md).**
-> [CMS DAS Pre-Exercises](https://fnallpc.github.io/cms-das-pre-exercises/)
+> **Before going any further, please complete the [CMS DAS Pre-Exercises](https://fnallpc.github.io/cms-das-pre-exercises/) and then follow the instructions on the [setup page](setup.md).**
 {: .prereq}
 
 {% include links.md %}
