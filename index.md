@@ -54,12 +54,12 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {: .discussion}
 
 > ## CERN Twiki and Introduction Slides
-> **The CERN TWiki of this short exercise can be found at [this link](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise). At the beginning of this short exercise an introduction will be done based on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
+> **The CERN TWiki of this short exercise can be found at [this link](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise). At the beginning of this short exercise an introduction will be done based on [these slides](https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/files/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
 {: .callout}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
 > ## Closeout Slides
-> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://twiki.cern.ch/twiki/pub/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
+> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/files/CMSDAS2022_TrackingVertexingExercise_Wrapup.pdf).**
 {: .challenge}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
