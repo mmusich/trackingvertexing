@@ -25,7 +25,7 @@ A helical trajectory can be expressed by five parameters, but the parameterizati
 
 > ## The five basic track parameters 
 > 
-> *	**signed radius of curvature (units of cm)**, which is proportional to **particle charge** divided by the **transverse momentum**, pT (units of [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV));
+> *	**signed radius of curvature (units of cm)**, which is proportional to **particle charge** divided by the **transverse momentum**, p<sub>T</sub> (units of [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV));
 > 
 > *	**angle of the trajectory** at a given point on the helix, in the **plane transverse to the beamline** (usually called **φ**);
 > 
@@ -164,19 +164,19 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 ## Track quality variables
 
 The first thing you should notice is that **each event** has **hundreds of tracks**. That is because hadronic collisions produce large numbers of particles and `generalTracks` is the broadest collection of tracks identified by `CMSSW` reconstruction. Some of these tracks are not real (ghosts, duplicates, noise...) and a good analysis should define quality cuts to select tracks requiring a certain quality.
-Some analyses remove spurious tracks by requiring them to come from the beamspot (small dxy, dz). Some require high-momentum (usually high transverse momentum, pT), but that would be a bad idea in a search for decays with a small mass difference such as ψ' → J/ψ π<sup>+</sup>π<sup>-</sup>. In general, each analysis group should review their own needs and ask the Tracking POG about standard selections.
+Some analyses remove spurious tracks by requiring them to come from the beamspot (small dxy, dz). Some require high-momentum (usually high transverse momentum, p<sub>T</sub>), but that would be a bad idea in a search for decays with a small mass difference such as ψ' → J/ψ π<sup>+</sup>π<sup>-</sup>. In general, each analysis group should review their own needs and ask the Tracking POG about standard selections.
 Some of these standard selections have been encoded into a quality flag with three categories: `loose`, `tight`, and `highPurity`. All tracks delivered to the analyzers are at least `loose`, `tight` is a subset of these that are more likely to be real, and "highPurity" is a subset of "tight" with even stricter requirements. There is a trade-off: `loose` tracks have high efficiency but also high backgrounds, `highPurity` has slightly lower efficiency but much lower backgrounds, and `tight` is in between (see also the plots below). As of `CMSSW 7.4`, these are all calculated using MVAs (**M**ulti**V**ariate **A**nalysis techniques) for the various iterations. In addition to the status bits, it's also possible to access the MVA values directly.
 
 **Plot of Efficiency vs Eta:**
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_eta.png" alt="Efficiency vs Eta" width ="500"></a>
 
-**Plot of Efficiency vs pT:**
+**Plot of Efficiency vs p<sub>T</sub>:**
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_pt.png" alt="Efficiency vs pT" width ="500"></a>
 
 **Plot of Backgrounds vs Eta:**
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_eta.png" alt="Backgrounds vs Eta" width ="500"></a>
 
-**Plot of Backgrounds vs pT:**
+**Plot of Backgrounds vs p<sub>T</sub>:**
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png" alt="Backgrounds vs pT" width ="500"></a>
 
 Update the file `print.py` with the following lines:
@@ -389,7 +389,7 @@ The C++-equivalent is hidden below.
 {: .solution}
 ## Track information in MiniAOD
 
-There is no track collection stored in MiniAOD analogous to the `generalTracks` in [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD). Tracks associated to charged `PFCandidates` are accessible directly from the `packedPFCandidates` collection for tracks with pT > 0.5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). For tracks between 0.5 and 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) the track information is stored with reduced precision. Tracks not associated with `PF candidates` are in the `lostTracks` collection if their pT is above 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) or they are associated with a secondary vertex or a Ks or Lambda candidate. However, for both the tracks associated to the `PF candidates` and the `lostTracks` the highQuality track selection is used. Tracks with lower quality are not avaiable in MiniAOD at all. In addition, tracks in the lostTracks collection are required to have at least 8 hits of which at least one has to be a pixel hit.
+There is no track collection stored in MiniAOD analogous to the `generalTracks` in [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD). Tracks associated to charged `PFCandidates` are accessible directly from the `packedPFCandidates` collection for tracks with p<sub>T</sub> > 0.5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). For tracks between 0.5 and 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) the track information is stored with reduced precision. Tracks not associated with `PF candidates` are in the `lostTracks` collection if their p<sub>T</sub> is above 0.95 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV) or they are associated with a secondary vertex or a Ks or Lambda candidate. However, for both the tracks associated to the `PF candidates` and the `lostTracks` the highQuality track selection is used. Tracks with lower quality are not avaiable in MiniAOD at all. In addition, tracks in the lostTracks collection are required to have at least 8 hits of which at least one has to be a pixel hit.
 
 In particular, the track information saved in the `PFCandidates` is the following:
 
@@ -398,7 +398,7 @@ In particular, the track information saved in the `PFCandidates` is the followin
 > * the number of layers with hits on the track
 > * the sub/det and layer of first hit of the track
 > * the `reco::Track` of the candidate is provided by the `pseudoTrack()` method, with the following information stored:
->     * the pt,eta and phi of the original track (if those are different from the one of the original `PFCandidate`)
+>     * the p<sub>T</sub>,eta and phi of the original track (if those are different from the one of the original `PFCandidate`)
 >     * an approximate covariance matrix of the track state at the vertex
 >     * approximate `hitPattern()` and `trackerExpectedHitsInner()` that yield the correct number of hits, pixel hits, layers and the information returned by `lostInnerHits()`
 >     * the track normalized chisquare (truncated to an integer)
@@ -408,7 +408,7 @@ In particular, the track information saved in the `PFCandidates` is the followin
 Consider that the `packedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
 
 > ## Question 2
-> Write a simple script that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track pT distributuon, focus on the low pT regiion below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MiniAOD file with
+> Write a simple script that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track p<sub>T</sub> distributuon, focus on the low p<sub>T</sub> regiion below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MiniAOD file with
 > > ~~~
 > xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_MINIAOD.root .
 > ~~~
