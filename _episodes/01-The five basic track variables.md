@@ -39,7 +39,7 @@ The exact definitions are given in the `reco::TrackBase` [header file](https://g
 
 ## Accessing track variables
 
-Create `print.py` (for example `emacs -nw print.py`, or use your favorite text editor) in `TrackingShortExercize\`, then copy-paste the following code and run it (`python print.py`). Please note, if your `run321457_ZeroBias_AOD.root` is not in the directory you're working from, be sure to use the appropriate path in line 2.
+Create `print.py` (for example `emacs -nw print.py`, or use your favorite text editor) in `TrackingShortExercize\`, then copy-paste the following code and run it (`python print.py`). Please note, if your `run321457_ZeroBias_AOD.root` is not in the directory you're working from, be sure to use the appropriate path in `line 2`.
 ~~~
 import DataFormats.FWLite as fwlite
 events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
