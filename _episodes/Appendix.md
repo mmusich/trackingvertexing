@@ -37,21 +37,21 @@ The efficiency is given by the fraction of probe muons that pass a given criteri
 * The numerator corresponds to the subset for which the probe passes the criteria.
 * The tag+probe invariant mass distribution is used to select only signal, that is, only true Z candidates decaying to dimuons. This is achieved in this exercise by the usage of the **fitting method**.
 
-In this exercise the probe muons are `StandAlone` muons: all tracks of the segments reconstructed in the muon chambers (performed using segments and hits from Drift Tubes - DTs in the barrel region, Cathode strip chambers - CSCs in the endcaps and Resistive Plates Chambers - RPCs for all muon system) are used to generate “seeds” consisting of position and direction vectors and an estimate of the muon transverse momentum. The standalone muon is matched in (ΔR < 0.3, Δη < 0.3) with `generalTracks` in [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) `lostTracks` in miniAOD having pT larger than 10 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV), being in this case a **passing probes**.
+In this exercise the probe muons are `StandAlone` muons: all tracks of the segments reconstructed in the muon chambers (performed using segments and hits from Drift Tubes - DTs in the barrel region, Cathode strip chambers - CSCs in the endcaps and Resistive Plates Chambers - RPCs for all muon system) are used to generate “seeds” consisting of position and direction vectors and an estimate of the muon transverse momentum. The standalone muon is matched in (ΔR < 0.3, Δη < 0.3) with `generalTracks` in [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) `lostTracks` in MiniAOD having p<sub>T</sub> larger than 10 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV), being in this case a **passing probes**.
 
 ### The fitting method
 
 It consists on fitting the invariant mass of the tag & probe pairs, in the two categories: passing probes, and all probes. I.e., for the unbiased leg of the decay, one can apply a selection criteria (a set of cuts) and determine whether the object passes those criteria or not.
 
-The procedure is applied after splitting the data in bins of a kinematic variable of the probe object (e.g. the traverse momentum, pT); as such, the efficiency will be measured as a function of that quantity for each of the bins.
-So, in the picture below, on the left, let’s imagine that the pT bin we are selecting is the one marked in red. But, of course, in that bin (like in the rest) you will have true Z decays as well as muon pairs from other processes (maybe QCD, for instance). The true decays would make up our signal, whereas the other events will be considered the background.
+The procedure is applied after splitting the data in bins of a kinematic variable of the probe object (e.g. the traverse momentum, p<sub>T</sub>); as such, the efficiency will be measured as a function of that quantity for each of the bins.
+So, in the picture below, on the left, let’s imagine that the p<sub>T</sub> bin we are selecting is the one marked in red. But, of course, in that bin (like in the rest) you will have true Z decays as well as muon pairs from other processes (maybe QCD, for instance). The true decays would make up our signal, whereas the other events will be considered the background.
 
 The fit, which is made in a different space (the invariant mass space) allows to statistically discriminate between signal and background. To compute the efficiency we simply divide the signal yield from the fits to the passing category by the signal yield from the fit of the inclusive (All) category. This approach is depicted in the middle and right-hand plots of the image below for the Y resonance.
 
 <a href="https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png"><img src = "https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/fig/esquema.png" alt="Tag and Probe method" width ="900"></a>
 
 At the end of this section, then, you will have to make these fits for each bin in the range of interest.
-The dataset used in this exercise has been collected by the CMS experiment, in proton-proton collisions at the LHC. It contains `986100 entries` (muon pair candidates) with an associated invariant mass. For each candidate, the transverse `momentum (pT)`, `rapidity(η)` and `azimuthal angle (φ)` are stored, along with a binary flag `probe_isTrkMatch`, which is `1` in case the corresponding probe satisfied the track matching selection criteria and 0 in case it doesn’t.
+The dataset used in this exercise has been collected by the CMS experiment, in proton-proton collisions at the LHC. It contains `986100 entries` (muon pair candidates) with an associated invariant mass. For each candidate, the transverse `momentum (pt)`, `rapidity(η)` and `azimuthal angle (φ)` are stored, along with a binary flag `probe_isTrkMatch`, which is `1` in case the corresponding probe satisfied the track matching selection criteria and 0 in case it doesn’t.
 
 Copy `CMSDAS_TP` inside `CMSSW_10_6_18/src`:
 ~~~
@@ -89,7 +89,7 @@ Now we must re-run the code, but before that, change `IsMc` value to `TRUE`. Thi
 and run the macro again. You should get something like the following result if you inspect the image at `Comparison_Run2018_vs_MC_Efficiency.png`:
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/Efficiency.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/Efficiency.png" alt="Tracking Efficiency for CMS 2018 Data" width ="900"></a>
 
-If everything went well and you still have time to go, repeat this process for the two other variables, pT and φ! In case you want to change one of the fit results, use the `change_bin.cpp` function commented in `Efficiency.C`. If you would like to explore the results having more statistics, use the samples in `DATA/Z/` directory!
+If everything went well and you still have time to go, repeat this process for the two other variables, p<sub>T</sub> and φ! In case you want to change one of the fit results, use the `change_bin.cpp` function commented in `Efficiency.C`. If you would like to explore the results having more statistics, use the samples in `DATA/Z/` directory!
 
 If you would like to play with the actual CMS tracking workflow have a look at the ntuple generator and the efficiency computation frameworks!
 
