@@ -85,7 +85,7 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > #include "FWCore/Utilities/interface/InputTag.h"
 > ~~~
 > {: .language-cpp}
-> Inside the `PrintOutTracks` class definition (one line below the member data comment, before the }), replace `edm::EDGetTokenT<TrackCollection> tracksToken_;` with:
+> Inside the `PrintOutTracks` class definition (one line below the member data comment, before the `}`), replace `edm::EDGetTokenT<TrackCollection> tracksToken_;` with:
 > ~~~
 > edm::EDGetTokenT<edm::View<reco::Track> > tracksToken_;  //used to select which tracks to read from configuration file
 > int indexEvent_;
