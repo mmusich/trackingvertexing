@@ -35,11 +35,11 @@ A helical trajectory can be expressed by five parameters, but the parameterizati
 > 
 > *	**impact parameter** relative to a reference point (beamspot or a selected primary vertex), **along the beamline** (usually called **dz**).
 {: .checklist}
-The exact definitions are given in the `reco::TrackBase` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h). This is also where most tracking variables and functions are defined. The rest are in the `reco::Track` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h), but most data fields in the latter are accessible only in RECO (full data record), not AOD/MiniAOD/NanoAOD (the subsets that are available to physics analyses).
+The exact definitions are given in the `reco::TrackBase` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h). This is also where most tracking variables and functions are defined. The rest are in the `reco::Track` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h), but most data fields in the latter are accessible only in [RECO](https://twiki.cern.ch/twiki/bin/view/CMS/RECO) (full data record), not [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD)/MiniAOD/NanoAOD (the subsets that are available to physics analyses).
 
 ## Accessing track variables
 
-Create `print.py` (for example `emacs -nw print.py`, or use your favorite text editor) in TrackingShortExercize, then copy-paste the following code and run it (`python print.py`). Please note, if your `run321457_ZeroBias_AOD.root` is not in the directory you're working from, be sure to use the appropriate path in line 2.
+Create `print.py` (for example `emacs -nw print.py`, or use your favorite text editor) in `TrackingShortExercize\`, then copy-paste the following code and run it (`python print.py`). Please note, if your `run321457_ZeroBias_AOD.root` is not in the directory you're working from, be sure to use the appropriate path in line 2.
 ~~~
 import DataFormats.FWLite as fwlite
 events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
