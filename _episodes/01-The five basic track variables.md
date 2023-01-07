@@ -29,9 +29,9 @@ A helical trajectory can be expressed by five parameters, but the parameterizati
 > 
 > *	**angle of the trajectory** at a given point on the helix, in the **plane transverse to the beamline** (usually called **φ**);
 > 
-> *	**angle of the trajectory** at a given point on the helix **with respect to the beamline** (**θ**, or equivalently λ = π/2 - θ), which is usually expressed in terms of [pseudorapidity](https://en.wikipedia.org/wiki/Pseudorapidity) (η = −ln(tan(θ/2)));
+> *	**angle of the trajectory** at a given point on the helix **with respect to the beamline** (**θ**, or equivalently **λ = π/2 - θ**), which is usually expressed in terms of [pseudorapidity](https://en.wikipedia.org/wiki/Pseudorapidity) (**η = −ln(tan(θ/2))**);
 > 
-> *	**offset** or **impact parameter** relative to some reference point (usually the beamspot or a selected primary vertex), in the **plane transverse to the beamline** (usually called dxy);
+> *	**offset** or **impact parameter** relative to some reference point (usually the beamspot or a selected primary vertex), in the **plane transverse to the beamline** (usually called **dxy**);
 > 
 > *	**impact parameter** relative to a reference point (beamspot or a selected primary vertex), **along the beamline** (usually called **dz**).
 {: .checklist}
