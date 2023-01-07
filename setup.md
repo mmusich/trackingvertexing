@@ -18,7 +18,7 @@ title: Setup
 
 > ## Important
 > **This exercise is designed to run only on cmslpc-sl7 as copies of the scripts are present there.**
-> [Connecting to the cmslpc cluster link](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml)
+> See the [Connecting to the cmslpc cluster link](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml) helper page.
 {: .callout}
 ## Logging in
 Keep in mind your `<USERNAME>` and use it in the following instructions:
