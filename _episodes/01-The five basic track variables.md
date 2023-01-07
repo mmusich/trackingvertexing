@@ -156,13 +156,14 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > {: .language-bash}
 > This will produce the same output as the Python script, but it can be used on huge datasets. Though the language is different, notice that C++ and  `FWLite` use the same names for member functions: `charge()`, `pt()`, `phi()`, `eta()`, `dxy()`, and `dz()`.
 > That is intentional: you can learn what kinds of data are available with interactive  `FWLite ` and then use the same access methods when writing GRID jobs. There is another way to access `FWLite` with ROOT's C++-like syntax.
+>
 > The plugin is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/MyDirectory/PrintOutTracks/plugins/PrintOutTracks.cc`
 > The `run_cfg.py` is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg.py`
 {: .solution}
 
 ## Track quality variables
 
-The first thing you should notice is that each event has hundreds of tracks. That is because hadronic collisions produce large numbers of particles and `generalTracks` is the broadest collection of tracks identified by CMSSW reconstruction. Some of these tracks are not real (ghosts, duplicates, noise...) and a good analysis should define quality cuts to select tracks requiring a certain quality.
+The first thing you should notice is that **each event** has **hundreds of tracks**. That is because hadronic collisions produce large numbers of particles and `generalTracks` is the broadest collection of tracks identified by CMSSW reconstruction. Some of these tracks are not real (ghosts, duplicates, noise...) and a good analysis should define quality cuts to select tracks requiring a certain quality.
 Some analyses remove spurious tracks by requiring them to come from the beamspot (small dxy, dz). Some require high-momentum (usually high transverse momentum, pT), but that would be a bad idea in a search for decays with a small mass difference such as ψ' → J/ψ π<sup>+</sup>π<sup>-</sup>. In general, each analysis group should review their own needs and ask the Tracking POG about standard selections.
 Some of these standard selections have been encoded into a quality flag with three categories: `loose`, `tight`, and `highPurity`. All tracks delivered to the analyzers are at least `loose`, `tight` is a subset of these that are more likely to be real, and "highPurity" is a subset of "tight" with even stricter requirements. There is a trade-off: `loose` tracks have high efficiency but also high backgrounds, `highPurity` has slightly lower efficiency but much lower backgrounds, and `tight` is in between (see also the plots below). As of `CMSSW 7.4`, these are all calculated using MVAs (**M**ulti**V**ariate **A**nalysis techniques) for the various iterations. In addition to the status bits, it's also possible to access the MVA values directly.
 
