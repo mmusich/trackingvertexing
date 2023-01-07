@@ -154,10 +154,10 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > cmsRun run_cfg.py
 > ~~~
 > {: .language-bash}
-> This will produce the same output as the Python script, but it can be used on huge datasets. Though the language is different, notice that C++ and FWLite use the same names for member functions: `charge()`, `pt()`, `phi()`, `eta()`, `dxy()`, and `dz()`.
-> That is intentional: you can learn what kinds of data are available with interactive FWLite and then use the same access methods when writing GRID jobs. There is another way to access `FWLite` with ROOT's C++-like syntax.
+> This will produce the same output as the Python script, but it can be used on huge datasets. Though the language is different, notice that C++ and  `FWLite` use the same names for member functions: `charge()`, `pt()`, `phi()`, `eta()`, `dxy()`, and `dz()`.
+> That is intentional: you can learn what kinds of data are available with interactive  `FWLite ` and then use the same access methods when writing GRID jobs. There is another way to access `FWLite` with ROOT's C++-like syntax.
 > The plugin is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/MyDirectory/PrintOutTracks/plugins/PrintOutTracks.cc`
-> The run_cfg.py is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg.py`
+> The `run_cfg.py` is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg.py`
 {: .solution}
 
 ## Track quality variables
