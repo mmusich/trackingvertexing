@@ -97,7 +97,7 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > tracksToken_(consumes<edm::View<reco::Track> >(iConfig.getUntrackedParameter<edm::InputTag>("tracks", edm::InputTag("generalTracks")) ))
 > ~~~
 > {: .language-cpp}
-> after the "//now do what ever initialization is needed" comment:
+> after the `//now do what ever initialization is needed` comment:
 > ~~~
 > indexEvent_ = 0;
 > ~~~
