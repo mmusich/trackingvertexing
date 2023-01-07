@@ -72,7 +72,7 @@ The first three lines load the `FWLite framework`, the data file, and prepare a 
 > ~~~
 > {: .language-bash}
 > Use your favorite editor to add (if missing) the following line at the top of `MyDirectory/PrintOutTracks/plugins/BuildFile.xml`
-> (e.g. `emacs -nw MyDirectory /PrintOutTracks/plugins/BuildFile.xml`):
+> (e.g. `emacs -nw MyDirectory/PrintOutTracks/plugins/BuildFile.xml`):
 > ~~~
 > <use name="DataFormats/TrackReco"/>
 > ~~~
