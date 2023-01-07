@@ -33,7 +33,7 @@ A helical trajectory can be expressed by five parameters, but the parameterizati
 > 
 > *	**offset** or **impact parameter** relative to some reference point (usually the beamspot or a selected primary vertex), in the **plane transverse to the beamline** (usually called dxy);
 > 
-> *	**impact parameter** relative to a reference point (beamspot or a selected primary vertex), **along the beamline** (usually called dz).
+> *	**impact parameter** relative to a reference point (beamspot or a selected primary vertex), **along the beamline** (usually called **dz**).
 {: .checklist}
 The exact definitions are given in the `reco::TrackBase` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h). This is also where most tracking variables and functions are defined. The rest are in the `reco::Track` [header file](https://github.com/cms-sw/cmssw/blob/CMSSW_10_2_7/DataFormats/TrackReco/interface/TrackBase.h), but most data fields in the latter are accessible only in RECO (full data record), not AOD/MiniAOD/NanoAOD (the subsets that are available to physics analyses).
 
