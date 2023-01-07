@@ -59,7 +59,7 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {% comment %} This is a comment in Liquid {% endcomment %}
 
 > ## Closeout Slides
-> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/files/CMSDAS2022_TrackingVertexingExercise_Wrapup.pdf).**
+> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/files/CMSDAS2023_TrackingVertexingExercise_Wrapup.pdf).**
 {: .challenge}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
