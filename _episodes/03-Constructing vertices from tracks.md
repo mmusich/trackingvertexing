@@ -285,7 +285,7 @@ c.SaveAs("deltaz.png")
 ~~~
 {: .language-python}
 
-The broad distribution is due to the spread in primary vertex positions. Zoom in on the narrow dip near deltaz = 0. This region is empty because if two real vertices are too close to each other, they will be misreconstructed as a single vertex. Thus, there are no reconstructed vertices with such small separations.
+The broad distribution is due to the spread in primary vertex positions. Zoom in on the narrow dip near `deltaz = 0`. This region is empty because if two real vertices are too close to each other, they will be misreconstructed as a single vertex. Thus, there are no reconstructed vertices with such small separations.
 
 > ## Question 7
 > **Write a short script to print out the number of primary vertices in each event.** When people talk about the **pile-up**, it is this number they are referring to. If you want, you can even plot it; the distribution should roughly fit a Poisson distribution.
