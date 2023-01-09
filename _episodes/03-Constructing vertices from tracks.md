@@ -164,7 +164,7 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 > You can answer the question concerning the cut-off with the information [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/python/generalV0Candidates_cfi.py#L61-L63).
 {: .solution}
 > ## Question 3
-> Prepare a similar plot for the Lambda vertices. (Hints: were the Lambda vertices created when you ran the [SecondaryVertices](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertices) producer? the Lambda mass is [1.115 GeV](http://pdglive.lbl.gov/Particle.action?init=0&node=S018&home=BXXX020) Are you expecting to reconstruct the mass at the same value in the whole detector ? (plot the mass resolution as function of the eta of the reconstructed Lambda)
+> Prepare a similar **plot for the Lambda vertices**. (Hints: were the Lambda vertices created when you ran the [SecondaryVertices](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertices) producer? the Lambda mass is [1.115 GeV](http://pdglive.lbl.gov/Particle.action?init=0&node=S018&home=BXXX020) Are you expecting to reconstruct the mass at the same value in the whole detector ? (plot the mass resolution as function of the eta of the reconstructed Lambda)
 {: .discussion}
 
 > ## Question 4
