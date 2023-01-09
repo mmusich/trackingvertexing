@@ -158,7 +158,7 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 > {: .language-python}
 {: .solution}
 > ## Question 2
-> You should see a very prominent K<sub>S</sub> → π<sup>+</sup>π<sup>-</sup> peak, but also a pedestal. What is the pedestal? Why does it cut off at 0.43 and 0.57 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)?
+> You should see a very prominent K<sub>S</sub> → π<sup>+</sup>π<sup>-</sup> peak, but also a pedestal. **What is the pedestal?** Why does it cut off at 0.43 and 0.57 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)?
 {: .discussion}
 > ## More
 > You can answer the question concerning the cut-off with the information [here](https://github.com/cms-sw/cmssw/blob/CMSSW_8_0_10_patch2/RecoVertex/V0Producer/python/generalV0Candidates_cfi.py#L61-L63).
