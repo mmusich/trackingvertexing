@@ -438,7 +438,7 @@ Add the analogous 2D plots for x versus z and y vs z positions.
 >             theGraph.SetMarkerStyle(8)
 >             theGraph.SetTitle('IOV %s; N Vtx; X position'%iIOV)
 >             theGraph.Draw('AP')
->             theGraph.GetYaxis().SetRangeUser(0.094, 0.099)
+>             theGraph.GetYaxis().SetRangeUser(0.094, 0.100)
 >             
 >             line = ROOT.TLine(0,last_beamspot,N_vtx[-1],last_beamspot)
 >             line.SetLineColor(ROOT.kRed)
