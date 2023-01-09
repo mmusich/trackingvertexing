@@ -576,7 +576,7 @@ For each set of primary vertices, find the best `cosAngle` and fill the histogra
 > ~~~
 > {: .language-python}
 {: .solution}
-Finally, create K<sub>S</sub> mass histograms, with and without requiring `bestCosAngle` to be greater than `0.99`. Does this improve the signal-to-background ratio?
+Finally, create K<sub>S</sub> mass histograms, with and without requiring `bestCosAngle` to be greater than `0.99`. **Does this improve the signal-to-background ratio?**
 > ## Solution
 > ~~~
 > import math
