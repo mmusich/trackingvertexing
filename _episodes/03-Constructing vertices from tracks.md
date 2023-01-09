@@ -588,8 +588,9 @@ Finally, create K<sub>S</sub> mass histograms, with and without requiring `bestC
 > secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositeCandidate>")
 >
 > mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.4, 0.6)
-> cosAngle_histogram = ROOT.TH1F("cosAngle_histogram", "cosAngle_histogram", 100, 0., 1.0)
-> cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom_histogram", "cosAngle_zoom_histogram", 100, 0.4, 0.6)
+> cosAngle_histogram = ROOT.TH1F("cosAngle", "cosAngle", 100, -1.0, 1.0)
+> cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99, 1.0)
+> mass_goodCosAngle = ROOT.TH1F("mass_goodCosAngle", "mass_goodCosAngle", 100, 0.4, 0.6)
 >
 > events.toBegin()
 > for event in events:
