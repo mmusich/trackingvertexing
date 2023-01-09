@@ -197,7 +197,7 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 > {: .language-python}
 {: .solution}
 > ## Question 5
-You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the maxEvents parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
+You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the `maxEvents` parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png" alt="Lxy distribution" width ="500"></a>
 {: .discussion}
 ## Secondary vertices in MiniAOD
