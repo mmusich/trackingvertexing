@@ -327,6 +327,7 @@ The broad distribution is due to the spread in primary vertex positions. Zoom in
 >     event.getByLabel("generalTracks", tracks)
 >     histogram.Fill(primaryVertices.product().size(), tracks.product().size())
 > 
+> c = ROOT.TCanvas("c", "c", 800, 800)
 > histogram.Draw()
 > c.SaveAs("ntracks_vs_nvertex.png")
 > ~~~
