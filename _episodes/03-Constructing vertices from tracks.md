@@ -579,6 +579,14 @@ For each set of primary vertices, find the best `cosAngle` and fill the histogra
 Finally, create K<sub>S</sub> mass histograms, with and without requiring `bestCosAngle` to be greater than `0.99`. Does this improve the signal-to-background ratio?
 > ## Solution
 > ~~~
+> import math
+> import DataFormats.FWLite as fwlite
+> import ROOT
+> 
+> events = fwlite.Events("file:output.root")
+> primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
+> secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositeCandidate>")
+>
 > mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.4, 0.6)
 > mass_goodCosAngle = ROOT.TH1F("mass_goodCosAngle", "mass_goodCosAngle", 100, 0.4, 0.6)
 > 
