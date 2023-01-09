@@ -404,7 +404,7 @@ In particular, the track information saved in the `PFCandidates` is the followin
 >     * the p<sub>T</sub>,eta and phi of the original track (if those are different from the one of the original `PFCandidate`)
 >     * an approximate **covariance matrix** of the track state at the vertex
 >     * approximate `hitPattern()` and `trackerExpectedHitsInner()` that yield the correct number of hits, pixel hits, layers and the information returned by `lostInnerHits()`
->     * the track normalized chisquare (truncated to an integer)
+>     * the track normalized chisquare (truncated to an **integer**)
 >     * the `highPurity` quality flag set, if the original track had it.
 {: .checklist}
 
