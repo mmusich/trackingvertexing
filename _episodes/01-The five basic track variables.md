@@ -12,7 +12,7 @@ objectives:
 - "Being aware of track information stored in different data format."
 - "Accessing information and plot basic variables using ROOT."
 keypoints:
-- "The pre-selection of tracks in MiniAOD also affects the distribution of the track quality parameters."
+- "The pre-selection of tracks to `HighPurity` in MiniAOD also affects the distribution of the track quality parameters."
 - "All tracks are stored in the `generalTracks` collection in AOD."
 - "In MiniAOD they are accessible in a less straightforward way (`packedPFCandidates`, `lostTracks` collection) and 
 not all tracks are available!"
