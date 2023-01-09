@@ -408,10 +408,10 @@ In particular, the track information saved in the `PFCandidates` is the followin
 >     * the `highPurity` quality flag set, if the original track had it.
 {: .checklist}
 
-Consider that the `packedPFCandidates` collects both charged and neutral candidates, therefore before trying to access the track information it is important to ensure that the candidate is charged and has the track information correctly stored (`track.hasTrackDetails()`).
+Consider that the `packedPFCandidates` collects both **charged** and **neutral candidates**, therefore before trying to access the track information it is important to ensure that the **candidate is charged** and has the **track information correctly stored** (`track.hasTrackDetails()`).
 
 > ## Question 2
-> Write a simple script that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track p<sub>T</sub> distributuon, focus on the low p<sub>T</sub> region below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). Can you see any (non-statistical) difference with the previosu plots? You can copy a MiniAOD file with
+> Write a simple script `print-comparison.py` that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track p<sub>T</sub> distributuon, focus on the low p<sub>T</sub> region below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). **Can you see any (non-statistical) difference with the previosu plots?** You can copy a MiniAOD file with
 > > ~~~
 > xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_MINIAOD.root .
 > ~~~
