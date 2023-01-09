@@ -16,8 +16,8 @@ keypoints:
 - "Requiring two tracks to originate from the same vertex is a powerful tool to identify particles that decayed in the detector"
 - "The distribution of the proton proton interaction, the so-called interaction region, in the center of the CMS detector is an ellipse."
 ---
-In this exercise we will encounter three main objects: primary vertices, secondary vertices, and the beamspot.
-Let's start with secondary vertices. Particles produced by a single decay or collision radiate from the point of their origin. Their tracks should nearly cross at this point (within measurement uncertainties): if two or more tracks cross at some point, it is very likely that they descend from the same decay or collision.
+In this exercise, we will encounter three main objects: **primary vertices**, **secondary vertices**, and the **beamspot**.
+Let's start with **secondary vertices**. Particles produced by a single decay or collision radiate from the point of their origin. Their tracks should nearly cross at this point (within measurement uncertainties): if two or more tracks cross at some point, it is very likely that they descend from the same decay or collision.
 
 This test is more significant than it may appear by looking at event pictures. With so many tracks, it looks like they cross accidentally, but the two-dimensional projection of the event picture is misleading. One-dimensional paths through three-dimensional space do not intersect easily, especially when the trajectories of those paths are measured with microns to hundreds-of-microns precision.
 
