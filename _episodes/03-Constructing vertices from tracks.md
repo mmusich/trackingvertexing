@@ -535,6 +535,17 @@ cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99,
 For each set of primary vertices, find the best `cosAngle` and fill the histograms with that.
 > ## Solution
 > ~~~
+> import math
+> import DataFormats.FWLite as fwlite
+> import ROOT
+> 
+> events = fwlite.Events("file:output.root")
+> primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
+> secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositeCandidate>")
+> 
+> cosAngle_histogram = ROOT.TH1F("cosAngle", "cosAngle", 100, -1.0, 1.0)
+> cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99, 1.0)
+> 
 > events.toBegin()
 > for event in events:
 >     event.getByLabel("offlinePrimaryVertices", primaryVertices)
