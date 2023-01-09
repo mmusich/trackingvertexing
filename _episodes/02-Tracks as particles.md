@@ -96,7 +96,7 @@ Notice how few muon tracks there are compared to the same code executed for `gen
 See in the `Appendix` an application for the Muon and Tracks objects usage in the CMS tracking efficiency computation.
 
 > ## Question 2
-> As an exercise, make a histogram of all di-muon masses from 0 to 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)). Exclude events that do not have exactly two muon tracks, and note that the muon mass is 0.106 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)). Create a file `dimuon_mass.py` in `TrackingShortExercize/` for this purpose.
+> As an exercise, **make a histogram of all di-muon masses from 0 to 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)**. Exclude events that do not have exactly two muon tracks, and note that the muon mass is 0.106 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV)). Create a file `dimuon_mass.py` in `TrackingShortExercize/` for this purpose.
 {: .challenge}
 > ## More...
 > The solution combines several of the techniques introduced above:
