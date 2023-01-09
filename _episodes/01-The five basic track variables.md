@@ -179,9 +179,12 @@ Some of these standard selections have been encoded into a **quality flag** with
 **Plot of Backgrounds vs p<sub>T</sub>:**
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png" alt="Backgrounds vs pT" width ="500"></a>
 
-Update the previous or create a new `print.py` file with the following lines:
+Update the (create a new) `print.py` file with the following lines:
 Add a `Handle` to the MVA values:
 ~~~
+import DataFormats.FWLite as fwlite
+events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+tracks = fwlite.Handle("std::vector<reco::Track>")
 MVAs = fwlite.Handle("std::vector<float>")
 ~~~
 {: .language-python}
