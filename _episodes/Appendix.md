@@ -23,7 +23,7 @@ LXR is a very useful tool to look-up methods/classes/configuration files/paramet
 *	CMSSW Reference Manual: [https://cmssdt.cern.ch/SDT/doxygen/CMSSW_10_6_18/doc/html/classes.html](https://cmssdt.cern.ch/SDT/doxygen/CMSSW_10_6_18/doc/html/classes.html)
 
 ## Tracking efficiency performance via the Tag and Probe technique
-The **tag and probe** method is a data-driven technique for measuring particle detection efficiencies. It is based on the decays of **known resonances** (e.g. J/ψ, ϒ and Z) to pairs of the particles being studied. In this exercise, these particles are muons, and the Z resonance is nominally used.
+The **tag and probe** method is a **data-driven technique** for measuring particle detection efficiencies. It is based on the decays of **known resonances** (e.g. J/ψ, ϒ and Z) to pairs of the particles being studied. In this exercise, these particles are muons, and the Z resonance is nominally used.
 The determination of the detector efficiency is a critical ingredient in any physics measurement. It accounts for the particles that were produced in the collision but escaped detection (did not reach the detector elements, were missed by the reconstructions algorithms, etc). It can be in general estimated using simulations, but simulations need to be calibrated with data. The T&P method here described provides a useful and elegant mechanism for extracting efficiencies directly from data!.
 ### What is “tag” and “probe”?
 
