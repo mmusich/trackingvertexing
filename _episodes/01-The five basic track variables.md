@@ -60,7 +60,7 @@ for i, event in enumerate(events):
 ~~~
 {: .language-python}
 
-The first three lines load the `FWLite` framework, the `.root` data file, and prepare a `Handle` for the track collection using its full C++ name (`std::vector`). In each event, we load the tracks labeled `generalTracks` and loop over them, printing out the `five basic track variables` for each. The C++ equivalent of this is hidden below (longer and more difficult to write and compile, but faster to execute on large datasets) and is optional for this entire short exercise.
+The first three lines load the `FWLite` framework, the `.root` data file, and prepare a `Handle` for the track collection using its full C++ name (`std::vector`). In each event, we load the tracks labeled `generalTracks` and loop over them, printing out the **five basic track variables** for each. The C++ equivalent of this is hidden below (longer and more difficult to write and compile, but faster to execute on large datasets) and is optional for this entire short exercise.
 
 > ## C++ version
 > ~~~
@@ -301,7 +301,7 @@ The C++-equivalent is hidden below.
 > The `CMSSW config` file can be found in `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg_MVA.py`
 {: .solution}
 > ## Question 1
-> Now prepare plots for the track variables discussed above, as in the example below (name this file `plot_track_quantities.py` and put it in `TrackingShortExercize/`). Compare the distributions of track-quality-related variables (number of pixel hits, track goodness of fit, ...) between tracks passing the `highPurity` and `Loose` quality flags.
+> Now prepare plots for the track variables discussed above, as in the example below (name this file `plot_track_quantities.py` and put it in `TrackingShortExercize/`). Compare the **distributions of track-quality-related variables** (number of pixel hits, track goodness of fit, ..., which are given in input to MVA classifiers) between tracks passing the `highPurity` and `Loose` quality flags.
 {: .challenge}
 > ## Answer
 > ~~~
