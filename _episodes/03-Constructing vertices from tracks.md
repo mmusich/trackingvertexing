@@ -311,7 +311,7 @@ The broad distribution is due to the spread in primary vertex positions. Zoom in
 > In the standard analysis workflow there are many quality requirements to be applied to the events and to the reconstructed quantities in an event. One of these requests is based on the characteristics of the reconstructed primary vertices, and it is defined by the `CMSSW EDFilter` `goodOfflinePrimaryVertices_cfi.py` .
 > Are these selections surprising you ?
 {: .solution}
-> ## Challenge
+> ## Question 8
 **Write a short script to plot the distribution of the number of tracks vs the number of vertices.** What do you expect?
 {: .challenge}
 > ## Answer
@@ -505,7 +505,7 @@ cosAngle_histogram = ROOT.TH1F("cosAngle", "cosAngle", 100, -1.0, 1.0)
 cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99, 1.0)
 ~~~
 {: .language-python}
-> ## Question 8
+> ## Question 9
 **Construct a nested loop over secondary and primary vertices to compute displacement vectors and compare them with K<sub>S</sub> momentum vectors.** Just print out a few values.
 {: .challenge}
 > ## Answer
