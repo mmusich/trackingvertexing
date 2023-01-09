@@ -236,10 +236,11 @@ The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) 
 
 ## Basic distributions of primary vertices
 The primary vertex reconstruction consists of three steps:
-*	selection of tracks
-*	clustering of the tracks that appear to originate from the same interaction vertex
-*	fitting for the position of each vertex using its associated tracks
-
+> ## Steps of primary vertex reconstruction
+> *	selection of tracks
+> *	clustering of the tracks that appear to originate from the same interaction vertex
+> *	fitting for the position of each vertex using its associated tracks
+{: .checklist}
 All the primary vertices reconstructed in an event are saved in the `reco::Vertex` collection labeled `offlinePrimaryVertices`. Create the file `vertex.py` in `TrackingShortExercize/` which will load the original `run321167_ZeroBias_AOD.root` file and make a quarter-view plot of the vertex distribution (run it using `python vertex.py`):
 ~~~
 import DataFormats.FWLite as fwlite
