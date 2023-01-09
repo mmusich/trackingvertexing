@@ -72,8 +72,9 @@ mass = math.sqrt(total_energy**2 - total_px**2 - total_py**2 - total_pz**2)
 ~~~
 {: .language-python}
 However, this quantity has no meaning unless the two particles are actually descendants of the same decay. Two randomly chosen tracks (**out of hundreds per event**) typically are not.
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/cms_quarterview.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/cms_quarterview.png" alt="CMS Quarter-view." width ="500"></a>
+
 To increase the chances that pairs of randomly chosen tracks are descendants of the same decay, consider a smaller set of tracks: **muons**. Muons are identified by the fact that they can pass through meters of iron (the CMS magnet return yoke), so muon tracks extend from the silicon tracker to the muon chambers (see CMS quarter-view below), as much as 12 meters long! Muons are rare in hadron collisions. If an event contains two muons, they often (though not always) come from the same decay.
+<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/cms_quarterview.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/cms_quarterview.png" alt="CMS Quarter-view." width ="500"></a>
 
 Normally, one would access muons through the `reco::Muon` object since this contains additional information about the quality of the muon hypothesis. For simplicity, we will access their track collection in the same way that we have been accessing the main track collection. We only need to replace `generalTracks` with `globalMuons`. Add the following loop to `kinematics.py`.
 ~~~
