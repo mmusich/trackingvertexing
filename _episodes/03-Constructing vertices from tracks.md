@@ -333,7 +333,7 @@ The broad distribution is due to the spread in primary vertex positions. Zoom in
 > ~~~
 > {: .language-python}
 {: .solution}
-It's also useful to distinguish between the `primary vertices` and the `beamspot`. A read-out event can have many primary vertices, each of which usually corresponds to a point in space where two protons collide. The beamspot is an estimate of where protons are expected to collide, derived from the distribution of primary vertices. Not only does an event have only one beamspot, but the beamspot is constant for a lumi-section (time interval of 23.31 consecutive seconds). This script prints the average x-position of the primary vertices and plots their x-y distribution (add the missing pieces, name it `beamspot.py` and put it in `TrackingShortExercize`):
+It's also useful to distinguish between the `primary vertices` and the `beamspot`. A read-out event can have many primary vertices, each of which usually corresponds to a point in space where two protons collide. **The beamspot is an estimate of where protons are expected to collide, derived from the distribution of primary vertices.** Not only does an event have only one beamspot, but the beamspot is constant for a lumi-section (time interval of 23.31 consecutive seconds). This script prints the average x-position of the primary vertices and plots their x-y distribution (add the missing pieces, name it `beamspot.py` and put it in `TrackingShortExercize`):
 ~~~
 import DataFormats.FWLite as fwlite
 import math
