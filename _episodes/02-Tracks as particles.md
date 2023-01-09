@@ -51,7 +51,7 @@ Now we can use this to do some kinematics. Assuming that the particle is a pion 
 > {: .language-python}
 {: .solution}
 > ## Additional information
-> Identifying the particle that made the track is difficult: the mass of some low-momentum tracks can be identified by their energy loss, called dE/dx, and electrons and muons can be identified by signatures in other subdetectors. Without any other information, the safest assumption is that a randomly chosen track is a pion, since hadron collisions produce a lot of pions.
+> Identifying the particle that made the track is difficult: the mass of some low-momentum tracks can be identified by their energy loss, called dE/dx, and electrons and muons can be identified by signatures in other subdetectors. Without any other information, the safest assumption is that a **randomly chosen track is a pion**, since hadron collisions produce a lot of pions.
 {: .solution}
 Let's look for resonances. Given two tracks,
 ~~~
