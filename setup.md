@@ -42,6 +42,10 @@ setenv SCRAM_ARCH slc7_amd64_gcc700
 # crab, we will not use it but take it as an habit!                                                                                                    
 source /cvmfs/cms.cern.ch/crab3/crab.sh
 
+# set cmsenv and cmsrel aliases 
+
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+
 # create your CMSSW working area
 mkdir TrackingShortExercize
 cd TrackingShortExercize
