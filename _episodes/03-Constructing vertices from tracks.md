@@ -532,7 +532,7 @@ cosAngle_zoom_histogram = ROOT.TH1F("cosAngle_zoom", "cosAngle_zoom", 100, 0.99,
 > {: .language-python}
 {: .solution}
 
-For each set of primary vertices, find the best cosAngle and fill the histograms with that.
+For each set of primary vertices, find the best `cosAngle` and fill the histograms with that.
 > ## Solution
 > ~~~
 > events.toBegin()
