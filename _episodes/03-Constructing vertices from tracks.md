@@ -203,7 +203,7 @@ You should rerun the `construct_secondary_vertices.py` to process all events in 
 ## Secondary vertices in MiniAOD
 The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) collection is already available in the MiniAOD files. You can retrieve the collection type and format by doing:
  ~~~
- xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_Charmonium_MINIAOD.root .
+ eos cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_MINIAOD.root .
  edmDumpEventContent run321167_Charmonium_MINIAOD.root | grep Vertices
  ~~~
  {: .language-bash}
