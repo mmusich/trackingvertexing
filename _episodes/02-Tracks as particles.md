@@ -89,7 +89,7 @@ for i, event in enumerate(events):
 {: .language-python}
 Run this code on the `run321167_Charmonium_AOD.root` file that you can copy with:
 ~~~
-xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_Charmonium_AOD.root .
+eos cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_AOD.root .
 ~~~
 {: .language-bash}
 Notice how few muon tracks there are compared to the same code executed for `generalTracks`. In fact, you only see as many muons as you do because this data sample was collected with a muon trigger. (The muon definition in the trigger is looser than the `globalMuons` algorithm, which is why there are some events with fewer than two `globalMuons`.)
