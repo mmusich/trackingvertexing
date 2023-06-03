@@ -73,7 +73,7 @@ git config --global user.github <your github username>
 We will be using **ZeroBias events** (events from nominally colliding bunch crossings but without a requirement for any specific activity in the event) from Run 2 (2018) data. This dataset is small enough to be easily accessible as a file (remember to be in the **nobackup** working area). You should have plenty of space, copy it to your working directory with the copy command below:
 
 ~~~
-eos cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root $TMPDIR
+cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root $TMPDIR
 ~~~
 {: .language-bash}
 ## Checking the file content

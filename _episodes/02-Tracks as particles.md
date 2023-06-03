@@ -20,7 +20,7 @@ import DataFormats.FWLite as fwlite
 import ROOT
 import math
 
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 tracks = fwlite.Handle("std::vector<reco::Track>")
 
 for i, event in enumerate(events):
@@ -39,7 +39,7 @@ Now we can use this to do some kinematics. Assuming that the particle is a pion 
 > import ROOT
 > import math
 > 
-> events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 > tracks = fwlite.Handle("std::vector<reco::Track>")
 > 
 > for i, event in enumerate(events):
@@ -89,7 +89,7 @@ for i, event in enumerate(events):
 {: .language-python}
 Run this code on the `run321167_Charmonium_AOD.root` file that you can copy with:
 ~~~
-eos cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_AOD.root .
+cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_AOD.root $TMPDIR
 ~~~
 {: .language-bash}
 Notice how few muon tracks there are compared to the same code executed for `generalTracks`. In fact, you only see as many muons as you do because this data sample was collected with a muon trigger. (The muon definition in the trigger is looser than the `globalMuons` algorithm, which is why there are some events with fewer than two `globalMuons`.)
@@ -105,7 +105,7 @@ See in the `Appendix` an application for the Muon and Tracks objects usage in th
 > import DataFormats.FWLite as fwlite
 > import ROOT
 > 
-> events = fwlite.Events("file:run321167_Charmonium_AOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_AOD.root")
 > tracks = fwlite.Handle("std::vector<reco::Track>")
 > mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.0, 5.0)
 > 
