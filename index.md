@@ -29,7 +29,7 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {: .checklist}
 
 > ## Prerequisites
-> **Before going any further, please complete the [CMS DAS Pre-Exercises](https://fnallpc.github.io/cms-das-pre-exercises/) and then follow the instructions on the [setup page](setup.md).**
+> **Before going any further, please complete the [CMS DAS Pre-Exercises](https://cern-cms-das-2023.github.io/cms-das-pre-exercises/) and then follow the instructions on the [setup page](setup.md).**
 {: .prereq}
 
 > ## Facilitators
@@ -42,7 +42,7 @@ We will present an introduction to using tracks for analyses in the era of **lar
 > *Lead Contact
 > <table>
 >   <tr>
->     <td align="center"><a href="https://github.com/mmusich"><img src="http://musich.web.cern.ch/musich/meP5.jpg" width="100px;" alt=""/><br /><sub><b>Marco Musich</b></sub></a><br /><a href="https://github.com/mmusich" title="More about him">🖋</a></td>
+>     <td align="center"><a href="https://github.com/mmusich"><img src="http://musich.web.cern.ch/musich/pics/MarcoMusich_cropped.jpg" width="100px;" alt=""/><br /><sub><b>Marco Musich</b></sub></a><br /><a href="https://github.com/mmusich" title="More about him">🖋</a></td>
 >     <td align="center"><a href="https://github.com/bdanzi"><img src="https://avatars.githubusercontent.com/u/75045014?s=96&v=4" width="100px;" alt=""/><br /><sub><b>Brunella D'Anzi</b></sub></a><br /><a href="https://web2.ba.infn.it/bdanzi//" title="More about her">🖋</a></td>
 >     <td align="center"><a href="https://github.com/ebrondol"><img src="https://avatars.githubusercontent.com/u/5331004?v=4" width="100px;" alt=""/><br /><sub><b>Erica Brondolin</b></sub></a><br /><a href="" title="More about her">🖋</a></td>
 >     <td align="center"><a href="https://github.com/kjepna"><img src="https://avatars.githubusercontent.com/u/17725451?v=4" width="100px;" alt=""/><br /><sub><b>Karla Pena</b></sub></a><br /><a href="" title="More about her">🖋</a></td>
@@ -56,12 +56,12 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {: .discussion}
 
 > ## CERN Twiki and Introduction Slides
-> **The CERN TWiki of this short exercise can be found at [this link](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolCERN2023TrackingVertexingShortExercise). At the beginning of this short exercise an introduction will be done based on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/files/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
+> **The CERN TWiki of this short exercise can be found at [this link](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolCERN2023TrackingVertexingShortExercise). At the beginning of this short exercise an introduction will be done based on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/files/CMSDASCERN2023_TrackingVertexingExercise_Introduction.pdf).**
 {: .callout}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
-> ## Closeout Slides
-> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/files/CMSDAS2023_TrackingVertexingExercise_Wrapup.pdf).**
+> ## Close-out Slides
+> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/files/CMSDASCERN2023_TrackingVertexingExercise_Wrapup.pdf).**
 {: .challenge}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
