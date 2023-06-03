@@ -43,7 +43,10 @@ We will present an introduction to using tracks for analyses in the era of **lar
 > <table>
 >   <tr>
 >     <td align="center"><a href="https://github.com/mmusich"><img src="http://musich.web.cern.ch/musich/meP5.jpg" width="100px;" alt=""/><br /><sub><b>Marco Musich</b></sub></a><br /><a href="https://github.com/mmusich" title="More about him">🖋</a></td>
->     <td align="center"><a href="https://github.com/bdanzi"><img src="https://avatars.githubusercontent.com/u/75045014?s=96&v=4" width="100px;" alt=""/><br /><sub><b>Brunella D'Anzi</b></sub></a><br /><a href="https://web2.ba.infn.it/bdanzi//" title="More about her">🖋</a></td>    
+>     <td align="center"><a href="https://github.com/bdanzi"><img src="https://avatars.githubusercontent.com/u/75045014?s=96&v=4" width="100px;" alt=""/><br /><sub><b>Brunella D'Anzi</b></sub></a><br /><a href="https://web2.ba.infn.it/bdanzi//" title="More about her">🖋</a></td>
+>     <td align="center"><a href="https://github.com/ebrondol"><img src="https://avatars.githubusercontent.com/u/5331004?v=4" width="100px;" alt=""/><br /><sub><b>Erica Brondolin</b></sub></a><br /><a href="" title="More about her">🖋</a></td>
+>     <td align="center"><a href="https://github.com/kjepna"><img src="https://avatars.githubusercontent.com/u/17725451?v=4" width="100px;" alt=""/><br /><sub><b>Karla Pena</b></sub></a><br /><a href="" title="More about her">🖋</a></td>
+>     <td align="center"><a href="https://github.com/AdrianoDee"><img src="https://avatars.githubusercontent.com/u/16901146?v=4" width="100px;" alt=""/><br /><sub><b>Adriano Di Florio</b></sub></a><br /><a href="" title="More about him">🖋</a></td>
 >   </tr>
 > </table>
 {: .testimonial}
