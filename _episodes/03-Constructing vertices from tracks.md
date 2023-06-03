@@ -33,7 +33,7 @@ process = cms.Process("KSHORTS")
 
 # Use the tracks_and_vertices.root file as input.
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring("file://run321167_Charmonium_AOD.root"))
+    fileNames = cms.untracked.vstring("file:/eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_AOD.root"))
 process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(500))
 
 # Suppress messages that are less important than ERRORs.
@@ -203,8 +203,8 @@ You should rerun the `construct_secondary_vertices.py` to process all events in 
 ## Secondary vertices in MiniAOD
 The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) collection is already available in the MiniAOD files. You can retrieve the collection type and format by doing:
  ~~~
- eos cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_MINIAOD.root .
- edmDumpEventContent run321167_Charmonium_MINIAOD.root | grep Vertices
+ cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_MINIAOD.root $TMPDIR
+ edmDumpEventContent $TMPDIR/run321167_Charmonium_MINIAOD.root | grep Vertices
  ~~~
  {: .language-bash}
 
@@ -216,7 +216,7 @@ The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) 
 > import DataFormats.FWLite as fwlite
 > import ROOT
 > 
-> events = fwlite.Events("run321167_Charmonium_MINIAOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_MINIAOD.root")
 > secondaryVertices = fwlite.Handle("std::vector<reco::VertexCompositePtrCandidate>")
 > 
 > mass_histogram = ROOT.TH1F("mass_histogram", "mass_histogram", 100, 1., 1.2)
@@ -247,7 +247,7 @@ import DataFormats.FWLite as fwlite
 import math
 import ROOT
 
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
 
 rho_z_histogram = ROOT.TH2F("rho_z", "rho_z", 100, 0.0, 30.0, 100, 0.0, 10.0)
@@ -347,7 +347,7 @@ def isGoodPV(vertex):
            return False
     return True
 
-events          = fwlite.Events("run321167_ZeroBias_AOD.root")
+events          = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
 beamspot        = fwlite.Handle("reco::BeamSpot")
 
@@ -405,7 +405,7 @@ Add the analogous 2D plots for x versus z and y vs z positions.
 >            return False
 >     return True
 > 
-> events          = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+> events          = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 > primaryVertices = fwlite.Handle("std::vector<reco::Vertex>")
 > beamspot        = fwlite.Handle("reco::BeamSpot")
 > vtx_position, N_vtx = array( 'd' ), array( 'd' )

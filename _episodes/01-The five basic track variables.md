@@ -42,7 +42,7 @@ The exact definitions are given in the `reco::TrackBase` [header file](https://g
 Create `print.py` (for example `emacs -nw print.py`, or use your favorite text editor) in `TrackingShortExercize/`, then copy-paste the following code and run it (`python print.py`). Please note, if your `run321457_ZeroBias_AOD.root` is not in the directory you're working from, be sure to use the appropriate path in `line 2`.
 ~~~
 import DataFormats.FWLite as fwlite
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 tracks = fwlite.Handle("std::vector<reco::Track>")
 
 for i, event in enumerate(events):
@@ -136,7 +136,7 @@ The first three lines load the `FWLite` framework, the `.root` data file, and pr
 > process = cms.Process("RUN")
 > 
 > process.source = cms.Source("PoolSource",
->     fileNames = cms.untracked.vstring("file:run321167_ZeroBias_AOD.root"))
+>     fileNames = cms.untracked.vstring("file:/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root"))
 > process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(5))
 > 
 > process.MessageLogger = cms.Service("MessageLogger",
@@ -183,7 +183,7 @@ Update the (create a new) `print.py` file with the following lines:
 Add a `Handle` to the MVA values:
 ~~~
 import DataFormats.FWLite as fwlite
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 tracks = fwlite.Handle("std::vector<reco::Track>")
 MVAs = fwlite.Handle("std::vector<float>")
 ~~~
@@ -308,7 +308,7 @@ The C++-equivalent is hidden below.
 > import DataFormats.FWLite as fwlite
 > import ROOT
 > 
-> events = fwlite.Events("run321167_ZeroBias_AOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 > tracks = fwlite.Handle("std::vector<reco::Track>")
 > 
 > hist_pt       = ROOT.TH1F("pt",       "track pt; p_{T} [GeV]", 100, 0.0, 100.0)
@@ -413,7 +413,7 @@ Consider that the `packedPFCandidates` collects both **charged** and **neutral c
 > ## Question 2
 > Write a simple script `print-comparison.py` that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track p<sub>T</sub> distributuon, focus on the low p<sub>T</sub> region below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). **Can you see any (non-statistical) difference with the previosu plots?** You can copy a MiniAOD file with
 > > ~~~
-> eos cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_MINIAOD.root .
+> cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_MINIAOD.root $TMPDIR
 > ~~~
 > {: .language-bash}
 {: .challenge}
@@ -423,8 +423,8 @@ Consider that the `packedPFCandidates` collects both **charged** and **neutral c
 > import ROOT
 > ROOT.gROOT.SetBatch(True)
 > 
-> events = fwlite.Events("run321167_ZeroBias_MINIAOD.root")
-> eventsAOD = fwlite.Events("run321167_ZeroBias_AOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_MINIAOD.root")
+> eventsAOD = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 > 
 > tracks     = fwlite.Handle("std::vector<pat::PackedCandidate>")
 > losttracks = fwlite.Handle("std::vector<pat::PackedCandidate>")

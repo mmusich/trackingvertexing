@@ -55,7 +55,7 @@ The dataset used in this exercise has been collected by the CMS experiment, in p
 
 Copy `CMSDAS_TP` inside `CMSSW_10_6_18/src`:
 ~~~
-eos cp /eos/user/c/cmsdas/2023/short-ex-trk/CMSDAS_TP .
+cp /eos/user/c/cmsdas/2023/short-ex-trk/CMSDAS_TP .
 ~~~
 {: .language-bash}
 Exploring the content of the `TP_Z_DATA.root` and `TP_Z_MC.root` files, the `StandAloneEvents` tree has these variables in which we are interested in:
@@ -128,7 +128,7 @@ Half-view of CMS tracker (color indicates average number of hits):
 ~~~
 import ROOT
 import DataFormats.FWLite as fwlite
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 
 clusterSummary = fwlite.Handle("ClusterSummary")
 
@@ -185,7 +185,7 @@ Consider the following script:
 import DataFormats.FWLite as fwlite
 import ROOT
 
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 tracks = fwlite.Handle("std::vector<reco::Track>")
 beamspot = fwlite.Handle("reco::BeamSpot")
 
