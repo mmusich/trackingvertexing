@@ -309,7 +309,7 @@ The broad distribution is due to the spread in primary vertex positions. Zoom in
 > {: .language-python}
 > Why might they be different? ( See [tracksSize](https://cmssdt.cern.ch/dxr/CMSSW/source/DataFormats/VertexReco/interface/Vertex.h#94) vs [nTracks](https://cmssdt.cern.ch/dxr/CMSSW/source/DataFormats/VertexReco/interface/Vertex.h#170)).
 > `Note:` in C++, you could loop over the tracks associated with this vertex, but this functionality doesn't work in Python.
-> In the standard analysis workflow there are many quality requirements to be applied to the events and to the reconstructed quantities in an event. One of these requests is based on the characteristics of the reconstructed primary vertices, and it is defined by the `CMSSW EDFilter` `goodOfflinePrimaryVertices_cfi.py` .
+> In the standard analysis workflow there are many quality requirements to be applied to the events and to the reconstructed quantities in an event. One of these requests is based on the characteristics of the reconstructed primary vertices, and it is defined by the `CMSSW EDFilter` [goodOfflinePrimaryVertices_cfi.py](https://cmssdt.cern.ch/dxr/CMSSW/source/CommonTools/ParticleFlow/python/goodOfflinePrimaryVertices_cfi.py) .
 > Are these selections surprising you ?
 {: .solution}
 > ## Question 8
