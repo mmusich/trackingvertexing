@@ -11,9 +11,9 @@ Links to all the past and upcoming CMS Schools can be found [HERE](https://twiki
 
 **Who:** A subgroup of the CMS DAS school participants.
 
-**Where:** This training will take place online.
+**Where:** This training will take place in person at CERN.
 
-**When:** Synchronously from first days of the CMS DAS in January, 2023.
+**When:** Synchronously from first days of the CMS DAS in June, 2023.
 
 **Requirements:** Participants must have access to a computer with internet access for which they have administrative privileges. Acceptable operating systems include Mac OS, Linux, or Windows (preferably not a tablet, Chromebook, etc.). The setup page will have more information about any additional pieces of software that must be installed or any accounts which must be obtained.
 
