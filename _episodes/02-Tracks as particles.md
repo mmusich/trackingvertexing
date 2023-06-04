@@ -46,7 +46,7 @@ Now we can use this to do some kinematics. Assuming that the particle is a pion 
 >     event.getByLabel("generalTracks", tracks)
 >     for track in tracks.product():
 >         print track.pt(), track.p(), track.px(), track.py(), track.pz()
->         print "energy: ", math.sqrt(0.140**2 + track.p()**2) - 0.140
+>         print "energy: ", math.sqrt(0.140**2 + track.p()**2)
 >     if i > 20: break
 > ~~~
 > {: .language-python}
