@@ -219,6 +219,12 @@ It is also useful to draw sketches for yourself.
 
 <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
 
+
+### Bonus Exercise: µµTrkTrk reconstruction in MiniAOD
+
+Please have a look to the instruction at the repository at https://github.com/CMSTrackingPOG/2mu2trk_exercise/blob/main/README.md.
+Please notice that it requires a newer CMSSW version! 
+
 ## Documentation
 *	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/PhysicsResultsTRK)
 *	[CMS Tracking POG Performance in Run-2 Legacy data](https://twiki.cern.ch/twiki/bin/view/CMSPublic/TrackingPOGResultsRun2Legacy)
