@@ -220,9 +220,10 @@ It is also useful to draw sketches for yourself.
 <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
 
 
-### Bonus Exercise: µµTrkTrk reconstruction in MiniAOD
+## Bonus Exercise: µµTrkTrk reconstruction in MiniAOD
 
-Please have a look to the instruction at the repository at https://github.com/CMSTrackingPOG/2mu2trk_exercise/blob/main/README.md.
+Please have a look to the instruction at the repository at [https://github.com/CMSTrackingPOG/2mu2trk_exercise/blob/main/README.md](https://github.com/CMSTrackingPOG/2mu2trk_exercise/blob/main/README.md).
+
 Please notice that it requires a newer CMSSW version! 
 
 ## Documentation
