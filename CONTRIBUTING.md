@@ -46,13 +46,13 @@ and to meet some of our community members.
 ## Where to Contribute
 
 1.  If you wish to change this lesson,
-    please work in <https://github.com/bdanzi/trackingvertexing>,
-    which can be viewed at <https://bdanzi.github.io/trackingvertexing>.
+    please work in <https://github.com/CMSTrackingPOG/trackingvertexing>,
+    which can be viewed at <https://CMSTrackingPOG.github.io/trackingvertexing>.
 
 2.  If you wish to change the example lesson,
-    please work in <https://github.com/bdanzi/trackingvertexing>,
+    please work in <https://github.com/CMSTrackingPOG/trackingvertexing>,
     which documents the format of our lessons
-    and can be viewed at <https://bdanzi.github.io/trackingvertexing>.
+    and can be viewed at <https://CMSTrackingPOG.github.io/trackingvertexing>.
 
 3.  If you wish to change the template used for workshop websites,
     please work in <https://github.com/carpentries/workshop-template>.

@@ -20,7 +20,7 @@ import DataFormats.FWLite as fwlite
 import ROOT
 import math
 
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 tracks = fwlite.Handle("std::vector<reco::Track>")
 
 for i, event in enumerate(events):
@@ -39,14 +39,14 @@ Now we can use this to do some kinematics. Assuming that the particle is a pion 
 > import ROOT
 > import math
 > 
-> events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 > tracks = fwlite.Handle("std::vector<reco::Track>")
 > 
 > for i, event in enumerate(events):
 >     event.getByLabel("generalTracks", tracks)
 >     for track in tracks.product():
 >         print track.pt(), track.p(), track.px(), track.py(), track.pz()
->         print "energy: ", math.sqrt(0.140**2 + track.p()**2) - 0.140
+>         print "energy: ", math.sqrt(0.140**2 + track.p()**2)
 >     if i > 20: break
 > ~~~
 > {: .language-python}
@@ -74,7 +74,7 @@ mass = math.sqrt(total_energy**2 - total_px**2 - total_py**2 - total_pz**2)
 However, this quantity has no meaning unless the two particles are actually descendants of the same decay. Two randomly chosen tracks (**out of hundreds per event**) typically are not.
 
 To increase the chances that pairs of randomly chosen tracks are descendants of the same decay, consider a smaller set of tracks: **muons**. Muons are identified by the fact that they can pass through meters of iron (the CMS magnet return yoke), so muon tracks extend from the silicon tracker to the muon chambers (see CMS quarter-view below), as much as 12 meters long! Muons are rare in hadron collisions. If an event contains two muons, they often (though not always) come from the same decay.
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/cms_quarterview.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/cms_quarterview.png" alt="CMS Quarter-view." width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/cms_quarterview.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/cms_quarterview.png" alt="CMS Quarter-view." width ="500"></a>
 
 Normally, one would access muons through the `reco::Muon` object since this contains additional information about the quality of the muon hypothesis. For simplicity, we will access their track collection in the same way that we have been accessing the main track collection. We only need to replace `generalTracks` with `globalMuons`. Add the following loop to `kinematics.py`.
 ~~~
@@ -89,7 +89,7 @@ for i, event in enumerate(events):
 {: .language-python}
 Run this code on the `run321167_Charmonium_AOD.root` file that you can copy with:
 ~~~
-xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_Charmonium_AOD.root .
+cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_AOD.root $TMPDIR
 ~~~
 {: .language-bash}
 Notice how few muon tracks there are compared to the same code executed for `generalTracks`. In fact, you only see as many muons as you do because this data sample was collected with a muon trigger. (The muon definition in the trigger is looser than the `globalMuons` algorithm, which is why there are some events with fewer than two `globalMuons`.)
@@ -105,7 +105,7 @@ See in the `Appendix` an application for the Muon and Tracks objects usage in th
 > import DataFormats.FWLite as fwlite
 > import ROOT
 > 
-> events = fwlite.Events("file:run321167_Charmonium_AOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_Charmonium_AOD.root")
 > tracks = fwlite.Handle("std::vector<reco::Track>")
 > mass_histogram = ROOT.TH1F("mass", "mass", 100, 0.0, 5.0)
 > 
@@ -133,7 +133,7 @@ See in the `Appendix` an application for the Muon and Tracks objects usage in th
 > The histogram should look like this:
 > 
 > If so, congratulations! You've discovered the J/ψ!
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/mass.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/mass.png" alt="Invariant Mass of the J/Psi" width ="500"></a>
+> <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/mass.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/mass.png" alt="Invariant Mass of the J/Psi" width ="500"></a>
 {: .solution}
 {% include links.md %}
 

@@ -37,7 +37,7 @@ The efficiency is given by the fraction of probe muons that pass a given criteri
 * The numerator corresponds to the subset for which the probe passes the criteria.
 * The tag+probe invariant mass distribution is used to select only signal, that is, only true Z candidates decaying to dimuons. This is achieved in this exercise by the usage of the **fitting method**.
 
-In this exercise the probe muons are `StandAlone` muons: all tracks of the segments reconstructed in the muon chambers (performed using segments and hits from Drift Tubes - DTs in the barrel region, Cathode strip chambers - CSCs in the endcaps and Resistive Plates Chambers - RPCs for all muon system) are used to generate “seeds” consisting of position and direction vectors and an estimate of the muon transverse momentum. The standalone muon is matched in (ΔR < 0.3, Δη < 0.3) with `generalTracks` in [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) `lostTracks` in MiniAOD having p<sub>T</sub> larger than 10 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV), being in this case a **passing probes**.
+In this exercise the probe muons are `StandAlone` muons: all tracks of the segments reconstructed in the muon chambers (performed using segments and hits from Drift Tubes - DTs in the barrel region, Cathode strip chambers - CSCs in the endcaps and Resistive Plates Chambers - RPCs for all muon system) are used to generate “seeds” consisting of position and direction vectors and an estimate of the muon transverse momentum. The standalone muon is matched in (ΔR < 0.3, Δη < 0.3) with `generalTracks` in [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD), `lostTracks` in MiniAOD having p<sub>T</sub> larger than 10 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV), being in this case a **passing probes**.
 
 ### The fitting method
 
@@ -55,7 +55,7 @@ The dataset used in this exercise has been collected by the CMS experiment, in p
 
 Copy `CMSDAS_TP` inside `CMSSW_10_6_18/src`:
 ~~~
-xrdcp -r root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/CMSDAS_TP .
+cp -r /eos/user/c/cmsdas/2023/short-ex-trk/CMSDAS_TP .
 ~~~
 {: .language-bash}
 Exploring the content of the `TP_Z_DATA.root` and `TP_Z_MC.root` files, the `StandAloneEvents` tree has these variables in which we are interested in:
@@ -78,7 +78,7 @@ The creation of these `TH1 objects` is taken care of by the `src/make_hist.cpp` 
 
 When the execution finishes, you should have 2 new files. One on your working directory `Histograms_Data.root` and another one `Efficiency_Run2018.root` located at `Efficiency_Result/eta`. The second contains the efficiency we calculated, while the first file is used to re-do any unusuable fits. If you want, check out the PDF files under the `Fit_Result/` directory, which contain the fitting results as the following one:
 
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png" alt="Fitting procedure applied to the Z di-muon boson invariant mass for both passing and all probes" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png" alt="Fitting procedure applied to the Z di-muon boson invariant mass for both passing and all probes" width ="500"></a>
 
 Now we must re-run the code, but before that, change `IsMc` value to `TRUE`. This will generate an efficiency for the simulated data, so that we can compare it with part of the 2018 run. If so, now uncomment `Efficiency.C` the following line:
 ~~~
@@ -87,7 +87,7 @@ Now we must re-run the code, but before that, change `IsMc` value to `TRUE`. Thi
 {: .language-cpp}
 
 and run the macro again. You should get something like the following result if you inspect the image at `Comparison_Run2018_vs_MC_Efficiency.png`:
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/Efficiency.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/Efficiency.png" alt="Tracking Efficiency for CMS 2018 Data" width ="900"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/Efficiency.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/Efficiency.png" alt="Tracking Efficiency for CMS 2018 Data" width ="900"></a>
 
 If everything went well and you still have time to go, repeat this process for the two other variables, p<sub>T</sub> and φ! In case you want to change one of the fit results, use the `change_bin.cpp` function commented in `Efficiency.C`. If you would like to explore the results having more statistics, use the samples in `DATA/Z/` directory!
 
@@ -122,13 +122,13 @@ rho_z_histogram.Draw()
 {: .discussion}
 
 Half-view of CMS tracker (color indicates average number of hits):
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="500"></a>
 
 ### Correlation between pile-up and number of clusters
 ~~~
 import ROOT
 import DataFormats.FWLite as fwlite
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 
 clusterSummary = fwlite.Handle("ClusterSummary")
 
@@ -185,7 +185,7 @@ Consider the following script:
 import DataFormats.FWLite as fwlite
 import ROOT
 
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 tracks = fwlite.Handle("std::vector<reco::Track>")
 beamspot = fwlite.Handle("reco::BeamSpot")
 
@@ -217,7 +217,190 @@ It produces two plots, one of which shows a clear bias from the correct distribu
 Below, there is a figure that might help.
 It is also useful to draw sketches for yourself.
 
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
+
+
+## Bonus Exercise: µµTrkTrk reconstruction in MiniAOD
+
+Please have a look to the instruction at the repository at [https://github.com/CMSTrackingPOG/2mu2trk_exercise/blob/main/README.md](https://github.com/CMSTrackingPOG/2mu2trk_exercise/blob/main/README.md).
+
+Please notice that it requires a newer CMSSW version! 
+
+## The setup
+This package is meant to be run using Ultra Legacy MINIAODv2
+
+* Setup in `13_1_0` 
+
+~~~
+scram p -n cmssw CMSSW_13_1_0
+cd cmssw/src/
+cmsenv
+git clone git@github.com:CMSTrackingPOG/2mu2trk_exercise.git -b jpsiphi MuMuTrkTrk/MuMuTrkTrk/
+scram b -j 8
+~~~
+{: .language-bash}
+
+To run the example on `/RelValBsToJpsiPhi_mumuKK_14TeV/CMSSW_13_0_0_pre3-130X_mcRun3_2022_realistic_v2-v1/MINIAODSIM`
+
+If you haven't, set up your certificate to access the data:
+~~~
+voms-proxy-init -rfc -voms cms -valid 192:00
+~~~
+{: .language-bash}
+
+Then simply run the config
+~~~
+cmsRun MuMuTrkTrk/MuMuTrkTrk/test/run-jpsikk-miniaodsim.py
+~~~
+{: .language-bash}
+
+
+## The Decay
+
+The decay we want to reconstruct a $B^0_s$ meson candidate decaying as:
+
+$$B_s^0 \to J/\psi(\to \mu\mu)\phi(\to KK)  $$
+
+a bottom strange meson ($s\bar{b}$). You can find further information in the [PDG](https://pdg.lbl.gov/2023/web/viewer.html?file=../tables/rpp2023-tab-mesons-bottom-strange.pdf).
+
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/images/bs_meson.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/images/bs_meson.png" alt="BS Meson." width ="500"></a>
+
+We can sketch the decay topology as follows:
+
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/images/bs_jps_phi.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/images/bs_jps_phi.png" alt="bs_jspi_phi" width ="500"></a>
+
+the $B_s^0$ candidate, before decaying, flies (give the non negligible lifetime) w.r.t the collision area (beam spot) and it decays in:
+- $J/psi$ meson, a $c\bar{c}$ bound state with a mass of $\sim 3096 MeV$(see the [PDG](https://pdg.lbl.gov/2023/web/viewer.html?file=../tables/rpp2023-tab-mesons-c-cbar.pdf) for further details) 
+- $\phi$ meson ($s\bar{s}$) a mass of $\sim 1020 MeV$(see the [PDG](https://pdg.lbl.gov/2023/tables/contents_tables_mesons.html ) for further details).
+
+The $J/psi$ and the $\phi$ then furhterly decay into a pair of opposite sign muons and a pair of opposite sign kaons, almost promptly w.r.t. the $B^0_s$ meson.
+
+## The Analyzer
+
+### The Config
+
+We select the global tag suitable for the dataset we have
+~~~
+process.GlobalTag = GlobalTag(process.GlobalTag, '130X_mcRun3_2022_realistic_v2', '')
+~~~
+{: .language-python}
+
+this is something you can usually get from the dataset name itself.
+
+Next step let's configure the inputs and the outputs with the `PoolSource` module and the `TFileService` (used to output a simple `ROOT` file).
+
+~~~
+input_filename = ["/store/relval/CMSSW_13_0_0_pre3/RelValBsToJpsiPhi_mumuKK_14TeV/MINIAODSIM/130X_mcRun3_2022_realistic_v2-v1/00000/d26ae0bf-3a06-4098-9c24-c29452079aa0.root"]
+ouput_filename = 'mumukk.root'
+process.source = cms.Source("PoolSource",fileNames = cms.untracked.vstring(input_filename))
+process.TFileService = cms.Service("TFileService",fileName = cms.string(ouput_filename))
+~~~
+{: .language-python}
+
+Then we may select the events that has fired a specific trigger:
+
+~~~
+triggers = [
+'HLT_DoubleMu4_JpsiTrkTrk_Displaced', ##Run3 trigger!
+]
+~~~
+{: .language-python}
+
+this is a trigger dedicated to $J/\psi + 2 Tracks$ displaced topologies (exactly what we need!). The $4$ there is the $p_T$ threshold on the $2\mu$ system. So we add to the process a module to filter the events:
+
+~~~
+hltpathsV = cms.vstring([h + '_v*' for h in triggers ])
+process.triggerSelection = cms.EDFilter("TriggerResultsFilter",
+                                        triggerConditions = hltpathsV,
+                                        hltResults = cms.InputTag( "TriggerResults", "", "HLT" ),
+                                        l1tResults = cms.InputTag( "" ),
+                                        throw = cms.bool(False)
+                                        )
+
+~~~
+{: .language-python}
+
+In `MINIAOD` the muons are stored under the `slimmedMuons` collection of `pat::Muons`. Instead of using all of them we may run a first selection based on a combination of cuts with the `PATMuonSelector` module: 
+
+~~~
+process.oniaSelectedMuons = cms.EDFilter('PATMuonSelector',
+   src = cms.InputTag('slimmedMuons'),
+   cut = cms.string('muonID(\"TMOneStationTight\")'
+                    ' && abs(innerTrack.dxy) < 0.3'
+                    ' && abs(innerTrack.dz)  < 20.'
+                    ' && innerTrack.hitPattern.trackerLayersWithMeasurement > 5'
+                    ' && innerTrack.hitPattern.pixelLayersWithMeasurement > 0'
+                    ' && innerTrack.quality(\"highPurity\")'
+                    ' && (pt > 2.)'
+   ),
+   filter = cms.bool(True)
+)
+~~~
+{: .language-python}
+
+In this case, e.g., we are selecting muons:
+- `innerTrack.hitPattern.pixelLayersWithMeasurement>0`, whose track has at least one pixel on at least one layer;
+- `innerTrack.hitPattern.pixelLayersWithMeasurement>0`, whose track has at least one hit on at least five layers;
+- `innerTrack.quality(\"highPurity\")`, an high purity track
+- `pt > 2.`, etc...
+
+
+Now it's the moment to build the µµ candidate:
+
+~~~
+process.load("MuMuTrkTrk.MuMuTrkTrk.onia2MuMuPAT_cfi")
+~~~
+{: .language-python}
+
+
+~~~
+process.onia2MuMuPAT.muons=cms.InputTag('oniaSelectedMuons')
+~~~
+{: .language-python}
+
+~~~
+process.onia2MuMuPAT.dimuonSelection=cms.string("2.5 < mass && mass < 3.5")
+~~~
+{: .language-python}
+
+### The Notebook
+
+The `bs_decay.ipynb` notebook under `MuMuTrkTrk/MuMuTrkTrk/test/`
+
+It's easier if you follow the instructions directly there. If you want you may run this notebook in [SWAN](https://swan.web.cern.ch/swan/) from which you will be able to acces any area you have acces on `eos` (e.g. your `lxplus` home).
+
+
+ <a href="https://cern.ch/swanserver/cgi-bin/go?projurl=https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/test/bs_decay.ipynb" target="_blank">
+                            <img src="https://swanserver.web.cern.ch/swanserver/images/badge_swan_white_150.png" alt="Open in SWAN" style="height:1.5em">
+                        </a>
+
+## To you!
+
+As an excercise you may try to modify the analyzer chain and the python config in order to reconstruct another decay with a similar daughters:
+
+$$\psi(2S) \to J/\psi(\to \mu\mu)\pi\pi  $$
+
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/images/psi2s.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/images/psi2s.png" alt="psi2s" width ="500"></a>
+
+There are some differences:
+
+1. in this case the decay is __prompt__, meaning we expect all the candidates to come from a PV;
+2. there is no constraint on the $\pi\pi$ system mass since they are non-resonant;
+3. the $\psi(2S)$ has a lower mass w.r.t. the $B^0_s$
+
+You can try to use the dataset
+
+`/RelValPsi2SToJPsiPiPi_14TeV/CMSSW_13_0_0_pre3-130X_mcRun3_2022_realistic_v2-v1/MINIAODSIM`
+
+that has the same GT.
+
+(Suggestion: also the `HLT` you select will need to be changed, if you don't know which to use, simply turn off the selection.)
+
+Another possibility is to check the PU datasets for $B^0_s$ such as:
+
+`/RelValBsToJpsiPhi_mumuKK_14TeV/CMSSW_13_1_0_pre4-PU_131X_mcRun3_2022_realistic_v3_2023_BPH-v1/MINIAODSIM`
+
+and see what happens. Beware! The GT is different!
 
 ## Documentation
 *	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/PhysicsResultsTRK)

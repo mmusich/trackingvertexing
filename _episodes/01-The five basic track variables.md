@@ -42,7 +42,7 @@ The exact definitions are given in the `reco::TrackBase` [header file](https://g
 Create `print.py` (for example `emacs -nw print.py`, or use your favorite text editor) in `TrackingShortExercize/`, then copy-paste the following code and run it (`python print.py`). Please note, if your `run321457_ZeroBias_AOD.root` is not in the directory you're working from, be sure to use the appropriate path in `line 2`.
 ~~~
 import DataFormats.FWLite as fwlite
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 tracks = fwlite.Handle("std::vector<reco::Track>")
 
 for i, event in enumerate(events):
@@ -136,7 +136,7 @@ The first three lines load the `FWLite` framework, the `.root` data file, and pr
 > process = cms.Process("RUN")
 > 
 > process.source = cms.Source("PoolSource",
->     fileNames = cms.untracked.vstring("file:run321167_ZeroBias_AOD.root"))
+>     fileNames = cms.untracked.vstring("file:/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root"))
 > process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(5))
 > 
 > process.MessageLogger = cms.Service("MessageLogger",
@@ -157,8 +157,8 @@ The first three lines load the `FWLite` framework, the `.root` data file, and pr
 > This will produce the same output as the Python script, but it can be used on huge datasets. Though the language is different, notice that C++ and  `FWLite` use the same names for member functions: `charge()`, `pt()`, `phi()`, `eta()`, `dxy()`, and `dz()`.
 > That is intentional: you can learn what kinds of data are available with interactive  `FWLite ` and then use the same access methods when writing GRID jobs. There is another way to access `FWLite` with ROOT's C++-like syntax.
 >
-> The plugin is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/MyDirectory/PrintOutTracks/plugins/PrintOutTracks.cc`
-> The `run_cfg.py` is here: `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg.py`
+> The plugin is here: `/eos/user/c/cmsdas/2023/short-ex-trk/MyDirectory/PrintOutTracks/plugins/PrintOutTracks.cc`
+> The `run_cfg.py` is here: `/eos/user/c/cmsdas/2023/short-ex-trk/MyDirectory/PrintOutTracks/test/run_cfg.py`
 {: .solution}
 
 ## Track quality variables
@@ -168,22 +168,22 @@ Some analyses remove spurious tracks by requiring them to come from the beamspot
 Some of these standard selections have been encoded into a **quality flag** with **three categories**: `loose`, `tight`, and `highPurity`. All tracks delivered to the analyzers are at least `loose`, `tight` is a subset of these that are more likely to be real, and `highPurity` is a subset of `tight` with even stricter requirements. There is a trade-off: `loose` tracks have high efficiency but also high backgrounds, `highPurity` has slightly lower efficiency but much lower backgrounds, and `tight` is in between (see also the plots below). As of `CMSSW 7.4`, these are all calculated using MVAs (**M**ulti**V**ariate **A**nalysis techniques) for the various iterations. In addition to the status bits, it's also possible to access the MVA values directly.
 
 **Plot of Efficiency vs Eta:**
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_eta.png" alt="Efficiency vs Eta" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_eta.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_eta.png" alt="Efficiency vs Eta" width ="500"></a>
 
 **Plot of Efficiency vs p<sub>T</sub>:**
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_pt.png" alt="Efficiency vs pT" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_pt.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_efficiency_pt.png" alt="Efficiency vs pT" width ="500"></a>
 
 **Plot of Backgrounds vs Eta:**
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_eta.png" alt="Backgrounds vs Eta" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_eta.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_eta.png" alt="Backgrounds vs Eta" width ="500"></a>
 
 **Plot of Backgrounds vs p<sub>T</sub>:**
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png" alt="Backgrounds vs pT" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/ttbar_phase1_ca_vs_pu_fakerate_pt.png" alt="Backgrounds vs pT" width ="500"></a>
 
 Update the (create a new) `print.py` file with the following lines:
 Add a `Handle` to the MVA values:
 ~~~
 import DataFormats.FWLite as fwlite
-events = fwlite.Events("file:run321167_ZeroBias_AOD.root")
+events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 tracks = fwlite.Handle("std::vector<reco::Track>")
 MVAs = fwlite.Handle("std::vector<float>")
 ~~~
@@ -297,8 +297,8 @@ The C++-equivalent is hidden below.
 > cmsRun run_cfg.py
 > ~~~
 > {: .language-python}
-> The `plugin` can be found in `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/PrintOutTracks_MVA.cc`
-> The `CMSSW config` file can be found in `/eos/uscms/store/user/cmsdas/2023/short_exercises/trackingvertexing/run_cfg_MVA.py`
+> The `plugin` can be found in `/eos/user/c/cmsdas/2023/short-ex-trk/PrintOutTracks_MVA.cc`
+> The `CMSSW config` file can be found in `/eos/user/c/cmsdas/2023/short-ex-trk/run_cfg_MVA.py`
 {: .solution}
 > ## Question 1
 > Now prepare plots for the track variables discussed above, as in the example below (name this file `plot_track_quantities.py` and put it in `TrackingShortExercize/`). Compare the **distributions of track-quality-related variables** (number of pixel hits, track goodness of fit, ..., which are given in input to MVA classifiers) between tracks passing the `highPurity` and `Loose` quality flags. **Do these distributions make sense to you?**
@@ -308,7 +308,7 @@ The C++-equivalent is hidden below.
 > import DataFormats.FWLite as fwlite
 > import ROOT
 > 
-> events = fwlite.Events("run321167_ZeroBias_AOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 > tracks = fwlite.Handle("std::vector<reco::Track>")
 > 
 > hist_pt       = ROOT.TH1F("pt",       "track pt; p_{T} [GeV]", 100, 0.0, 100.0)
@@ -376,19 +376,19 @@ The C++-equivalent is hidden below.
 > ~~~
 > {: .language-python}
 > *	track_pt.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_pt.png" alt="Track pT" width ="500"></a>
+> <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_pt.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_pt.png" alt="Track pT" width ="500"></a>
 > *	track_eta.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_eta.png" alt="Track Eta" width ="500"></a>
+> <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_eta.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_eta.png" alt="Track Eta" width ="500"></a>
 > *	track_phi.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_phi.png" alt="Track Phi" width ="500"></a>
+> <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_phi.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_phi.png" alt="Track Phi" width ="500"></a>
 > *	track_normChi2.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_normChi2.png" alt="Track NormChi2" width ="500"></a>
+> <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_normChi2.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_normChi2.png" alt="Track NormChi2" width ="500"></a>
 > *	track_nPixelHits.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nPixelHits.png" alt="Track number of Pixel Hits" width ="500"></a>
+> <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_nPixelHits.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_nPixelHits.png" alt="Track number of Pixel Hits" width ="500"></a>
 > *	track_nTkLayers.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nTkLayers.png" alt="Track number of Tracker Layers" width ="500"></a>
+> <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_nTkLayers.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_nTkLayers.png" alt="Track number of Tracker Layers" width ="500"></a>
 > *	track_nValHits.png:
-> <a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/track_nValHits.png" alt="Track number of Valid Hits" width ="500"></a>
+> <a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_nValHits.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/track_nValHits.png" alt="Track number of Valid Hits" width ="500"></a>
 {: .solution}
 ## Track information in MiniAOD
 
@@ -413,7 +413,7 @@ Consider that the `packedPFCandidates` collects both **charged** and **neutral c
 > ## Question 2
 > Write a simple script `print-comparison.py` that reads a MiniAOD file and the [AOD](https://twiki.cern.ch/twiki/bin/view/CMS/AOD) file and compare plots of the same variables we looked at before for `HighPurity` tracks. For the track p<sub>T</sub> distributuon, focus on the low p<sub>T</sub> region below 5 [GeV](https://twiki.cern.ch/twiki/bin/view/CMS/GeV). **Can you see any (non-statistical) difference with the previosu plots?** You can copy a MiniAOD file with
 > > ~~~
-> xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2023/short_exercises/trackingvertexing/run321167_ZeroBias_MINIAOD.root .
+> cp /eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_MINIAOD.root $TMPDIR
 > ~~~
 > {: .language-bash}
 {: .challenge}
@@ -423,8 +423,8 @@ Consider that the `packedPFCandidates` collects both **charged** and **neutral c
 > import ROOT
 > ROOT.gROOT.SetBatch(True)
 > 
-> events = fwlite.Events("run321167_ZeroBias_MINIAOD.root")
-> eventsAOD = fwlite.Events("run321167_ZeroBias_AOD.root")
+> events = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_MINIAOD.root")
+> eventsAOD = fwlite.Events("/eos/user/c/cmsdas/2023/short-ex-trk/run321167_ZeroBias_AOD.root")
 > 
 > tracks     = fwlite.Handle("std::vector<pat::PackedCandidate>")
 > losttracks = fwlite.Handle("std::vector<pat::PackedCandidate>")

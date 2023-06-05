@@ -29,37 +29,39 @@ We will present an introduction to using tracks for analyses in the era of **lar
 {: .checklist}
 
 > ## Prerequisites
-> **Before going any further, please complete the [CMS DAS Pre-Exercises](https://fnallpc.github.io/cms-das-pre-exercises/) and then follow the instructions on the [setup page](setup.md).**
+> **Before going any further, please complete the [CMS DAS Pre-Exercises](https://cern-cms-das-2023.github.io/cms-das-pre-exercises/) and then follow the instructions on the [setup page](setup.md).**
 {: .prereq}
 
 > ## Facilitators
-> * [Brunella D'Anzi*](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi), University and INFN of Bari ([brunella.d'anzi@cern.ch](mailto:brunella.d'anzi@cern.ch)) 
-> * [Caleb Smith](https://twiki.cern.ch/twiki/bin/view/Main/CalebJamesSmith), Baylor ([caleb.smith@cern.ch](mailto:caleb.smith@cern.ch)) 
-> * [Nicola De Filippis](https://twiki.cern.ch/twiki/bin/view/Main/NicolaDeFilippis), INFN and Polytechnic of Bari ([nicola.defilippis@ba.infn.it](mailto:nicola.defilippis@ba.infn.it)) 
-> * [Susan J Dittmer](https://twiki.cern.ch/twiki/bin/view/Main/SusanDittmer), University of Illinois Chicago ([Susan.Dittmer@cern.ch](mailto:susan.dittmer@cern.ch))
+> * [Marco Musich*](https://twiki.cern.ch/twiki/bin/view/Main/MarcoMusich), University and INFN of Pisa ([marco.musich@cern.ch](mailto:marco.musich@cern.ch))
+> * [Brunella D'Anzi](https://twiki.cern.ch/twiki/bin/view/Main/BrunellaDAnzi), University and INFN of Bari ([brunella.d'anzi@cern.ch](mailto:brunella.d'anzi@cern.ch))
+> * [Erica Brondolin](https://twiki.cern.ch/twiki/bin/view/Main/EricaBrondolin), CERN ([erica.brondolin@cern.ch](mailto:erica.brondolin@cern.ch))
+> * [Karla Pena](https://twiki.cern.ch/twiki/bin/view/Main/KarlaPena), University of Hamburg ([karla.pena@cern.ch](mailto:karla.pena@cern.ch))
+> * [Adriano Di Florio](https://twiki.cern.ch/twiki/bin/view/Main/AdrianoDiFlorio), University and INFN of Bari ([adriano.di.florio@cern.ch](mailto:adriano.di.florio@cern.ch))
 >  
 > *Lead Contact
 > <table>
 >   <tr>
+>     <td align="center"><a href="https://github.com/mmusich"><img src="http://musich.web.cern.ch/musich/pics/MarcoMusich_cropped.jpg" width="100px;" alt=""/><br /><sub><b>Marco Musich</b></sub></a><br /><a href="https://github.com/mmusich" title="More about him">🖋</a></td>
 >     <td align="center"><a href="https://github.com/bdanzi"><img src="https://avatars.githubusercontent.com/u/75045014?s=96&v=4" width="100px;" alt=""/><br /><sub><b>Brunella D'Anzi</b></sub></a><br /><a href="https://web2.ba.infn.it/bdanzi//" title="More about her">🖋</a></td>
->     <td align="center"><a href="https://physics.ku.edu/people/smith-caleb"><img src="https://lpc.fnal.gov/CMSDAS2022/Caleb_Smith.jpg" width="85px;" alt=""/><br /><sub><b>Caleb Smith</b></sub></a><br /><a href="https://physics.ku.edu/people/smith-caleb" title="More about him">🖋</a></td>
->     <td align="center"><a href="https://lpc.fnal.gov/fellows/2018/Nicola_De_Filippis.shtml"><img src="https://lpc.fnal.gov/fellows/imgs/med/2018/Nicola_De_Filippis.jpg" width="100px;" alt=""/><br /><sub><b>Nicola De Filippis</b></sub></a><br /><a href="https://lpc.fnal.gov/fellows/2018/Nicola_De_Filippis.shtml" title="More about him">🖋</a></td>
->     <td align="center"><a href="https://hep.phys.uic.edu/post-docs/"><img src="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/susanpicture.png" width="100px;" alt=""/><br /><sub><b>Susan J Dittmer</b></sub></a><br /><a href="https://hep.phys.uic.edu/post-docs/" title="More about her">🖋</a></td>
+>     <td align="center"><a href="https://github.com/ebrondol"><img src="https://avatars.githubusercontent.com/u/5331004?v=4" width="100px;" alt=""/><br /><sub><b>Erica Brondolin</b></sub></a><br /><a href="" title="More about her">🖋</a></td>
+>     <td align="center"><a href="https://github.com/kjepna"><img src="https://avatars.githubusercontent.com/u/17725451?v=4" width="100px;" alt=""/><br /><sub><b>Karla Pena</b></sub></a><br /><a href="" title="More about her">🖋</a></td>
+>     <td align="center"><a href="https://github.com/AdrianoDee"><img src="https://avatars.githubusercontent.com/u/16901146?v=4" width="100px;" alt=""/><br /><sub><b>Adriano Di Florio</b></sub></a><br /><a href="" title="More about him">🖋</a></td>
 >   </tr>
 > </table>
 {: .testimonial}
 
 > ## Mattermost Chat
-> **The [Tracking and Vertexing Short Exercise](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/shortextrackingvertexing) channel will be available once you join the [CMSDAS@LPC2023](https://mattermost.web.cern.ch/cmsdaslpc2023/channels/town-square) team. Direction for how to join this Mattermost chat team can be found on the <a href="setup.html">setup</a> page.**
+> **The [Tracking and Vertexing Short Exercise](https://mattermost.web.cern.ch/cmsdascern2023/channels/trk-short-exercise) channel will be available once you join the [CMSDAS@CERN2023](https://mattermost.web.cern.ch/cmsdascern2023/channels/town-square) team. Direction for how to join this Mattermost chat team can be found on the <a href="setup.html">setup</a> page.**
 {: .discussion}
 
 > ## CERN Twiki and Introduction Slides
-> **The CERN TWiki of this short exercise can be found at [this link](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolLPC2023TrackingVertexingShortExercise). At the beginning of this short exercise an introduction will be done based on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/files/CMSDAS2023_TrackingVertexingExercise_Introduction.pdf).**
+> **The CERN TWiki of this short exercise can be found at [this link](https://twiki.cern.ch/twiki/bin/view/CMS/SWGuideCMSDataAnalysisSchoolCERN2023TrackingVertexingShortExercise). At the beginning of this short exercise an introduction will be done based on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/files/CMSDASCERN2023_TrackingVertexingExercise_Introduction.pdf).**
 {: .callout}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
-> ## Closeout Slides
-> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/files/CMSDAS2023_TrackingVertexingExercise_Wrapup.pdf).**
+> ## Close-out Slides
+> **You can find a guideline closeup for the Tracking and Vertexing Short Exercise questions and results on [these slides](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/files/CMSDASCERN2023_TrackingVertexingExercise_Wrapup.pdf).**
 {: .challenge}
 {% comment %} This is a comment in Liquid {% endcomment %}
 
