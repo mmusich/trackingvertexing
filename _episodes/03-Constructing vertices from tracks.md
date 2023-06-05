@@ -198,7 +198,7 @@ Each of these vertices contains two tracks by construction. One of the vertex me
 {: .solution}
 > ## Question 5
 You should rerun the `construct_secondary_vertices.py` to process all events in the file to get more statistics. For this, set the `maxEvents` parameter to `-1`. Running on more events, one can appreciate some structures in the flight distance distribution, can you explain them ? Note that these are especially noticeable in the distribution of Lambdas.
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/v0_Lxy.png" alt="Lxy distribution" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/v0_Lxy.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/v0_Lxy.png" alt="Lxy distribution" width ="500"></a>
 {: .discussion}
 ## Secondary vertices in MiniAOD
 The [SecondaryVertex](https://twiki.cern.ch/twiki/bin/edit/CMS/SecondaryVertex) collection is already available in the MiniAOD files. You can retrieve the collection type and format by doing:
@@ -265,7 +265,7 @@ c.SaveAs("rho_z.png")
 ~~~
 {: .language-python}
 
-You should see a broad distribution in z, close to `rho = 0` (much closer than for the secondary vertices, see [appendix](https://bdanzi.github.io/trackingvertexing/Appendix/index.html)). In fact, the distribution is about 0.1 cm wide and 4 cm long. The broad distribution in z is helpful: if 20 primary vertices are uniformly distributed along a 4 cm pencil-like region, we only need 2 mm vertex resolution to distinguish neighboring vertices. Fortunately, the CMS vertex resolution is better than this (better than 20μm and 25μm in x and z, respectively [TRK-11-001](http://inspirehep.net/record/1298029), [performances with the Phase1 pixel detector](https://twiki.cern.ch/twiki/bin/edit/CMS/CMSPublic.TrackingPOGPerformance2017MC#Vertex_Resolutions)), so they can be distinguished with high significance.
+You should see a broad distribution in z, close to `rho = 0` (much closer than for the secondary vertices, see [appendix](https://CMSTrackingPOG.github.io/trackingvertexing/Appendix/index.html)). In fact, the distribution is about 0.1 cm wide and 4 cm long. The broad distribution in z is helpful: if 20 primary vertices are uniformly distributed along a 4 cm pencil-like region, we only need 2 mm vertex resolution to distinguish neighboring vertices. Fortunately, the CMS vertex resolution is better than this (better than 20μm and 25μm in x and z, respectively [TRK-11-001](http://inspirehep.net/record/1298029), [performances with the Phase1 pixel detector](https://twiki.cern.ch/twiki/bin/edit/CMS/CMSPublic.TrackingPOGPerformance2017MC#Vertex_Resolutions)), so they can be distinguished with high significance.
 
 To see this, you should modify properly the previous code to make a plot of the distance between primary vertices:
 ~~~
@@ -626,6 +626,6 @@ Finally, create K<sub>S</sub> mass histograms, with and without requiring `bestC
 > {: .language-python}
 {: .solution}
 
-**That's all!** The session is over, unless you would like to try some of the extra questions and arguments listed in the [Appendix](https://bdanzi.github.io/trackingvertexing/Appendix/index.html)!
+**That's all!** The session is over, unless you would like to try some of the extra questions and arguments listed in the [Appendix](https://CMSTrackingPOG.github.io/trackingvertexing/Appendix/index.html)!
 {% include links.md %}
 
