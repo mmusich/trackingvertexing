@@ -78,7 +78,7 @@ The creation of these `TH1 objects` is taken care of by the `src/make_hist.cpp` 
 
 When the execution finishes, you should have 2 new files. One on your working directory `Histograms_Data.root` and another one `Efficiency_Run2018.root` located at `Efficiency_Result/eta`. The second contains the efficiency we calculated, while the first file is used to re-do any unusuable fits. If you want, check out the PDF files under the `Fit_Result/` directory, which contain the fitting results as the following one:
 
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png" alt="Fitting procedure applied to the Z di-muon boson invariant mass for both passing and all probes" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/probe_eta-0.200000__probe_eta=0.200000_Data-1.png" alt="Fitting procedure applied to the Z di-muon boson invariant mass for both passing and all probes" width ="500"></a>
 
 Now we must re-run the code, but before that, change `IsMc` value to `TRUE`. This will generate an efficiency for the simulated data, so that we can compare it with part of the 2018 run. If so, now uncomment `Efficiency.C` the following line:
 ~~~
@@ -87,7 +87,7 @@ Now we must re-run the code, but before that, change `IsMc` value to `TRUE`. Thi
 {: .language-cpp}
 
 and run the macro again. You should get something like the following result if you inspect the image at `Comparison_Run2018_vs_MC_Efficiency.png`:
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/Efficiency.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/Efficiency.png" alt="Tracking Efficiency for CMS 2018 Data" width ="900"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/Efficiency.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/Efficiency.png" alt="Tracking Efficiency for CMS 2018 Data" width ="900"></a>
 
 If everything went well and you still have time to go, repeat this process for the two other variables, p<sub>T</sub> and φ! In case you want to change one of the fit results, use the `change_bin.cpp` function commented in `Efficiency.C`. If you would like to explore the results having more statistics, use the samples in `DATA/Z/` directory!
 
@@ -122,7 +122,7 @@ rho_z_histogram.Draw()
 {: .discussion}
 
 Half-view of CMS tracker (color indicates average number of hits):
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="500"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/occupancy_map_blueyellow.png" alt="half-view of CMS tracker" width ="500"></a>
 
 ### Correlation between pile-up and number of clusters
 ~~~
@@ -217,7 +217,13 @@ It produces two plots, one of which shows a clear bias from the correct distribu
 Below, there is a figure that might help.
 It is also useful to draw sketches for yourself.
 
-<a href="https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/bdanzi/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
+<a href="https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/dxy.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/trackingvertexing/gh-pages/data/dxy.png" alt="Sketch of dxy" width ="200"></a>
+
+
+### Bonus Exercise: µµTrkTrk reconstruction in MiniAOD
+
+Please have a look to the instruction at the repository at https://github.com/CMSTrackingPOG/2mu2trk_exercise/blob/main/README.md.
+Please notice that it requires a newer CMSSW version! 
 
 ## Documentation
 *	[TRK POG twiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/PhysicsResultsTRK)
