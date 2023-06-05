@@ -378,7 +378,7 @@ It's easier if you follow the instructions directly there. If you want you may r
 
 As an excercise you may try to modify the analyzer chain and the python config in order to reconstruct another decay with a similar daughters:
 
-$$\psi(2S) \to J/\psi(\to \mu\mu)\pi\pi  $$
+\psi(2S) \to J/\psi(\to \mu\mu)\pi\pi 
 
 <a href="https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/images/psi2s.png"><img src = "https://raw.githubusercontent.com/CMSTrackingPOG/2mu2trk_exercise/main/images/psi2s.png" alt="psi2s" width ="500"></a>
 
